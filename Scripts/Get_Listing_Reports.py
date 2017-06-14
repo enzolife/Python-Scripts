@@ -11,7 +11,7 @@ import glob
 import os
 import datetime
 import time
-from Get_File_Create_Time import creation_date
+from Get_File_Create_Modify_Time import last_modify_date
 from Get_Particular_Date import *
 
 
@@ -22,7 +22,7 @@ def get_concatenated_listing_report(path):
     country_list = []
     
     allFiles = glob.glob(path + "\\*\\*.csv")
-    
+
     frame = pd.DataFrame()
     list_ = []
     for file_ in allFiles:
@@ -30,12 +30,11 @@ def get_concatenated_listing_report(path):
         os.chdir(os.path.dirname(file_)) # 然后取SG/MY/TW/ID/TH这个文件夹
         
         country_name = os.path.basename(file_).split('_')[0]
-        file_create_time = creation_date(file_)
+        file_create_time = last_modify_date(file_)
         today_date = get_today_date().strftime("%Y-%m-%d")
 
         # 如果creation_date不是今天，就跳出
         if file_create_time != today_date:
-            print('Data has not downloaded today!')
             break
         else:
             # 如果原来已经有了这个国家，就不用添加进去了
@@ -61,3 +60,8 @@ def get_concatenated_listing_report(path):
         return frame
     else:
         return False
+
+# use your path
+# path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12\\2016.4.23 Data Visualization\\Listing"
+# get_concatenated_listing_report(path))
+

@@ -31,6 +31,17 @@ def creation_date(path_to_file):
             # so we'll settle for when its content was last modified.
             return change_timestamp_to_normal_days(stat.st_mtime)
 
+# 获取最后修改时间
+def last_modify_date(path_to_file):
+    """
+    Try to get the date that a file was created, falling back to when it was
+    last modified if that isn't possible.
+    See http://stackoverflow.com/a/39501288/1709587 for explanation.
+    """
+    timestamp = os.path.getmtime(path_to_file)
+    time_edited = change_timestamp_to_normal_days(timestamp)
+
+    return time_edited
 
 # 修改时间格式
 def change_timestamp_to_normal_days(time_before):

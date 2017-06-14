@@ -69,7 +69,6 @@ def get_last_month_duration():
     duration = (end - start).days + 1
     return duration
 
-
 # print('Today: %s' % get_today_date())
 # print('Yesterday: %s' % get_yesterday_date())
 # print('Last Sunday: %s' % get_last_sunday())

@@ -2,6 +2,7 @@
 import datetime
 from pandas import Series, DataFrame
 import pandas as pd
+import numpy as np
 from Get_Particular_Date import *
 from Get_Order_Report import get_concatenated_order_report
 from Get_Column_Name import get_column_name
@@ -33,10 +34,27 @@ end_of_last_month = get_end_of_last_month()
 # 如果合并frame存在
 if frame is not False:
 
-    # print(get_column_name(frame))
+    print(get_column_name(frame))
 
     # 转换Purchased on的格式
     frame['Purchased on'] = pd.to_datetime(frame['Purchased on'])
+    frame['Purchased on (Y/m)'] = frame['Purchased on'].dt.strftime('%Y/%m')
+
+    # 尝试计算每月的Order
+    # grouped = frame['Order ID'].groupby([frame['Purchased on (Y/m)'], frame['Country']])
+    # print(grouped.count().unstack())
+
+    # 尝试识别Net Order
+    frame['Net Order'] = np.where(frame['Status(FE)'] == 'Cancelled', 0, 1)
+    frame['NMV'] = np.where(frame['Status(FE)'] == 'Cancelled', 0, frame['Grand Total'])
+
+    # print(frame[:5])
+
+    # 尝试计算每月的Gross/Net Order;外加重命名列
+    grouped1 = frame.groupby([frame['Purchased on (Y/m)']])
+    result = grouped1.agg({'Order ID': 'count', 'Net Order': 'sum', 'Grand Total': 'sum', 'NMV': 'sum'})\
+        .rename(columns={'Grand Total': 'GMV'})
+    print(result)
 
     # 1. 计算Yesterday
 

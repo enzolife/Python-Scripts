@@ -4,22 +4,19 @@ import glob
 import os
 import datetime
 import time
-from Get_File_Create_Modify_Time import last_modify_date
-from Get_Particular_Date import *
+from Scripts.Get_File_Create_Modify_Time import last_modify_date
+from Scripts.Get_Particular_Date import *
+
 
 def get_concatenated_order_report(path):
     country_list = []
-
     allFiles = glob.glob(path + "\\*\\*.csv")
-
     frame = pd.DataFrame()
     list_ = []
     for file_ in allFiles:
         pwd = os.getcwd()  # 首先取初始工作目录
         os.chdir(os.path.dirname(file_))  # 然后取SG/MY/TW/ID/TH这个文件夹
-
         country_name = os.path.basename(file_).split('_')[2].split('.')[0].upper()
-
         file_create_time = last_modify_date(file_)
         today_date = get_today_date().strftime("%Y-%m-%d")
 
@@ -50,4 +47,5 @@ def get_concatenated_order_report(path):
     else:
         return False
 
-# get_concatenated_order_report("D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order")
+# get_concatenated_order_report("D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\
+        # Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order")

@@ -22,7 +22,7 @@ def get_local_currency():
     for item in items:
         currency_name_usd = item.find('Name').text
         currency_name = currency_name_usd.split('/')[1][:2]
-        currency_num = item.find('Rate').text
+        currency_num = float(item.find('Rate').text)
 
         # print(currency_name, currency_num)
         append_list = pd.DataFrame([[currency_name, currency_num]],
@@ -31,3 +31,4 @@ def get_local_currency():
         currency_list = currency_list.append(append_list, ignore_index=True)
 
     return currency_list
+

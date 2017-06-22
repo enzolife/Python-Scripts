@@ -11,8 +11,8 @@ import glob
 import os
 import datetime
 import time
-from Get_File_Create_Modify_Time import last_modify_date
-from Get_Particular_Date import *
+from Scripts.Get_File_Create_Modify_Time import last_modify_date
+from Scripts.Get_Particular_Date import *
 
 
 # In[41]:

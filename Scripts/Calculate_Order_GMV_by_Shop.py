@@ -10,11 +10,12 @@ from Scripts.Get_Local_Currency import get_local_currency
 
 
 def calculate_order_gmv_by_shop():
+
     # Order Report的目录
-    input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
-                      'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order'
+    # input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
+                      # 'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order'
     # 获取concatenated order report
-    frame = get_concatenated_order_report(input_file_path)
+    frame = get_concatenated_order_report()
     # 输出的父目录
     output_file_parent_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\" \
                               "Shopee 2016.4.12\\2017.2.21 Shop Level Summary"
@@ -35,13 +36,11 @@ def calculate_order_gmv_by_shop():
     end_of_last_month = get_end_of_last_month()
     duration_of_last_month = get_last_month_duration()
 
-
     # 输出csv函数
     def export_csv_to_certain_path(dataframe_name, file_name, folder_name):
         dataframe_name.to_csv(output_file_parent_path + '\\' + folder_name + '\\' + file_name + '.csv', sep=',',
                               encoding='utf-8')
         print('\n' + file_name + ' completed!')
-
 
     # 如果合并frame存在
     if frame is not False:

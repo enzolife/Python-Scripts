@@ -17,10 +17,13 @@ from Scripts.Get_Particular_Date import *
 
 # In[41]:
 
-def get_concatenated_listing_report(path):
-    
+def get_concatenated_listing_report():
+
     country_list = []
-    
+
+    path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
+           'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Listing'
+
     allFiles = glob.glob(path + "\\*\\*.csv")
 
     frame = pd.DataFrame()

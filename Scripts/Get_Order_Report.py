@@ -8,8 +8,10 @@ from Scripts.Get_File_Create_Modify_Time import last_modify_date
 from Scripts.Get_Particular_Date import *
 
 
-def get_concatenated_order_report(path):
+def get_concatenated_order_report():
     country_list = []
+    path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
+                       'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order'
     allFiles = glob.glob(path + "\\*\\*.csv")
     frame = pd.DataFrame()
     list_ = []

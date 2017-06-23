@@ -7,9 +7,9 @@ from Scripts.Get_Listing_Reports import get_concatenated_listing_report
 
 
 def calculate_sku_by_shop():
-    input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
-                      'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Listing'
-    frame = get_concatenated_listing_report(input_file_path)
+    # input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
+                      # 'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Listing'
+    frame = get_concatenated_listing_report()
 
     # 输出的父目录
     output_file_parent_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\" \

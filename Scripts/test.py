@@ -1,15 +1,14 @@
-import datetime
-import calendar
+import multiprocessing
+import time
 
-def get_yesterday_date():
-    yesterday_date = datetime.date.today() + datetime.timedelta(days=-1)
-    return yesterday_date
+def func(msg):
+    for i in range(3):
+	    print(msg)
+	    time.sleep(1)
 
-yesterday = get_yesterday_date()
-idx = (yesterday.weekday())+1
-
-
-print(get_yesterday_date())
-print(idx)
-
-
+if __name__ == "__main__":
+    multiprocessing.freeze_support()
+    p = multiprocessing.Process(target=func, args=("hello", ))
+    p.start()
+    p.join()
+    print("Sub-process done.")

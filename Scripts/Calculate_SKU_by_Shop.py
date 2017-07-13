@@ -4,9 +4,11 @@ from pandas import Series, DataFrame
 import pandas as pd
 from Scripts.Get_Particular_Date import *
 from Scripts.Get_Listing_Reports import get_concatenated_listing_report
+from Scripts.Get_Gmail_Config import *
 
 
 def calculate_sku_by_shop():
+    # Listing Report的目录
     # input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
                       # 'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Listing'
     frame = get_concatenated_listing_report()
@@ -14,27 +16,26 @@ def calculate_sku_by_shop():
     # 输出的父目录
     output_file_parent_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\" \
                               "Shopee 2016.4.12\\2017.2.21 Shop Level Summary"
-
     # Yesterday的公式
     yesterday = get_yesterday_date()
-
     # WTD公式
     start_of_this_week = get_this_monday()
-
+    duration_of_this_week = get_wtd_duration()
     # W-1公式
     start_of_last_week = get_last_monday()
     end_of_last_week = get_last_sunday()
-
     # MTD公式
     start_of_this_month = get_start_of_this_month()
     end_of_this_month = get_end_of_this_month()
-
     # M-1公式
     start_of_last_month = get_start_of_last_month()
     end_of_last_month = get_end_of_last_month()
 
     # 如果合并frame存在
     if frame is not False:
+
+        # 确认日期没错
+        print('Yesterday is: ' + yesterday.strftime("%Y-%m-%d") + ', Now calculating listing result.')
 
         # 转换Date Created的格式
         frame['Date Created'] = pd.to_datetime(frame['Date Created'])
@@ -191,11 +192,10 @@ def calculate_sku_by_shop():
 
         print('5.1 TW Banned Listing completed')
 
-        # 所有步骤执行完后
+        # 所有步骤执行完后，发一封邮件
         print('\nProcess completed!')
-
-    else:
-        print('\nListing Report not downloaded yet!')
+        send_message('enzo.kuang@shopeemobile.com', '[Notices] ' + str(get_today_date())
+                     + ' SKU Calculation Completed!', 'SKU Calculation Completed!')
 
 if __name__ == '__main__':
     calculate_sku_by_shop()

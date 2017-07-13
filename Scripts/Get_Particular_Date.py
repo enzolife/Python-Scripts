@@ -82,15 +82,37 @@ def get_last_month_duration():
     duration = (end - start).days + 1
     return duration
 
-# print('Today: %s' % get_today_date())
-# print('Yesterday: %s' % get_yesterday_date())
-# print('Last Sunday: %s' % get_last_sunday())
-# print('Last Monday: %s' % get_last_monday())
-# print('This Monday: %s' % get_this_monday())
-# print('Start of This Month: %s' % get_start_of_this_month())
-# print('End of This Month: %s' % get_end_of_this_month())
-# print('Start of Last Month: %s' % get_start_of_last_month())
-# print('End of Last Month: %s' % get_end_of_last_month())
-# print('WTD duration: %s' % get_wtd_duration())
-# print('MTD duration: %s' % get_mtd_duration())
-# print('M-1 duration: %s' % get_last_month_duration())
+
+def get_current_week_num():
+    yesterday = get_yesterday_date()
+    week_num = yesterday.isocalendar()[1]
+    return week_num
+
+
+def get_current_year():
+    yesterday = get_yesterday_date()
+    current_year = yesterday.year
+    return current_year
+
+
+def get_current_month():
+    yesterday = get_yesterday_date()
+    current_month = yesterday.month
+    return current_month
+
+if __name__ == '__main__':
+    print('Today: %s' % get_today_date())
+    print('Yesterday: %s' % get_yesterday_date())
+    print('Last Sunday: %s' % get_last_sunday())
+    print('Last Monday: %s' % get_last_monday())
+    print('This Monday: %s' % get_this_monday())
+    print('Start of This Month: %s' % get_start_of_this_month())
+    print('End of This Month: %s' % get_end_of_this_month())
+    print('Start of Last Month: %s' % get_start_of_last_month())
+    print('End of Last Month: %s' % get_end_of_last_month())
+    print('WTD duration: %s' % get_wtd_duration())
+    print('MTD duration: %s' % get_mtd_duration())
+    print('M-1 duration: %s' % get_last_month_duration())
+    print('Yesterday Week Num: %s' % get_current_week_num())
+    print('Yesterday Year: %s' % get_current_year())
+    print('Yesterday Month: %s' % get_current_month())

@@ -1,12 +1,12 @@
-import threading
-import time
-import schedule
 import logging
+from multiprocessing import Pool
+from multiprocessing import Process
+import schedule
 from Scripts.Calculate_Order_GMV_by_Shop import calculate_order_gmv_by_shop
-from Scripts.Get_Order_Report import get_concatenated_order_report
 from Scripts.Calculate_SKU_by_Shop import calculate_sku_by_shop
-from Scripts.Get_Listing_Reports import get_concatenated_listing_report
 from Scripts.Copy_Files_from_Intranet import *
+from Scripts.Get_Listing_Reports import get_concatenated_listing_report
+from Scripts.Get_Order_Report import get_concatenated_order_report
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.info('Start of program.')
@@ -32,18 +32,27 @@ def run_listing():
                 break
 
 
-# start a thread
-def run_threaded(job_func):
-    print("I'm running on thread %s" % threading.current_thread())
-    job_thread = threading.Thread(target=job_func)
-    job_thread.start()
+# to run list
+def running_list(i):
+    to_run_list = {0: run_order, 1: run_listing}
+    return to_run_list[i]
 
 
-# schedule run
-schedule.every().day.at('14:15').do(run_threaded, run_order)
-schedule.every().day.at('14:15').do(run_threaded, run_listing)
+def schedule_run():
+    print('Parent process %s.' % os.getpid())
+    p = Pool(4)
+    p.apply_async(run_order)
+    p.apply_async(run_listing)
+    print('Waiting for all subprocesses done...')
+    p.close()
+    p.join()
+    print('All subprocesses done.')
 
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
 
+if __name__ == '__main__':
+    # schedule run
+    schedule.every().day.at('12:00').do(schedule_run)
+
+    while 1:
+        schedule.run_pending()
+        time.sleep(1)

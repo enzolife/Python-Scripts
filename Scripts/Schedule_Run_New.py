@@ -45,8 +45,10 @@ def schedule_run():
     p.apply_async(run_listing)
     print('Waiting for all subprocesses done...')
     p.close()
-    p.join()
-    print('All subprocesses done.')
+    time.sleep(43200)
+    p.terminate()
+    # p.join()
+    # print('All subprocesses done. ')
 
 
 if __name__ == '__main__':

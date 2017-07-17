@@ -166,31 +166,31 @@ def calculate_sku_by_shop():
         print('4.2 MTD_New_Live_SKUs_by_Shop completed')
 
         # 5.计算Cumulative
-        print('\nCalculating Cumulative Data...')
-        output_file_path = output_file_parent_path + "\\Cumulative\\"
+        # print('\nCalculating Cumulative Data...')
+        # output_file_path = output_file_parent_path + "\\Cumulative\\"
 
         # 5.1 计算TW Banned Listing
-        banned_keyword_list = {'武士刀', '手仗刀', '鴛鴦刀', '匕首', '掃刀', '鏢刀', '鋼筆刀', '蛇刀', '警刀', '手槍', '衝鋒槍', '步槍',
-                               '散彈槍', '十字弓', '彈弓', '牙籤弩', '迷你弩', '槍弩', '箭', '刀', '炮', '弩', '手指虎', '甩棍', '警棍',
-                               '伸縮棍', '防衛棍', '鏢', '鋼鞭', '警銬', '警繩', '防爆網', '瓦斯', '催淚彈', '打火機', '電火機', '打火石',
-                               '火柴', '花生', '檳榔', '肉乾', '農產品', '充電寶', '行動電源', '海鮮', '瑞士刀', '軍刀', '菜刀',
-                               '水果刀', '戶外刀', '折刀', '彈簧刀', '火石', '打火石', '水彈槍'}
+        # banned_keyword_list = {'武士刀', '手仗刀', '鴛鴦刀', '匕首', '掃刀', '鏢刀', '鋼筆刀', '蛇刀', '警刀', '手槍', '衝鋒槍', '步槍',
+                               # '散彈槍', '十字弓', '彈弓', '牙籤弩', '迷你弩', '槍弩', '箭', '刀', '炮', '弩', '手指虎', '甩棍', '警棍',
+                               # '伸縮棍', '防衛棍', '鏢', '鋼鞭', '警銬', '警繩', '防爆網', '瓦斯', '催淚彈', '打火機', '電火機', '打火石',
+                               # '火柴', '花生', '檳榔', '肉乾', '農產品', '充電寶', '行動電源', '海鮮', '瑞士刀', '軍刀', '菜刀',
+                               # '水果刀', '戶外刀', '折刀', '彈簧刀', '火石', '打火石', '水彈槍'}
 
-        frame11 = frame[(frame['Country'] == 'TW') & (frame['Status'] == 'Normal')]
-        banned_frame_list = []
+        #frame11 = frame[(frame['Country'] == 'TW') & (frame['Status'] == 'Normal')]
+        #　banned_frame_list = []
 
-        for banned_words in banned_keyword_list:
-            banned_frame_selected = frame11[(frame11['Product name'].str.contains(banned_words) == True)]
-            banned_frame_list.append(banned_frame_selected)
+        #　for banned_words in banned_keyword_list:
+            # banned_frame_selected = frame11[(frame11['Product name'].str.contains(banned_words) == True)]
+            # banned_frame_list.append(banned_frame_selected)
 
         # 注意：这里有可能产生重复值，需要去重
-        banned_frame_concat = pd.concat(banned_frame_list)
-        banned_frame_concat = banned_frame_concat.drop_duplicates(['Product ID'], keep='first')
+        # banned_frame_concat = pd.concat(banned_frame_list)
+        # banned_frame_concat = banned_frame_concat.drop_duplicates(['Product ID'], keep='first')
 
         # banned_frame_concat.columns = banned_frame_concat.columns.droplevel(0)
-        banned_frame_concat.to_csv(output_file_path + 'Get_TW_Banned_Listing.csv', sep=',')
+        # banned_frame_concat.to_csv(output_file_path + 'Get_TW_Banned_Listing.csv', sep=',')
 
-        print('5.1 TW Banned Listing completed')
+        # print('5.1 TW Banned Listing completed')
 
         # 所有步骤执行完后，发一封邮件
         print('\nProcess completed!')

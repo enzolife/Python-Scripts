@@ -111,8 +111,8 @@ def copy_pricing_report_from_intranet():
     # 首先，如果文件夹不为空，说明文件已经开始录入，但是得稍等一下，因为文件没有完全进入到这个文件夹，sleep一下
     # 但是，文件夹不为空，也有可能是昨天的文件没有删除，所以要判断一下
     if check_data_validation(from_path) is True:
-        print('Sleep for 5 min for order data unfolded')
-        time.sleep(300)
+        print('Sleep for 5 min for pricing data unfolded')
+        time.sleep(5)
 
         for folderName, subfolders, filenames in os.walk(from_path):
             # print('The current folder is ' + folderName)

@@ -1,27 +1,52 @@
-from pandas import Series, DataFrame
-import pandas as pd
-import glob
-import os
+import urllib.request
+from bs4 import BeautifulSoup
+from docx import Document
+from xhtml2pdf import pisa
 
-path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12\\' \
-       '2016.4.23 Data Visualization\\Listing'  # use your path
-allFiles = glob.glob(path + "\\*\\*.csv")
-frame = pd.DataFrame()
-list_ = []
-for file_ in allFiles:
-    os.chdir(os.path.dirname(file_))
-    df = pd.read_csv(os.path.basename(file_), index_col=None, header=0)
-    print('file name: ' + os.path.basename(file_) + ' max date ' + df['Date Created'].values.max())
-    print('file name: ' + os.path.basename(file_) + ' min date ' + df['Date Created'].values.min())
-    print(df.shape)
-    # print(file_)
-    # list_.append(df)
-# frame = pd.concat(list_)
 
-# frame['Date Created'] = pd.to_datetime(frame['Date Created'])
-# frame['year/month'] = frame['Date Created'].dt.strftime('%Y-%m')
+html = urllib.request.urlopen('http://www.woshipm.com/data-analysis/735340.html')
+bsObj = BeautifulSoup(html.read())
+article = bsObj.find('div', {'class': 'entry-content'})
 
-# grouped = frame['Product ID'].groupby([frame['year/month'], frame['Country']])
-# listing_by_month = grouped.agg({'Product ID': {'New SKUs': 'count'}})
 
-# print(listing_by_month)
+# Define your data
+sourceHtml = "<html><body><p>To PDF or not to PDF</p></body></html>"
+outputFilename = "test.pdf"
+
+
+# Utility function
+def convertHtmlToPdf(sourceHtml, outputFilename):
+    # open output file for writing (truncated binary)
+    resultFile = open(outputFilename, "w+b")
+
+    # convert HTML to PDF
+    pisaStatus = pisa.CreatePDF(
+            sourceHtml,                # the HTML to convert
+            dest=resultFile)           # file handle to recieve result
+
+    # close output file
+    resultFile.close()                 # close output file
+
+    # return True on success and False on errors
+    return pisaStatus.err
+
+# Main program
+if __name__ == "__main__":
+    pisa.showLogging()
+    convertHtmlToPdf(sourceHtml, outputFilename)
+
+
+
+
+'''
+document = Document()
+
+document.add_heading('Heading, level 1', level=1)
+document.add_paragraph('Intense quote', style='IntenseQuote')
+
+document.add_paragraph(
+    article.get_text(), style='ListBullet'
+)
+
+document.save('demo.docx')
+'''

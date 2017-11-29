@@ -1,5 +1,4 @@
 import threading
-import time
 import schedule
 import logging
 from Scripts.Delete_Files_in_Folder import *

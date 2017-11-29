@@ -1,9 +1,10 @@
 import datetime
 import calendar
+from time import gmtime, strftime
 
 
 def get_today_date():
-    today_date = datetime.date.today()
+    today_date = datetime.date.today() + datetime.timedelta(days=0)
     return today_date
 
 
@@ -100,6 +101,25 @@ def get_current_month():
     current_month = yesterday.month
     return current_month
 
+
+def get_start_end_of_certain_month(months_to_minus, start_or_end):
+    compared_date = get_yesterday_date()
+    i = 0
+    while i < months_to_minus:
+        end_of_certain_month = datetime.date(compared_date.year, compared_date.month, 1) + datetime.timedelta(days=-1)
+        start_of_certain_month = datetime.date(end_of_certain_month.year, end_of_certain_month.month, 1)
+        compared_date = start_of_certain_month
+        i = i + 1
+    if start_or_end == 'start':
+        return start_of_certain_month
+    elif start_or_end == 'end':
+        return end_of_certain_month
+
+
+def get_current_datetime():
+    current_datetime = datetime.datetime.now()
+    return current_datetime
+
 if __name__ == '__main__':
     print('Today: %s' % get_today_date())
     print('Yesterday: %s' % get_yesterday_date())
@@ -116,3 +136,10 @@ if __name__ == '__main__':
     print('Yesterday Week Num: %s' % get_current_week_num())
     print('Yesterday Year: %s' % get_current_year())
     print('Yesterday Month: %s' % get_current_month())
+    print('M-3 start: %s' % get_start_end_of_certain_month(3, "start"))
+    print('M-3 end: %s' % get_start_end_of_certain_month(3, "end"))
+    print('M-2 start: %s' % get_start_end_of_certain_month(2, "start"))
+    print('M-2 end: %s' % get_start_end_of_certain_month(2, "end"))
+    print('M-1 start: %s' % get_start_end_of_certain_month(1, "start"))
+    print('M-1 end: %s' % get_start_end_of_certain_month(1, "end"))
+    print('Current Date & Time: %s' % get_current_datetime())

@@ -1,40 +1,24 @@
 # coding: utf-8
-import datetime
-from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
 from Scripts.Get_Particular_Date import *
 from Scripts.Get_Order_Report import get_concatenated_order_report
-from Scripts.Get_Column_Name import get_column_name
 from Scripts.Get_Local_Currency import get_local_currency
 from Scripts.Get_Gmail_Config import *
+from Scripts.Get_Google_Sheets import *
+from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
 
 
 def calculate_order_gmv_by_shop():
     # Order Report的目录
     # input_file_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
-                      # 'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order'
+    # 'Shopee 2016.4.12\\2016.4.23 Data Visualization\\Order'
     # 获取concatenated order report
     frame = get_concatenated_order_report()
+    print('orders reports are concatenating.\n')
     # 输出的父目录
     output_file_parent_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\" \
                               "Shopee 2016.4.12\\2017.2.21 Shop Level Summary"
-    # Yesterday的公式
-    yesterday = get_yesterday_date()
-    # WTD公式
-    start_of_this_week = get_this_monday()
-    duration_of_this_week = get_wtd_duration()
-    # W-1公式
-    start_of_last_week = get_last_monday()
-    end_of_last_week = get_last_sunday()
-    # MTD公式
-    start_of_this_month = get_start_of_this_month()
-    end_of_this_month = get_end_of_this_month()
-    duration_of_this_month = get_mtd_duration()
-    # M-1公式
-    start_of_last_month = get_start_of_last_month()
-    end_of_last_month = get_end_of_last_month()
-    duration_of_last_month = get_last_month_duration()
 
     # 输出csv函数
     def export_csv_to_certain_path(dataframe_name, file_name, folder_name):
@@ -46,119 +30,288 @@ def calculate_order_gmv_by_shop():
     if frame is not False:
 
         # 确认日期没错
-        print('Yesterday is: ' + yesterday.strftime("%Y-%m-%d") + ', Now calculating order result.')
-
-        # print(get_column_name(frame))
+        print('Yesterday is: ' + get_yesterday_date().strftime("%Y-%m-%d")
+              + ', Now calculating order gmv by shop result.')
         # 转换Purchased on的格式
         frame['Purchased on'] = pd.to_datetime(frame['Purchased on'])
         frame['Purchased on (Y/m)'] = frame['Purchased on'].dt.strftime('%Y/%m')
+        frame['Purchased on (Y/m/d)'] = frame['Purchased on'].dt.strftime('%Y/%m/%d')
         # left join Currency List
         currency_list = get_local_currency()
         frame = pd.merge(frame, currency_list, how='left', left_on=['Country'], right_on=['currency_name'])
-        # print(frame[:1].unstack())
-
-        # 尝试计算每月的Order
-        # grouped = frame['Order ID'].groupby([frame['Purchased on (Y/m)'], frame['Country']])
-        # print(grouped.count().unstack())
-
+        # left join Seller Index
+        seller_index = get_seller_index_from_google_sheet()
+        frame = pd.merge(frame, seller_index, how='left', left_on=['ShopId(S)'], right_on=['Child ShopID'])
         # 计算GMV in USD
         frame['GMV in USD'] = (frame['Grand Total'] / frame['Currency']).apply(pd.to_numeric)
-
         # 尝试识别Net Order, NMV
         frame['Net Order'] = np.where(frame['Status(FE)'] == 'Cancelled', 0, 1)
         frame['NMV'] = np.where(frame['Status(FE)'] == 'Cancelled', 0, frame['GMV in USD'])
-        # print(frame[:5])
-        
         # 添加周数
         frame['Week Num'] = frame['Purchased on'].dt.week
-
         # 添加年份
         frame['Year'] = frame['Purchased on'].dt.year
+        # 添加昨天
+        frame['Yesterday Date'] = get_yesterday_date()
+        # 添加Purchased on M-1/M-2/M-3
+        i = 1
+        while i <= 3:
+            frame['Purchased on at M-' + str(i)] = np.where(
+                (frame['Purchased on']
+                 <= get_start_end_of_certain_month(i, 'end')) & (
+                    frame['Purchased on']
+                    >= get_start_end_of_certain_month(i, 'start')), 1, 0)
+            i = i + 1
+        frame[:50].to_csv("D://order.csv", sep=',', encoding='utf-8')
 
-        # 尝试计算每月的Gross/Net Order;外加重命名列
-        # grouped1 = frame.groupby([frame['Purchased on (Y/m)']])
-        # result = grouped1.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})
-        # .rename(columns={'Grand Total': 'GMV'})
-        # print(result)
+        # 1. 计算Order/GMV Daily
+        # 1.1 计算Order/GMV Daily的序列
+        output_file_list = [['Yesterday', get_yesterday_date(), get_yesterday_date(),
+                             1, 'Yesterday_Order_GMV_by_Shop'],
+                            ['MTD', get_start_of_this_month(), get_yesterday_date(),
+                             get_mtd_duration(), 'MTD_Order_GMV_by_Shop'],
+                            ['M-1', get_start_of_last_month(), get_end_of_last_month(),
+                             get_last_month_duration(), 'M_1_Order_GMV_by_Shop'],
+                            ['WTD', get_this_monday(), get_yesterday_date(),
+                             get_wtd_duration(), 'WTD_Order_GMV_by_Shop'],
+                            ['W-1', get_last_monday(), get_last_sunday(),
+                             7, 'W_1_Order_GMV_by_Shop']]
 
-        # 1. 计算Yesterday Order GMV
-        frame1 = frame[(frame['Purchased on'] == yesterday)]
-        grouped1 = frame1.groupby([frame1['Seller User ID'], frame1['ShopId(S)'], frame1['Username(S)'],
-                                   frame1['Country']])
-        result1 = grouped1.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})\
-            .rename(columns={'Order ID': 'Gross Order', 'GMV in USD': 'GMV USD', 'NMV': 'NMV USD'})
-        result1['ABS'] = result1['GMV USD'] / result1['Gross Order']
-        export_csv_to_certain_path(result1, 'Yesterday_Order_GMV_by_Shop', 'Yesterday')
+        # 1.2 计算Order/GMV Daily by different period的函数
+        def calculate_order_gmv_by_shop_by_period(date_period_name, start_date, end_date, duration_of_period,
+                                                  file_name):
+            filtered_frame = frame[(frame['Purchased on'] >= start_date) & (frame['Purchased on'] <= end_date)]
+            filtered_group = filtered_frame.groupby([filtered_frame['Seller User ID'], filtered_frame['ShopId(S)'],
+                                                     filtered_frame['Username(S)'], filtered_frame['Country']])
+            filtered_result = filtered_group.agg({'Order ID': 'count',
+                                                  'Net Order': 'sum',
+                                                  'GMV in USD': 'sum',
+                                                  'NMV': 'sum'}) \
+                .rename(columns={'Order ID': 'Gross Order',
+                                 'GMV in USD': 'GMV USD',
+                                 'NMV': 'NMV USD'})
+            filtered_result['ABS'] = filtered_result['GMV USD'] / filtered_result['Gross Order']
+            filtered_result['Daily Gross Order'] = filtered_result['Gross Order'] / duration_of_period
+            filtered_result['Daily GMV USD'] = filtered_result['GMV USD'] / duration_of_period
+            filtered_result = pd.DataFrame(filtered_result).reset_index()
+            # 输出csv
+            export_csv_to_certain_path(filtered_result, file_name, date_period_name)
+            # 上传google sheet
+            # upload_dataframe_to_google_sheet(filtered_result
+            # , '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM'
+            # , file_name)
 
-        # 2. 计算WTD Order GMV
-        frame2 = frame[(frame['Purchased on'] >= start_of_this_week) & (frame['Purchased on'] <= yesterday)]
-        grouped2 = frame2.groupby([frame2['Seller User ID'], frame2['ShopId(S)'], frame2['Username(S)'],
-                                   frame2['Country']])
-        result2 = grouped2.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})\
-            .rename(columns={'Order ID': 'Gross Order', 'GMV in USD': 'GMV USD', 'NMV': 'NMV USD'})
-        result2['ABS'] = result2['GMV USD'] / result2['Gross Order']
-        result2['Daily Gross Order'] = result2['Gross Order'] / duration_of_this_week
-        result2['Daily GMV USD'] = result2['GMV USD'] / duration_of_this_week
-        export_csv_to_certain_path(result2, 'WTD_Order_GMV_by_Shop', 'WTD')
+        # 1.3 开始历遍
+        for date_period_name, start_date, end_date, duration_of_period, file_name in output_file_list:
+            calculate_order_gmv_by_shop_by_period(date_period_name, start_date, end_date, duration_of_period, file_name)
 
-        # 3. 计算W-1 Order GMV
-        frame3 = frame[(frame['Purchased on'] >= start_of_last_week) & (frame['Purchased on'] <= end_of_last_week)]
-        grouped3 = frame3.groupby([frame3['Seller User ID'], frame3['ShopId(S)'], frame3['Username(S)'],
-                                   frame3['Country']])
-        result3 = grouped3.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})\
-            .rename(columns={'Order ID': 'Gross Order', 'GMV in USD': 'GMV USD', 'NMV': 'NMV USD'})
-        result3['ABS'] = result3['GMV USD'] / result3['Gross Order']
-        result3['Daily Gross Order'] = result3['Gross Order'] / 7
-        result3['Daily GMV USD'] = result3['GMV USD'] / 7
-        export_csv_to_certain_path(result3, 'W_1_Order_GMV_by_Shop', 'W-1')
+        # 2. 计算Order/GMV Daily by Country by KAM by different period
+        # 2.1 计算Order/GMV Daily by Country by KAM by different period的序列
+        output_file_list = [['Yesterday', get_yesterday_date(), get_yesterday_date(),
+                             1, 'Yesterday_Order_GMV_by_KAM'],
+                            ['MTD', get_start_of_this_month(), get_yesterday_date(),
+                             get_mtd_duration(), 'MTD_Order_GMV_by_KAM'],
+                            ['M-1', get_start_of_last_month(), get_end_of_last_month(),
+                             get_last_month_duration(), 'M_1_Order_GMV_by_KAM'],
+                            ['WTD', get_this_monday(), get_yesterday_date(),
+                             get_wtd_duration(), 'WTD_Order_GMV_by_KAM'],
+                            ['W-1', get_last_monday(), get_last_sunday(),
+                             7, 'W_1_Order_GMV_by_KAM']]
 
-        # 4. 计算MTD Order GMV
-        frame4 = frame[(frame['Purchased on'] >= start_of_this_month) & (frame['Purchased on'] <= yesterday)]
-        grouped4 = frame4.groupby([frame4['Seller User ID'], frame4['ShopId(S)'], frame4['Username(S)'],
-                                   frame4['Country']])
-        result4 = grouped4.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})\
-            .rename(columns={'Order ID': 'Gross Order', 'GMV in USD': 'GMV USD', 'NMV': 'NMV USD'})
-        result4['ABS'] = result4['GMV USD'] / result4['Gross Order']
-        result4['Daily Gross Order'] = result4['Gross Order'] / duration_of_this_month
-        result4['Daily GMV USD'] = result4['GMV USD'] / duration_of_this_month
-        export_csv_to_certain_path(result4, 'MTD_Order_GMV_by_Shop', 'MTD')
+        # 2.2 计算Order/GMV Daily by Country by KAM by different period的函数
+        def calculate_order_gmv_by_country_by_kam_by_period(date_period_name, start_date, end_date, duration_of_period, file_name):
+            filtered_frame = frame[(frame['Purchased on'] >= start_date) & (frame['Purchased on'] <= end_date)]
+            filtered_group = filtered_frame.groupby([filtered_frame['GP Account Owner'], filtered_frame['Country']])
+            filtered_result = filtered_group.agg({'Order ID': 'count',
+                                                  'Net Order': 'sum',
+                                                  'GMV in USD': 'sum',
+                                                  'NMV': 'sum'}) \
+                .rename(columns={'Order ID': 'Gross Order',
+                                 'GMV in USD': 'GMV USD',
+                                 'NMV': 'NMV USD'})
+            filtered_result['ABS'] = filtered_result['GMV USD'] / filtered_result['Gross Order']
+            filtered_result['Daily Gross Order'] = filtered_result['Gross Order'] / duration_of_period
+            filtered_result['Daily GMV USD'] = filtered_result['GMV USD'] / duration_of_period
+            filtered_result = pd.DataFrame(filtered_result).reset_index()
+            # 输出csv
+            export_csv_to_certain_path(filtered_result, file_name, date_period_name)
+            # 上传GP Account Owner Performance Report (Daily)
+            upload_dataframe_to_google_sheet(filtered_result
+                                             , '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM'
+                                             , file_name)
 
-        # 5. 计算M-1 Order GMV
-        frame5 = frame[(frame['Purchased on'] >= start_of_last_month) & (frame['Purchased on'] <= end_of_last_month)]
-        grouped5 = frame5.groupby([frame5['Seller User ID'], frame5['ShopId(S)'], frame5['Username(S)'],
-                                   frame5['Country']])
-        result5 = grouped5.agg({'Order ID': 'count', 'Net Order': 'sum', 'GMV in USD': 'sum', 'NMV': 'sum'})\
-            .rename(columns={'Order ID': 'Gross Order', 'GMV in USD': 'GMV USD', 'NMV': 'NMV USD'})
-        result5['ABS'] = result5['GMV USD'] / result5['Gross Order']
-        result5['Daily Gross Order'] = result5['Gross Order'] / duration_of_last_month
-        result5['Daily GMV USD'] = result5['GMV USD'] / duration_of_last_month
-        export_csv_to_certain_path(result5, 'M_1_Order_GMV_by_Shop', 'M-1')
+        # 2.3 开始历遍
+        for date_period_name, start_date, end_date, duration_of_period, file_name in output_file_list:
+            calculate_order_gmv_by_country_by_kam_by_period(date_period_name, start_date, end_date, duration_of_period, file_name)
 
-        # 6. 计算W-1/2/3/4/5 Order&Daily Order by Shops
+        # 3. 计算Order/GMV Daily by KAM by different period
+        # 3.1 计算Order/GMV Daily by KAM by different period的序列
+        output_file_list = [['MTD', get_start_of_this_month(), get_yesterday_date(),
+                             get_mtd_duration(), 'MTD_Order_GMV_by_KAM_Overall'],
+                            ['M-1', get_start_of_last_month(), get_end_of_last_month(),
+                             get_last_month_duration(), 'M_1_Order_GMV_by_KAM_Overall']]
+
+        # 3.2 计算Order/GMV Daily by KAM by different period的函数
+        def calculate_order_gmv_by_kam_by_period(date_period_name, start_date, end_date, duration_of_period, file_name):
+            filtered_frame = frame[(frame['Purchased on'] >= start_date) & (frame['Purchased on'] <= end_date)]
+            filtered_group = filtered_frame.groupby([filtered_frame['GP Account Owner']])
+            filtered_result = filtered_group.agg({'Order ID': 'count',
+                                                  'Net Order': 'sum',
+                                                  'GMV in USD': 'sum',
+                                                  'NMV': 'sum'}) \
+                .rename(columns={'Order ID': 'Gross Order',
+                                 'GMV in USD': 'GMV USD',
+                                 'NMV': 'NMV USD'})
+            filtered_result['ABS'] = filtered_result['GMV USD'] / filtered_result['Gross Order']
+            filtered_result['Daily Gross Order'] = filtered_result['Gross Order'] / duration_of_period
+            filtered_result['Daily GMV USD'] = filtered_result['GMV USD'] / duration_of_period
+            filtered_result = pd.DataFrame(filtered_result).reset_index()
+            filtered_result = filtered_result.sort('Daily Gross Order', ascending=False)
+            # 输出csv
+            export_csv_to_certain_path(filtered_result, file_name, date_period_name)
+            # 上传GP Account Owner Performance Report (Daily)
+            upload_dataframe_to_google_sheet(filtered_result
+                                             , '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM'
+                                             , file_name)
+
+        # 3.3 开始历遍
+        for date_period_name, start_date, end_date, duration_of_period, file_name in output_file_list:
+            calculate_order_gmv_by_kam_by_period(date_period_name, start_date, end_date, duration_of_period, file_name)
+
+        # 4. 计算上线30天/60天/90天的MTD/M-1 Order by GP Acc
+        # 4.1 计算上线30天/60天/90天的MTD/M-1 Order by GP Acc的序列
+        output_file_list = [['MTD', get_start_of_this_month(), get_yesterday_date(),
+                             get_mtd_duration(), 'MTD_Order_by_GP_Acc_in_different_stage']]
+
+        # 4.2 计算上线30天/60天/90天的MTD/M-1 Order by GP Acc的函数
+        def calculate_order_by_gp_acc_in_different_stage(date_period_name,
+                                                         start_date,
+                                                         end_date,
+                                                         duration_of_period,
+                                                         file_name):
+            filtered_frame = frame[(frame['Purchased on'] >= start_date) & (frame['Purchased on'] <= end_date)]
+            filtered_group = filtered_frame.groupby([filtered_frame['GP Account Owner']])
+            filtered_result = filtered_group.agg({'GP Acc Created at M-1': 'sum',
+                                                  'GP Acc Created at M-2': 'sum',
+                                                  'GP Acc Created at M-3': 'sum'}) \
+                .rename(columns={'GP Acc Created at M-1': 'GP Acc Created at M-1 Gross Order',
+                                 'GP Acc Created at M-2': 'GP Acc Created at M-2 Gross Order',
+                                 'GP Acc Created at M-3': 'GP Acc Created at M-3 Gross Order'})
+
+            filtered_result['GP Acc Created at M-1 Daily Gross Order']\
+                = filtered_result['GP Acc Created at M-1 Gross Order'] / duration_of_period
+            filtered_result['GP Acc Created at M-2 Daily Gross Order'] \
+                = filtered_result['GP Acc Created at M-2 Gross Order'] / duration_of_period
+            filtered_result['GP Acc Created at M-3 Daily Gross Order'] \
+                = filtered_result['GP Acc Created at M-3 Gross Order'] / duration_of_period
+            filtered_result = pd.DataFrame(filtered_result).reset_index()
+            # 输出csv
+            export_csv_to_certain_path(filtered_result, file_name, date_period_name)
+            # 上传GP Account Owner Performance Report (Daily)
+            upload_dataframe_to_google_sheet(filtered_result
+                                             , '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8'
+                                             , file_name)
+
+        # 4.3 开始历遍
+        for date_period_name, start_date, end_date, duration_of_period, file_name in output_file_list:
+            calculate_order_by_gp_acc_in_different_stage(date_period_name,
+                                                         start_date,
+                                                         end_date,
+                                                         duration_of_period,
+                                                         file_name)
+
+        # 5. 计算W-1/2/3/4/5 Order&Daily Order by Shops
         current_week_num = get_current_week_num()
         current_year = get_current_year()
         five_weeks_before = current_week_num - 5
-        frame6 = frame[(frame['Week Num'] >= five_weeks_before) & (frame['Year'] == current_year)]
-        grouped6 = frame6.groupby([frame6['Seller User ID'], frame6['ShopId(S)'], frame6['Username(S)'],
-                                   frame6['Country'], frame6['Week Num']])
-        result6 = grouped6.agg({'Order ID': 'count'})\
+        frame6 = frame[(frame['Week Num'] >= five_weeks_before)
+                       & (frame['Week Num'] < 52)
+                       & (frame['Year'] == current_year)]
+        grouped6 = frame6.groupby([frame6['GP Account Owner'],
+                                   frame6['Seller User ID'],
+                                   frame6['ShopId(S)'],
+                                   frame6['Username(S)'],
+                                   frame6['Child Created Date'],
+                                   frame6['Country'],
+                                   frame6['Week Num']])
+        result6 = grouped6.agg({'Order ID': 'count'}) \
             .rename(columns={'Order ID': 'Gross Order'})
         result6 = result6.unstack('Week Num')
         result6.columns = result6.columns.droplevel(0)
         export_csv_to_certain_path(result6, 'Last_5_Weeks_Order_by_Shop', 'Cumulative')
 
-        # 7. 计算30天Order数
-        frame7 = frame[(frame['Purchased on'] >= yesterday + datetime.timedelta(days=-30))]
+        # 6. 计算90天Order数
+        frame7 = frame[(frame['Purchased on'] >= get_yesterday_date() + datetime.timedelta(days=-90))]
         grouped7 = frame7.groupby([frame7['Purchased on'], frame7['Country']])
         result7 = grouped7.agg({'Order ID': 'count'}).rename(columns={'Order ID': 'Gross Order'})
         result7 = result7.unstack('Country')
         result7.columns = result7.columns.droplevel(0)
-        export_csv_to_certain_path(result7, 'D-30 Order by Country', 'Cumulative')
+        export_csv_to_certain_path(result7, 'D-90 Order by Country', 'Cumulative')
+        # 上传GP Account Owner Performance Report (Daily)
+        upload_dataframe_to_google_sheet(result7
+                                         , '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM'
+                                         , 'D-90 Order by Country')
+
+        # 7. 计算YTD Daily Order
+        YTD_Daily_Order_List = ['SG', 'MY', 'TW', 'ID', 'TH']
+
+        for country_name in YTD_Daily_Order_List:
+            ytd_daily_order_pre_frame = frame[(frame['Purchased on'] >= datetime.date(2017, 1, 1))
+                                              & (frame['Country'] == country_name)]
+            ytd_daily_order_group = ytd_daily_order_pre_frame.groupby(
+                [ytd_daily_order_pre_frame['Purchased on (Y/m/d)']])
+            ytd_daily_order_frame = ytd_daily_order_group.agg({'Order ID': 'count'}) \
+                .rename(columns={'Order ID': 'CB Gross Order'})
+            # 上传到Order Performance by Country, Daily, YTD
+            upload_dataframe_to_google_sheet(ytd_daily_order_frame,
+                                             '19t8cG1FhuZsQ961fk58bUqf3lkd29kto_sGR0595QZI',
+                                             country_name + '-CB')
+
+        # 8. 计算MTD Daily Order by GP Acc
+        def calculate_mtd_order_by_country_by_gp_acc(date_period_name,
+                                                     start_date,
+                                                     end_date,
+                                                     duration_of_period,
+                                                     file_name):
+            filtered_frame = frame[(frame['Purchased on'] >= start_date) & (frame['Purchased on'] <= end_date)]
+            filtered_group = filtered_frame.groupby([filtered_frame['GP Account Owner'],
+                                                     filtered_frame['Country'],
+                                                     filtered_frame['Purchased on']])
+            filtered_result = filtered_group.agg({'Order ID': 'count'}) \
+                .rename(columns={'Order ID': 'Gross Order'})
+            filtered_result = pd.DataFrame(filtered_result).unstack().reset_index()
+            filtered_result.columns = filtered_result.columns.droplevel(0)
+            # 补充两列列名，不然上传会报错
+            filtered_result.columns.values[0] = 'GP Account Owner'
+            filtered_result.columns.values[1] = 'Country'
+            # 输出csv
+            export_csv_to_certain_path(filtered_result, file_name, date_period_name)
+            # 上传GP Account Owner Performance Report (Daily)
+            upload_dataframe_to_google_sheet(filtered_result
+                                             , '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM'
+                                             , file_name)
+
+        calculate_mtd_order_by_country_by_gp_acc('MTD',
+                                                 get_start_of_this_month(),
+                                                 get_yesterday_date(),
+                                                 get_mtd_duration(),
+                                                 'MTD Daily Gross Order by GP Acc Owner')
+
+        # 9. 计算M-1/M-2/M-3 Order by GP Acc
+
+        # 10. 计算MTD/M-1 Order by GP Acc
+
+        # 更新相关表的last update time
+        # 更新GP Account Owner Performance Report (Daily)
+        upload_last_update_time('1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM', 'Description', 'D4')
+        # 更新BD Performance Report (Daily)
+        upload_last_update_time('1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8', 'Description', 'D5')
 
         # 所有步骤执行完后
         print('\nProcess completed!')
-        send_message('enzo.kuang@shopeemobile.com', '[Notices] ' + str(get_today_date()) +
-                     ' Order Calculation Completed!', 'Order Calculation Completed!')
+        send_message('enzo.kuang@shopee.com', '[Notices] ' + str(get_today_date()) +
+                     ' Order GMV by Shop Calculation Completed!', 'Order Calculation Completed!')
+
 
 if __name__ == '__main__':
     calculate_order_gmv_by_shop()

@@ -1,9 +1,6 @@
-from df2gspread import gspread2df as g2d
+import os
 
-# use full path to spreadsheet file
-spreadsheet = '1VLYS6XmEjiI9UBEx4cG8YaBbAXDkTvoPc9NJb-m6ECQ'
-# or spreadsheet file id
-# spreadsheet = '1cIOgi90...'
-wks_name = 'SG'
+stuff = b'\xe5\xb0\x8d cell_id \xe7\x84\xa1\xe6\x95\x88\xe7\x9a\x84\xe6\x9f\xa5\xe8\xa9\xa2\xe5\x8f\x83\xe6\x95\xb8\xe5\x80\xbc\xe3\x80\x82'
+print(stuff.decode('UTF8'))
 
-df = g2d.download(spreadsheet, wks_name, col_names=True, row_names=True)
+print(os.getcwd())

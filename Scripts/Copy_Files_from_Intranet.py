@@ -1,8 +1,5 @@
 import glob
 import shutil
-import os
-import time
-from pprint import pprint
 from Scripts.Get_File_Create_Modify_Time import *
 from Scripts.Get_Particular_Date import *
 
@@ -21,15 +18,52 @@ def check_last_update_date_within_folder(checked_path):
         for filename in listdir_not_hidden(checked_path):
             file_path = os.path.join(checked_path, filename)
             file_last_update_date = last_modify_date(file_path)
-            if file_last_update_date != get_today_date().strftime("%Y-%m-%d"):
-                # print("intranet " + folder_name + ' old data not deleted!')
+            today_date = get_today_date().strftime("%Y-%m-%d")
+            if file_last_update_date != today_date:
+                print("intranet " + folder_name + ' old data not deleted!')
                 return False
                 break
+        # print('All files in ' + folder_name + ' are latest data.')
+        return True
 
 
-# 判断文件夹是否非空以及是否都是今天的数据
+# 判断文件夹内是否包含所有国家
+def check_all_country_available(checked_path):
+    folder_name = os.path.basename(checked_path)
+    if not listdir_not_hidden(checked_path):
+        return False
+    else:
+        country_list = []
+        for filename in listdir_not_hidden(checked_path):
+            if filename.endswith('.csv'):
+                # 判断是order/listing/pricing folder
+                file_type = os.path.basename(checked_path).split('_')[0]
+
+                # 创建一个判断字典
+                file_type_list = {
+                    'order': os.path.basename(filename).split('_')[2][:2].upper(),
+                    'listing': os.path.basename(filename).split('_')[0],
+                    'pricing': os.path.basename(filename).split('_')[2][:2].upper()
+                }
+
+                country_name = file_type_list[file_type]
+
+            if country_name not in country_list:
+                country_list.append(country_name)
+            country_list.sort()
+
+        if country_list == ['ID', 'MY', 'PH', 'SG', 'TH', 'TW']:
+            print("All country data in " + folder_name + " are downloaded.")
+            return True
+        else:
+            return False
+
+
+# 判断文件夹是否非空、是否都是今天、是否所有国家都齐备
 def check_data_validation(path):
-    if listdir_not_hidden(path) != "" and check_last_update_date_within_folder(path) is not False:
+    if listdir_not_hidden(path) != "" \
+            and check_last_update_date_within_folder(path) is not False\
+            and check_all_country_available(path) is not False:
         return True
     else:
         return False
@@ -112,7 +146,7 @@ def copy_pricing_report_from_intranet():
     # 但是，文件夹不为空，也有可能是昨天的文件没有删除，所以要判断一下
     if check_data_validation(from_path) is True:
         print('Sleep for 5 min for pricing data unfolded')
-        time.sleep(5)
+        time.sleep(300)
 
         for folderName, subfolders, filenames in os.walk(from_path):
             # print('The current folder is ' + folderName)
@@ -166,10 +200,11 @@ def copy_product_view_report_from_intranet():
         return False
 
 
-# if __name__ == "__main__":
-    # copy_order_report_from_intranet()
+if __name__ == "__main__":
+    copy_order_report_from_intranet()
     # copy_listing_report_from_intranet()
     # copy_pricing_report_from_intranet()
     # copy_product_view_report_from_intranet()
-    # to_checked_path = "\\\\10.12.50.3\\data_source\\product_view_csv"
+    # to_checked_path = "\\\\10.12.50.3\\data_source\\listing_csv"
     # check_last_update_date_within_folder(to_checked_path)
+    # check_all_country_available(to_checked_path)

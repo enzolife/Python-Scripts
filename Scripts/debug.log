@@ -1,0 +1,5 @@
+[1117/105615.371:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
+[1118/142454.045:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。  (0xc0000022)
+[1118/142454.046:ERROR:exception_snapshot_win.cc(87)] thread ID 12792 not found in process
+[1118/142454.046:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[1123/112653.360:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports

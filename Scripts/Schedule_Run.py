@@ -40,8 +40,8 @@ def run_threaded(job_func):
 
 
 # schedule run
-schedule.every().day.at('14:15').do(run_threaded, run_order)
-schedule.every().day.at('14:15').do(run_threaded, run_listing)
+schedule.every().day.at('15:53').do(run_threaded, run_order)
+schedule.every().day.at('15:53').do(run_threaded, run_listing)
 
 while 1:
     schedule.run_pending()

@@ -26,6 +26,17 @@ def download_new_shop_tracker():
     get_certain_google_sheets(list_of_google_sheet_name, output_path, selected_sheet)
 
 
+# download seller index
+def download_seller_index():
+    list_of_google_sheet_name = [
+    {"doc": "Seller_Index_from_Salesforce"}
+    ]
+    output_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\' \
+                  'Shopee 2016.4.12\\2016.8.28 Seller Index Data\\'
+    selected_sheet = ['Raw_Seller_Index']
+    get_certain_google_sheets(list_of_google_sheet_name, output_path, selected_sheet)
+
+
 # download staff contact list
 def download_contact_list():
     list_of_google_sheet_name = [
@@ -36,9 +47,11 @@ def download_contact_list():
     selected_sheet = ['sheet1']
     get_certain_google_sheets(list_of_google_sheet_name, output_path, selected_sheet)
 
+
 # schedule run
-schedule.every().day.at('14:05').do(run_threaded, download_new_shop_tracker)
-schedule.every().day.at('14:05').do(run_threaded, download_contact_list)
+schedule.every().day.at('16:00').do(run_threaded, download_new_shop_tracker)
+schedule.every().day.at('16:00').do(run_threaded, download_seller_index)
+schedule.every().day.at('16:00').do(run_threaded, download_contact_list)
 
 while 1:
     schedule.run_pending()

@@ -3,3 +3,5 @@
 [1118/142454.046:ERROR:exception_snapshot_win.cc(87)] thread ID 12792 not found in process
 [1118/142454.046:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
 [1123/112653.360:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
+[1129/225950.419:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
+[1202/103900.135:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports

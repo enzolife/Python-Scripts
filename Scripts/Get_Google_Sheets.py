@@ -3,34 +3,34 @@ import csv
 import gspread
 import httplib2
 import pandas as pd
-import logging
 import re
+import time
 from oauth2client.service_account import ServiceAccountCredentials
 from Scripts.Get_Particular_Date import *
 # from df2gspread import df2gspread as d2g
 from itertools import islice
 
-logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
-logging.info('Start of program.')
 
+def get_access_token():
+    scope = [
+        'https://www.googleapis.com/auth/drive.metadata.readonly',
+        'https://www.googleapis.com/auth/drive',
+        'https://spreadsheets.google.com/feeds',
+        'https://docs.google.com/feeds'
+    ]
 
-scope = [
-    'https://www.googleapis.com/auth/drive.metadata.readonly',
-    'https://www.googleapis.com/auth/drive',
-    'https://spreadsheets.google.com/feeds',
-    'https://docs.google.com/feeds'
-]
-
-credentials_path = os.path.abspath('..\\Enzo Test Project-ea5529b41c25.json')
-credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
-# 重新刷新token，以防token失效
-try:
-    gc = gspread.authorize(credentials)
-    if credentials.access_token_expired:
-        credentials.refresh(httplib2.Http())
-        print('Access Token is refreshed.')
-except Exception as e:
-    print('An exception happened: ' + str(e))
+    credentials_path = "C://Users//Enzo.kuang//Documents//Python Scripts//Enzo Test Project-ea5529b41c25.json"
+    # credentials_path = os.path.abspath('..\\Enzo Test Project-ea5529b41c25.json')
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
+    # 重新刷新token，以防token失效
+    try:
+        gc = gspread.authorize(credentials)
+        if credentials.access_token_expired:
+            credentials.refresh(httplib2.Http())
+            print('Access Token is refreshed.')
+        return gc
+    except Exception as e:
+        print('An exception happened: ' + str(e))
 
 
 # 下载Google Sheet到本地csv
@@ -44,6 +44,8 @@ def get_certain_google_sheets(list_of_google_sheet_name, output_path, selected_s
 
     # list_of_lists = worksheet.get_all_values()
     # list_of_lists
+
+    gc = get_access_token()
 
     print('Google Sheet download start.')
 
@@ -77,6 +79,8 @@ def get_certain_google_sheets(list_of_google_sheet_name, output_path, selected_s
 
 # 下载Google Sheet到Data Frame
 def get_certain_google_sheets_to_dataframe(book_name, selected_sheet):
+    gc = get_access_token()
+
     print('Google Sheet to Data Frame start.')
 
     doc = gc.open(book_name)
@@ -109,7 +113,8 @@ def upload_dataframe_to_google_sheet(data_frame, spread_sheet_id, wks_name):
         # if spreadsheet already exists, all data of provided worksheet(or first as default)
         # will be replaced with data of given DataFrame, make sure that this is what you need!
     except Exception as err:
-        print('An exception happened: ' + str(err) + ", upload fails. Try again.")
+        print('An exception happened: ' + str(err) + ", upload fails. \nWait 60 second and try again.")
+        time.sleep(60)
         upload(data_frame, spread_sheet_id, wks_name)
 
     print('Dataframe is uploaded to Google Sheet.')
@@ -123,6 +128,8 @@ def upload(df, gfile="/New Spreadsheet", wks_name=None, chunk_size=1000,
     # credentials = get_credentials(credentials)
     # auth for gspread
     # gc = gspread.authorize(credentials)
+
+    gc = get_access_token()
 
     gc.open_by_key(gfile)
     gfile_id = gfile
@@ -246,6 +253,8 @@ def get_worksheet(gc, gfile_id, wks_name, write_access=False, new_sheet_dimensio
 
 # 在google sheet的某个单元格添加last update time
 def upload_last_update_time(spread_sheet_id, wks_name, cell):
+    gc = get_access_token()
+
     print('Last update time update start.')
     workbook = gc.open_by_key(spread_sheet_id)
     worksheet = workbook.worksheet(wks_name)

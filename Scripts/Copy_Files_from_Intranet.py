@@ -48,9 +48,9 @@ def check_all_country_available(checked_path):
 
                 country_name = file_type_list[file_type]
 
-            if country_name not in country_list:
-                country_list.append(country_name)
-            country_list.sort()
+                if country_name not in country_list:
+                    country_list.append(country_name)
+                country_list.sort()
 
         if country_list == ['ID', 'MY', 'PH', 'SG', 'TH', 'TW']:
             print("All country data in " + folder_name + " are downloaded.")
@@ -62,8 +62,8 @@ def check_all_country_available(checked_path):
 # 判断文件夹是否非空、是否都是今天、是否所有国家都齐备
 def check_data_validation(path):
     if listdir_not_hidden(path) != "" \
-            and check_last_update_date_within_folder(path) is not False\
-            and check_all_country_available(path) is not False:
+            and check_last_update_date_within_folder(path) is True\
+            and check_all_country_available(path) is True:
         return True
     else:
         return False

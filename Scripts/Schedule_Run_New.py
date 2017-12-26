@@ -23,34 +23,40 @@ logging.info('Start of program.')
 def run_order():
     from_path = "\\\\10.12.50.3\\data_source\\order_csv"
     while True:
-        if check_data_validation(from_path) is not False:
+        if check_data_validation(from_path) is True:
             copy_order_report_from_intranet()
             if get_concatenated_order_report is not False:
                 calculate_order_gmv_by_shop()
                 break
+        else:
+            time.sleep(300)
 
 
 # non stop run listing
 def run_listing():
     from_path = "\\\\10.12.50.3\\data_source\\listing_csv"
     while True:
-        if check_data_validation(from_path) is not False:
+        if check_data_validation(from_path) is True:
             copy_listing_report_from_intranet()
             if get_concatenated_listing_report is not False:
                 calculate_sku_by_shop()
                 calculate_sku_by_cat_product()
                 break
+        else:
+            time.sleep(300)
 
 
 # non stop run pricing
 def run_pricing():
     from_path = "\\\\10.12.50.3\\data_source\\pricing_csv"
     while True:
-        if check_data_validation(from_path) is not False:
+        if check_data_validation(from_path) is True:
             copy_pricing_report_from_intranet()
             if get_concatenated_pricing_report is not False:
                 calculate_pricing_by_cat_product()
                 break
+        else:
+            time.sleep(300)
 
 
 def run_bd_index():
@@ -158,11 +164,11 @@ def schedule_run_7():
 
 if __name__ == '__main__':
     # schedule run
-    schedule.every().day.at('14:30').do(schedule_run_1)  # seller index
-    schedule.every().day.at('14:45').do(schedule_run_2)  # bd index
-    schedule.every().day.at('15:30').do(schedule_run_3)  # pricing
-    schedule.every().day.at('18:00').do(schedule_run_4)  # order
-    schedule.every().day.at('15:15').do(schedule_run_5)  # listing
+    schedule.every().day.at('12:30').do(schedule_run_1)  # seller index
+    schedule.every().day.at('13:45').do(schedule_run_2)  # bd index
+    schedule.every().day.at('15:00').do(schedule_run_3)  # pricing
+    schedule.every().day.at('14:00').do(schedule_run_4)  # order
+    schedule.every().day.at('14:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
     schedule.every().day.at('16:00').do(schedule_run_7)  # local cat stat
 

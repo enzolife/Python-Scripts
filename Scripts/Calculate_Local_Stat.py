@@ -8,6 +8,7 @@ def calculate_local_stat():
     search_message = ListMessagesMatchingQuery('me',
                                                'from:(mingjie.lyu@shopee.com) subject:(cncb vs country) -weekly '
                                                'has:attachment',
+                                               50
                                                )
     last_search_message_id = search_message[0]['id']
     print('Search completed.')

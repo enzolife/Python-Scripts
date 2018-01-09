@@ -15,54 +15,55 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python_Scripts$2017_5_16_Get_Yesterday_SKU_by_Shop.coverage" NAME="2017.5.16+Get+Yesterday+SKU+by+Shop Coverage Results" MODIFIED="1497258380783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_SMT_Web_Scraping.coverage" NAME="Enzo_SMT_Web_Scraping Coverage Results" MODIFIED="1505360636140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Download_from_Google_Sheet.coverage" NAME="Schedule_Download_from_Google_Sheet Coverage Results" MODIFIED="1502440864117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Google_Sheets.coverage" NAME="Get_Google_Sheets Coverage Results" MODIFIED="1514023935529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Date.coverage" NAME="Get_Date Coverage Results" MODIFIED="1497264575953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Order_Report.coverage" NAME="Get_Order_Report Coverage Results" MODIFIED="1510562903562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Seller_Index.coverage" NAME="Get_Seller_Index Coverage Results" MODIFIED="1507632913486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$test3.coverage" NAME="test3 Coverage Results" MODIFIED="1508825890878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Seller_Index.coverage" NAME="Get_Seller_Index Coverage Results" MODIFIED="1515492427540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Local_Stat.coverage" NAME="Calculate_Local_Stat Coverage Results" MODIFIED="1513913540785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1499407884472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Performance_Report.coverage" NAME="Calculate_BD_Performance_Report Coverage Results" MODIFIED="1502777410476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Local_Currency.coverage" NAME="Get_Local_Currency Coverage Results" MODIFIED="1509616358218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Copy_Files_from_FTP.coverage" NAME="Copy_Files_from_FTP Coverage Results" MODIFIED="1498725773666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Seller_Index.coverage" NAME="Calculate_Seller_Index Coverage Results" MODIFIED="1512102303679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Run_New.coverage" NAME="Schedule_Run_New Coverage Results" MODIFIED="1514268462538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Local_Currency.coverage" NAME="Get_Local_Currency Coverage Results" MODIFIED="1514362547606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Delect.coverage" NAME="Schedule_Delect Coverage Results" MODIFIED="1501669210548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Lead_Index.coverage" NAME="Get_Lead_Index Coverage Results" MODIFIED="1504859498428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Pricing_Report.coverage" NAME="Get_Pricing_Report Coverage Results" MODIFIED="1506572559415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Lead_Index.coverage" NAME="Get_Lead_Index Coverage Results" MODIFIED="1515496080713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_SKU_by_Shop_New.coverage" NAME="Calculate_SKU_by_Shop_New Coverage Results" MODIFIED="1511770182731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Unittests_for_Schedule_Run_test.coverage" NAME="Unittests for Schedule_Run.test Coverage Results" MODIFIED="1498466156253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_SKU_by_Shop_New_New.coverage" NAME="Calculate_SKU_by_Shop_New_New Coverage Results" MODIFIED="1513851451802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Listing_Downloaded_QC.coverage" NAME="Listing_Downloaded_QC Coverage Results" MODIFIED="1497349387740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Delete_Files_in_Folder.coverage" NAME="Delete_Files_in_Folder Coverage Results" MODIFIED="1498734003407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Run.coverage" NAME="Schedule_Run Coverage Results" MODIFIED="1500537171514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Particular_Date.coverage" NAME="Get_Particular_Date Coverage Results" MODIFIED="1502961362701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Local_Category_Stat.coverage" NAME="Calculate_Local_Category_Stat Coverage Results" MODIFIED="1508916942952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Test.coverage" NAME="Test Coverage Results" MODIFIED="1497262358935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Web_Scraping.coverage" NAME="Web_Scraping Coverage Results" MODIFIED="1505354936574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$clientsecrets.coverage" NAME="clientsecrets Coverage Results" MODIFIED="1499325223408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Anaconda3/Lib/site-packages/oauth2client" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$test.coverage" NAME="test Coverage Results" MODIFIED="1504151941278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Get_File_Name.coverage" NAME="Enzo_Get_File_Name Coverage Results" MODIFIED="1508907352671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Yesterday_SKU_by_Shop.coverage" NAME="Calculate_Yesterday_SKU_by_Shop Coverage Results" MODIFIED="1497519686350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Listing_Reports.coverage" NAME="Get_Listing_Reports Coverage Results" MODIFIED="1509965723224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Schedule_Run.coverage" NAME="Enzo_Schedule_Run Coverage Results" MODIFIED="1508210178242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Copy_Files_from_Intranet.coverage" NAME="Copy_Files_from_Intranet Coverage Results" MODIFIED="1514269637273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_SKU_by_Cat_Product.coverage" NAME="Calculate_SKU_by_Cat_Product Coverage Results" MODIFIED="1509966531818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$test_2_.coverage" NAME="test(2) Coverage Results" MODIFIED="1499158645837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Pricing_by_Shop.coverage" NAME="Calculate_Pricing_by_Shop Coverage Results" MODIFIED="1500029700707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Local_MY_Shocking_Sale.coverage" NAME="Calculate_Local_MY_Shocking_Sale Coverage Results" MODIFIED="1515406539655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Order_by_Shop.coverage" NAME="Calculate_Order_by_Shop Coverage Results" MODIFIED="1497523182326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Order_GMV_by_Shop.coverage" NAME="Calculate_Order_GMV_by_Shop Coverage Results" MODIFIED="1514271398994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Order_GMV_by_Shop.coverage" NAME="Calculate_Order_GMV_by_Shop Coverage Results" MODIFIED="1514961402805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Gmail_Config.coverage" NAME="Get_Gmail_Config Coverage Results" MODIFIED="1508826015043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Pricing_by_Cat_Product.coverage" NAME="Calculate_Pricing_by_Cat_Product Coverage Results" MODIFIED="1514024391218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Pricing_by_Cat_Product.coverage" NAME="Calculate_Pricing_by_Cat_Product Coverage Results" MODIFIED="1514447994169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Get_SMT_Search_Result.coverage" NAME="Enzo_Get_SMT_Search_Result Coverage Results" MODIFIED="1505700607953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Unittests_in_test_2__py.coverage" NAME="Unittests in test(2).py Coverage Results" MODIFIED="1499158610759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Delect_File.coverage" NAME="Delect_File Coverage Results" MODIFIED="1498722270998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1508900135565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$2017_5_16_Get_Yesterday_SKU_by_Shop.coverage" NAME="2017.5.16+Get+Yesterday+SKU+by+Shop Coverage Results" MODIFIED="1497258380783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Download_from_Google_Sheet.coverage" NAME="Schedule_Download_from_Google_Sheet Coverage Results" MODIFIED="1502440864117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Google_Sheets.coverage" NAME="Get_Google_Sheets Coverage Results" MODIFIED="1514023935529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$test3.coverage" NAME="test3 Coverage Results" MODIFIED="1508825890878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Copy_Files_from_FTP.coverage" NAME="Copy_Files_from_FTP Coverage Results" MODIFIED="1498725773666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Seller_Index.coverage" NAME="Calculate_Seller_Index Coverage Results" MODIFIED="1515480983035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Run_New.coverage" NAME="Schedule_Run_New Coverage Results" MODIFIED="1515500934611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Pricing_Report.coverage" NAME="Get_Pricing_Report Coverage Results" MODIFIED="1506572559415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Unittests_for_Schedule_Run_test.coverage" NAME="Unittests for Schedule_Run.test Coverage Results" MODIFIED="1498466156253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_SKU_by_Shop_New_New.coverage" NAME="Calculate_SKU_by_Shop_New_New Coverage Results" MODIFIED="1514969583052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Listing_Downloaded_QC.coverage" NAME="Listing_Downloaded_QC Coverage Results" MODIFIED="1497349387740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Delete_Files_in_Folder.coverage" NAME="Delete_Files_in_Folder Coverage Results" MODIFIED="1498734003407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Get_Particular_Date.coverage" NAME="Get_Particular_Date Coverage Results" MODIFIED="1502961362701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Test.coverage" NAME="Test Coverage Results" MODIFIED="1497262358935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$clientsecrets.coverage" NAME="clientsecrets Coverage Results" MODIFIED="1499325223408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Anaconda3/Lib/site-packages/oauth2client" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$test.coverage" NAME="test Coverage Results" MODIFIED="1504151941278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Yesterday_SKU_by_Shop.coverage" NAME="Calculate_Yesterday_SKU_by_Shop Coverage Results" MODIFIED="1497519686350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Schedule_Run.coverage" NAME="Enzo_Schedule_Run Coverage Results" MODIFIED="1508210178242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Copy_Files_from_Intranet.coverage" NAME="Copy_Files_from_Intranet Coverage Results" MODIFIED="1514902217754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Unittests_in_test_2__py.coverage" NAME="Unittests in test(2).py Coverage Results" MODIFIED="1499158610759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_SKU_by_Shop.coverage" NAME="Calculate_SKU_by_Shop Coverage Results" MODIFIED="1510048899184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Index.coverage" NAME="Calculate_BD_Index Coverage Results" MODIFIED="1514268204864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Index.coverage" NAME="Calculate_BD_Index Coverage Results" MODIFIED="1515500146350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -82,34 +83,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Schedule_Run_New.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Schedule_Run_New.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/Schedule_Run_New.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+            <state relative-caret-position="263">
+              <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
               <folding>
-                <element signature="e#2178#2238#0" expanded="false" />
-                <element signature="e#2269#2470#0" expanded="false" />
-                <element signature="e#2499#2521#0" expanded="false" />
-                <element signature="e#2554#2585#0" expanded="false" />
-                <element signature="e#2614#2888#0" expanded="false" />
-                <element signature="e#2917#3183#0" expanded="false" />
-                <element signature="e#3212#3476#0" expanded="false" />
-                <element signature="e#3505#3765#0" expanded="false" />
-                <element signature="e#3794#4058#0" expanded="false" />
-                <element signature="e#4087#4358#0" expanded="false" />
-                <element signature="e#4387#4666#0" expanded="false" />
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#2361#2562#0" expanded="false" />
+                <element signature="e#2745#3019#0" expanded="false" />
+                <element signature="e#3048#3314#0" expanded="false" />
+                <element signature="e#3343#3607#0" expanded="false" />
+                <element signature="e#3636#3896#0" expanded="false" />
+                <element signature="e#3925#4189#0" expanded="false" />
+                <element signature="e#4218#4489#0" expanded="false" />
+                <element signature="e#4518#4797#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Copy_Files_from_Intranet.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="204" column="15" lean-forward="true" selection-start-line="204" selection-start-column="15" selection-end-line="204" selection-end-column="15" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -126,10 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>16:00</find>
-      <find>filtered_result</find>
-      <find>gp_pre_index</find>
-      <find>#</find>
       <find>Yesterday Gross Order by Cat</find>
       <find>W-1 Gross Order by Cat by Hour is completed</find>
       <find>Now calculating pricing result</find>
@@ -156,9 +141,12 @@
       <find>new_shop_index</find>
       <find>column_name</find>
       <find>Listing</find>
+      <find>Child Created Date</find>
+      <find>6007919</find>
+      <find>bd_index</find>
+      <find>GP Account Lead Name</find>
     </findStrings>
     <replaceStrings>
-      <replace>M_1</replace>
       <replace>Cumulative</replace>
       <replace>['SKU Live?']</replace>
       <replace>'New Live SKUs': 'count'</replace>
@@ -178,7 +166,6 @@
       <replace>18:00</replace>
       <replace>bd_index_result</replace>
       <replace>gp_index</replace>
-      <replace>lead_index</replace>
       <replace>on_board_lead_index</replace>
       <replace>seller_index</replace>
       <replace>time.sleep(60)</replace>
@@ -188,6 +175,8 @@
       <replace>end_of_last_week</replace>
       <replace>new_shop_index_M_1</replace>
       <replace>new_shop_index_MTD</replace>
+      <replace>Shopee Account Created Date</replace>
+      <replace>lead_index</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -196,9 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Scripts/Get_File_Create_Modify_Time.py" />
-        <option value="$PROJECT_DIR$/Scripts/Delect_File.py" />
-        <option value="$PROJECT_DIR$/Scripts/Delect_Files_in_Folder.py" />
         <option value="$PROJECT_DIR$/Scripts/Copy_Files_from_FTP.py" />
         <option value="$PROJECT_DIR$/Scripts/test(2).py" />
         <option value="$PROJECT_DIR$/test(2).py" />
@@ -224,28 +210,31 @@
         <option value="$PROJECT_DIR$/Scripts/Get_Pricing_Report.py" />
         <option value="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/Calculate_Local_Stat.py" />
         <option value="$PROJECT_DIR$/Scripts/test3.py" />
-        <option value="$PROJECT_DIR$/Scripts/Get_Gmail_Config.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_Pricing_by_Cat_Product.py" />
-        <option value="$PROJECT_DIR$/Scripts/Calculate_Order_GMV_by_Shop.py" />
-        <option value="$PROJECT_DIR$/Scripts/Calculate_BD_Index.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_SKU_by_Cat_Product.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_Local_Category_Stat.py" />
         <option value="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/Enzo_Get_File_Name.py" />
         <option value="$PROJECT_DIR$/Scripts/test2.py" />
         <option value="$PROJECT_DIR$/Scripts/Enzo_Get_File_Name.py" />
         <option value="$PROJECT_DIR$/Scripts/Enzo_Get_Yingxionglianmeng.py" />
-        <option value="$PROJECT_DIR$/Scripts/Get_Local_Currency.py" />
         <option value="$PROJECT_DIR$/Scripts/Get_Listing_Reports.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop_New.py" />
         <option value="$PROJECT_DIR$/Scripts/Get_Order_Report.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py" />
-        <option value="$PROJECT_DIR$/Scripts/Get_Seller_Index.py" />
-        <option value="$PROJECT_DIR$/Scripts/Get_Lead_Index.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop_New_New.py" />
-        <option value="$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_Local_Stat.py" />
+        <option value="$PROJECT_DIR$/Scripts/Get_Local_Currency.py" />
+        <option value="$PROJECT_DIR$/Scripts/Calculate_Order_GMV_by_Shop.py" />
+        <option value="$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py" />
         <option value="$PROJECT_DIR$/Scripts/Get_Google_Sheets.py" />
+        <option value="$PROJECT_DIR$/Scripts/Calculate_Local_Flash_Sales.py" />
+        <option value="$PROJECT_DIR$/Scripts/Calculate_Local_MY_Shocking_Sale.py" />
+        <option value="$PROJECT_DIR$/Scripts/Get_Gmail_Config.py" />
+        <option value="$PROJECT_DIR$/Scripts/Get_File_Create_Modify_Time.py" />
+        <option value="$PROJECT_DIR$/Scripts/Get_Lead_Index.py" />
+        <option value="$PROJECT_DIR$/Scripts/Get_Seller_Index.py" />
+        <option value="$PROJECT_DIR$/Scripts/Calculate_BD_Index.py" />
         <option value="$PROJECT_DIR$/Scripts/Schedule_Run_New.py" />
       </list>
     </option>
@@ -296,7 +285,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -325,6 +313,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -335,13 +324,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Enzo.kuang\Documents\Python Scripts\Scripts" />
-      <recent name="C:\Users\Enzo.kuang\Documents\Python-Scripts\Scripts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Enzo.kuang\Documents\Python Scripts\Scripts" />
       <recent name="C:\Users\Enzo.kuang\Documents\Python-Scripts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Enzo.kuang\Documents\Python Scripts\Scripts" />
+      <recent name="C:\Users\Enzo.kuang\Documents\Python-Scripts\Scripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -356,8 +345,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Calculate_Order_GMV_by_Shop">
-    <configuration default="false" name="Calculate_Pricing_by_Cat_Product" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Schedule_Run_New">
+    <configuration default="false" name="Calculate_Seller_Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -370,13 +359,13 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python Scripts" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Calculate_Pricing_by_Cat_Product.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Schedule_Run_New" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Get_Seller_Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -389,7 +378,26 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python Scripts" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Schedule_Run_New.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Get_Seller_Index.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Get_Lead_Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python Scripts" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Get_Lead_Index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -414,7 +422,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Copy_Files_from_Intranet" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Schedule_Run_New" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -427,26 +435,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python Scripts" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Calculate_Order_GMV_by_Shop" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Python Scripts" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Calculate_Order_GMV_by_Shop.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Schedule_Run_New.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -635,19 +624,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Calculate_Pricing_by_Cat_Product" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Copy_Files_from_Intranet" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Calculate_Order_GMV_by_Shop" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Calculate_Seller_Index" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Get_Seller_Index" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Get_Lead_Index" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Calculate_Order_GMV_by_Shop" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Copy_Files_from_Intranet" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Calculate_Pricing_by_Cat_Product" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Get_Lead_Index" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Get_Seller_Index" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Calculate_Seller_Index" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -732,14 +721,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26545843" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26812366" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917467" sideWeight="0.48294243" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29846448" sideWeight="0.45415777" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821497" sideWeight="0.48294243" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917467" sideWeight="0.47654584" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37044147" sideWeight="0.54584223" order="10" side_tool="false" content_ui="tabs" x="465" y="423" width="989" height="313" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36852208" sideWeight="0.54584223" order="10" side_tool="false" content_ui="tabs" x="465" y="423" width="989" height="313" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917467" sideWeight="0.48081023" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -785,34 +775,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="305" />
+      <option name="time" value="317" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/gspread/httpsession.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Schedule_Download_from_Google_Sheet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Untitled.ipynb" />
-    <entry file="file://$PROJECT_DIR$/Scripts/test.ipynb" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/xhtml2pdf/util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5526">
@@ -841,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Enzo Test Project-ea5529b41c25.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="73" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -859,13 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="74" lean-forward="false" selection-start-line="0" selection-start-column="74" selection-end-line="0" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate Seller Index.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
         </state>
       </provider>
     </entry>
@@ -897,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Local_Category_Stat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Enzo_Get_File_Name.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -913,13 +858,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Enzo_Get_Yingxionglianmeng.py" />
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Local_Currency.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="58" column="64" lean-forward="true" selection-start-line="58" selection-start-column="64" selection-end-line="58" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9224">
@@ -927,24 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="2035" column="0" lean-forward="false" selection-start-line="2035" selection-start-column="0" selection-end-line="2035" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/googleapiclient/discovery_cache/file_cache.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1044">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -970,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Pricing_by_Cat_Product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop_New.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
@@ -993,60 +909,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Seller_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Lead_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="51" lean-forward="true" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_BD_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding>
-            <element signature="e#5623#7782#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="340" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Cat_Product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="143" column="43" lean-forward="false" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="60" column="57" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="60" selection-end-column="57" />
-          <folding>
-            <element signature="e#253#694#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/glob.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,61 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Particular_Date.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_File_Create_Modify_Time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Order_Report.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Local_Stat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Get_Gmail_Config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="94" column="60" lean-forward="true" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="60" />
-          <folding>
-            <element signature="e#356#448#0" expanded="false" />
-            <element signature="e#1657#1959#0" expanded="false" />
-            <element signature="e#2025#2706#0" expanded="false" />
-            <element signature="e#4886#5584#0" expanded="false" />
-            <element signature="e#5633#5847#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Aliexpress_Create_Product_Campaign.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -1120,65 +931,264 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="340" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Pricing_by_Cat_Product.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Local_Currency.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Shop_New_New.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1183">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        <state relative-caret-position="271">
+          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Get_Google_Sheets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="-1854">
+          <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
           <folding>
             <element signature="e#0#9#0" expanded="false" />
-            <element signature="e#7729#7862#0" expanded="false" />
-            <element signature="e#7773#7862#0" expanded="false" />
-            <element signature="e#8419#9332#0" expanded="false" />
+            <element signature="e#7730#7819#0" expanded="false" />
+            <element signature="e#8376#9289#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Order_Report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/googleapiclient/discovery_cache/file_cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Order_GMV_by_Shop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="316" column="33" lean-forward="false" selection-start-line="316" selection-start-column="33" selection-end-line="316" selection-end-column="33" />
+        <state relative-caret-position="3720">
+          <caret line="288" column="59" lean-forward="false" selection-start-line="288" selection-start-column="59" selection-end-line="288" selection-end-column="59" />
           <folding>
-            <element signature="e#960#1153#0" expanded="false" />
-            <element signature="e#6854#8266#0" expanded="false" />
+            <element signature="e#16#35#0" expanded="false" />
             <element signature="e#9182#10656#0" expanded="false" />
-            <element signature="e#15758#16505#0" expanded="false" />
+            <element signature="e#15767#16514#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Local_Stat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Local_Category_Stat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Enzo Test Project-ea5529b41c25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="73" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/_collections_abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="669" column="0" lean-forward="false" selection-start-line="669" selection-start-column="0" selection-end-line="669" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="669" column="0" lean-forward="false" selection-start-line="669" selection-start-column="0" selection-end-line="669" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_SKU_by_Cat_Product.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1089">
+          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Local_MY_Shocking_Sale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate Seller Index.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Gmail_Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="174" column="12" lean-forward="false" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+          <folding>
+            <element signature="e#356#448#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/compat/numpy/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="3291" column="0" lean-forward="false" selection-start-line="3291" selection-start-column="0" selection-end-line="3291" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_File_Create_Modify_Time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Particular_Date.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Lead_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_BD_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="231" column="40" lean-forward="false" selection-start-line="231" selection-start-column="10" selection-end-line="231" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#99#0" expanded="true" />
+            <element signature="e#644#3608#0" expanded="false" />
+            <element signature="e#3655#4353#0" expanded="false" />
+            <element signature="e#4430#6589#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <folding>
+            <element signature="e#253#694#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Get_Seller_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="119" column="38" lean-forward="false" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Schedule_Run_New.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+        <state relative-caret-position="263">
+          <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
           <folding>
-            <element signature="e#2178#2238#0" expanded="false" />
-            <element signature="e#2269#2470#0" expanded="false" />
-            <element signature="e#2499#2521#0" expanded="false" />
-            <element signature="e#2554#2585#0" expanded="false" />
-            <element signature="e#2614#2888#0" expanded="false" />
-            <element signature="e#2917#3183#0" expanded="false" />
-            <element signature="e#3212#3476#0" expanded="false" />
-            <element signature="e#3505#3765#0" expanded="false" />
-            <element signature="e#3794#4058#0" expanded="false" />
-            <element signature="e#4087#4358#0" expanded="false" />
-            <element signature="e#4387#4666#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#2361#2562#0" expanded="false" />
+            <element signature="e#2745#3019#0" expanded="false" />
+            <element signature="e#3048#3314#0" expanded="false" />
+            <element signature="e#3343#3607#0" expanded="false" />
+            <element signature="e#3636#3896#0" expanded="false" />
+            <element signature="e#3925#4189#0" expanded="false" />
+            <element signature="e#4218#4489#0" expanded="false" />
+            <element signature="e#4518#4797#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Copy_Files_from_Intranet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="204" column="15" lean-forward="true" selection-start-line="204" selection-start-column="15" selection-end-line="204" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -1,13 +1,7 @@
-# coding: utf-8
-
-# In[5]:
-
 import os
 import platform
 import time
 
-
-# In[15]:
 
 # 获得创建时间
 def creation_date(path_to_file):

@@ -231,7 +231,7 @@ def calculate_order_gmv_by_shop():
                                    frame6['Seller User ID'],
                                    frame6['ShopId(S)'],
                                    frame6['Username(S)'],
-                                   frame6['Child Created Date'],
+                                   frame6['Shopee Account Created Date'],
                                    frame6['Country'],
                                    frame6['Week Num']])
         result6 = grouped6.agg({'Order ID': 'count'}) \
@@ -297,7 +297,8 @@ def calculate_order_gmv_by_shop():
                                                  get_mtd_duration(),
                                                  'MTD Daily Gross Order by GP Acc Owner')
 
-        # 9. 计算M-1/M-2/M-3 Order by GP Acc
+        # 9. 计算MTD Daily Order by Shops
+
 
         # 10. 计算MTD/M-1 Order by GP Acc
 

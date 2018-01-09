@@ -9,6 +9,7 @@ from Scripts.Calculate_BD_Index import *
 from Scripts.Calculate_Seller_Index import *
 from Scripts.Calculate_Local_Stat import *
 from Scripts.Calculate_Local_Category_Stat import *
+from Scripts.Calculate_Local_MY_Shocking_Sale import *
 from Scripts.Copy_Files_from_Intranet import *
 from Scripts.Get_Listing_Reports import get_concatenated_listing_report
 from Scripts.Get_Order_Report import get_concatenated_order_report
@@ -60,6 +61,7 @@ def run_pricing():
 
 
 def run_bd_index():
+    calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
     upload_bd_performance()
 
@@ -77,6 +79,7 @@ def run_local_stat():
 
 def run_local_cat_stat():
     calculate_local_category_stat()
+    calculate_local_my_shocking_sale()
 
 
 def schedule_run_1():
@@ -164,13 +167,13 @@ def schedule_run_7():
 
 if __name__ == '__main__':
     # schedule run
-    schedule.every().day.at('12:30').do(schedule_run_1)  # seller index
-    schedule.every().day.at('13:45').do(schedule_run_2)  # bd index
+    schedule.every().day.at('13:00').do(schedule_run_1)  # seller index
+    schedule.every().day.at('16:00').do(schedule_run_2)  # bd index
     schedule.every().day.at('15:00').do(schedule_run_3)  # pricing
     schedule.every().day.at('14:00').do(schedule_run_4)  # order
     schedule.every().day.at('14:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
-    schedule.every().day.at('16:00').do(schedule_run_7)  # local cat stat
+    schedule.every().day.at('17:00').do(schedule_run_7)  # local cat stat
 
     while 1:
         schedule.run_pending()

@@ -275,6 +275,55 @@ def GetMultiAttachments(user_id, msg_id, store_dir, file_rename, data_frame=0):
         print('An error occurred: %s' % error)
 
 
+# 获得多个附件，选择其中一个，转为Data Frame或下载
+def GetSelectedMultiAttachments(user_id, msg_id, store_dir, file_rename, select_num, data_frame=0):
+    """Get and store attachment from Message with given id.
+
+    Args:
+    service: Authorized Gmail API service instance.
+    user_id: User's email address. The special value "me"
+    can be used to indicate the authenticated user.
+    msg_id: ID of Message containing attachment.
+    store_dir: The directory used to store attachments.
+    """
+    credentials = get_credentials()
+    http = credentials.authorize(httplib2.Http())
+    service = discovery.build('gmail', 'v1', http=http)
+
+    file_found = 0
+
+    try:
+        message = service.users().messages().get(userId=user_id, id=msg_id).execute()
+
+        for part in message['payload']['parts']:
+            if part['filename']:
+                file_found += 1
+                if file_found == select_num:
+                    if 'data' in part['body']:
+                        data = part['body']['data']
+                    else:
+                        att_id = part['body']['attachmentId']
+                        att = service.users().messages().attachments() \
+                            .get(userId=user_id, messageId=msg_id, id=att_id).execute()
+                        data = att['data']
+                    file_data = base64.urlsafe_b64decode(data.encode('UTF-8'))
+                    path = ''.join([store_dir, file_rename])
+
+                    f = open(path, 'wb')
+                    f.write(file_data)
+                    f.close()
+
+        if data_frame != 0:
+            pwd = os.getcwd()  # 首先取初始工作目录
+            open_path = ''.join([store_dir, file_rename])
+            os.chdir(os.path.dirname(open_path))
+            attachment_data_frame = pd.read_csv(os.path.basename(open_path), index_col=None, header=0)
+            os.chdir(pwd)
+            return attachment_data_frame
+
+    except errors.HttpError as error:
+        print('An error occurred: %s' % error)
+
 if __name__ == '__main__':
 
     to = 'enzolife@foxmail.com'

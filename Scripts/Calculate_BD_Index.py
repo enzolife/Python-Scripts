@@ -2,33 +2,13 @@ from Scripts.Get_Lead_Index import get_lead_index_from_local_xlsx, get_lead_inde
 from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
 from Scripts.Get_Particular_Date import *
 from Scripts.Get_Gmail_Config import send_message
+from Scripts.Get_Seller_Index import get_new_shop_index
 import pandas as pd
 import numpy as np
 
 
 def get_bd_index_config():
-    output_file_path = 'D:\\'
-
     bd_index = get_lead_index_from_google_sheet()
-
-    # 补充空值
-    bd_index['Source'] = bd_index['Source'].fillna("N/A")
-    bd_index['Key Brands 1'] = bd_index['Key Brands 1'].fillna("N/A")
-    bd_index['Lead Source Details'] = bd_index['Lead Source Details'].fillna("N/A")
-
-    # 修改格式
-    bd_index['Open Lead Duration'] = bd_index['Open Lead Duration'].apply(pd.to_numeric).fillna(0)
-    bd_index['Average Sales Cycle'] = bd_index['Average Sales Cycle'].apply(pd.to_numeric).fillna(0)
-
-    # 增加判断列
-    bd_index['CB Lead?'] = np.where(bd_index['Seller Classification'] == 'CB Trader', 1, 0)
-    bd_index['Taobao Lead?'] = np.where(bd_index['Seller Classification'] == 'Taobao Seller', 1, 0)
-    bd_index['Leads contacted?'] = np.where(bd_index['Lead Status'] == 'Open', 0, 1)
-    bd_index['Leads Already Live?'] = np.where(bd_index['Lead Status'] == 'Already Live', 1, 0)
-    bd_index['Leads Passed to OB?'] = np.where(bd_index['Sales Lead: Owner Name'] == 'Mei Wenjuan', 1,
-                                               np.where(bd_index['Sales Lead: Owner Name'] == 'Leon Chen', 1, 0))
-    bd_index['Seller Launched by OB?'] = np.where(bd_index['Leads Already Live?'] + bd_index['Leads Passed to OB?'] == 2
-                                                  , 1, 0)
     return bd_index
 
 
@@ -189,9 +169,64 @@ def calculate_num_of_leads_in_different_stage():
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
                                      'Initial Daily # of Leads')
 
+
 # Reject Reason
 # def calculate_num_of_leads_by_rejected_reason():
 
+
+def calculate_num_of_leads_claimed():
+    bd_index = get_bd_index_config()
+
+    start_of_w_2 = get_last_monday() + datetime.timedelta(days=-7)
+    end_of_w_2 = get_last_sunday() + datetime.timedelta(days=-7)
+
+    # 计算w-2 # of leads claimed by lead owner
+    bd_index_claimed_date_is_w_2 = bd_index[(bd_index['Claimed Date'] >= start_of_w_2)
+                                            & (bd_index['Claimed Date'] <= end_of_w_2)]
+
+    bd_index_claimed_date_is_w_2_group = bd_index_claimed_date_is_w_2.groupby('Sales Lead: Owner Name')
+    bd_index_claimed_date_is_w_2_result = bd_index_claimed_date_is_w_2_group.agg({'Sales Lead: ID': 'count'}) \
+        .reset_index()
+
+    # 计算w-1 new shops by gp acc
+    new_shop_index = get_new_shop_index()
+    new_shop_index_is_w_1 = new_shop_index[(new_shop_index['Update date'] >= get_last_monday())
+                                           & (new_shop_index['Update date'] <= get_last_sunday())]
+
+    # bd index merge new shop index
+    new_shop_index_is_w_1_group = new_shop_index_is_w_1.groupby('GP Account Lead Name')
+    new_shop_index_is_w_1_result = new_shop_index_is_w_1_group.agg({'Shop id': 'count'}).reset_index()
+
+    bd_index_merge_new_shop_index = pd.merge(bd_index_claimed_date_is_w_2, new_shop_index_is_w_1_result, how='inner',
+                                             left_on=['Sales Lead: Lead Name'],
+                                             right_on=['GP Account Lead Name'])
+
+    bd_index_merge_new_shop_index_group = bd_index_merge_new_shop_index.groupby('Sales Lead: Owner Name')
+    bd_index_merge_new_shop_index_result = bd_index_merge_new_shop_index_group.agg({'Sales Lead: ID': 'count'}) \
+        .reset_index()
+
+    # final table
+    final_result = pd.merge(bd_index_claimed_date_is_w_2_result, bd_index_merge_new_shop_index_result, how='left',
+                            left_on=['Sales Lead: Owner Name'],
+                            right_on=['Sales Lead: Owner Name'])
+
+    final_result = final_result.rename(columns={'Sales Lead: ID_x': '# of leads claimed at W-2',
+                                                'Sales Lead: ID_y': '# of leads with shop opened at W-1'})
+
+    final_result['% opened'] = final_result['# of leads with shop opened at W-1']\
+                               / final_result['# of leads claimed at W-2']
+
+    final_result = final_result.sort('# of leads claimed at W-2', ascending=False)
+
+    # 上传结果
+    upload_dataframe_to_google_sheet(final_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'Claimed W+1 Account Opening Report')
+
+    return final_result
+
+
 if __name__ == '__main__':
-    calculate_num_of_leads_by_date()
-    upload_bd_performance()
+    # calculate_num_of_leads_by_date()
+    # upload_bd_performance()
+    print(calculate_num_of_leads_claimed())

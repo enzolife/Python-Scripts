@@ -7,7 +7,6 @@ import re
 import time
 from oauth2client.service_account import ServiceAccountCredentials
 from Scripts.Get_Particular_Date import *
-# from df2gspread import df2gspread as d2g
 from itertools import islice
 
 

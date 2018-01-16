@@ -173,7 +173,7 @@ def calculate_num_of_leads_in_different_stage():
 # Reject Reason
 # def calculate_num_of_leads_by_rejected_reason():
 
-
+# Claimed W+1 Account Opening Report
 def calculate_num_of_leads_claimed():
     bd_index = get_bd_index_config()
 
@@ -213,7 +213,7 @@ def calculate_num_of_leads_claimed():
     final_result = final_result.rename(columns={'Sales Lead: ID_x': '# of leads claimed at W-2',
                                                 'Sales Lead: ID_y': '# of leads with shop opened at W-1'})
 
-    final_result['% opened'] = final_result['# of leads with shop opened at W-1']\
+    final_result['% opened'] = final_result['# of leads with shop opened at W-1'] \
                                / final_result['# of leads claimed at W-2']
 
     final_result = final_result.sort('# of leads claimed at W-2', ascending=False)
@@ -221,12 +221,107 @@ def calculate_num_of_leads_claimed():
     # 上传结果
     upload_dataframe_to_google_sheet(final_result,
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
-                                     'Claimed W+1 Account Opening Report')
+                                     'Claimed W-1 Account Opening Report')
 
     return final_result
 
 
+# Account Opening Aging Report
+def calculate_num_of_leads_claimed_by_week():
+    bd_index = get_bd_index_config()
+    new_shop_index = get_new_shop_index()
+
+    # 计算每个gp account lead name有多少个new shop
+    new_shop_index_group = new_shop_index.groupby('GP Account Lead Name')
+    new_shop_index_result = new_shop_index_group.agg({'Shop id': 'count',
+                                                      'Update date': 'min'}) \
+        .rename(columns={'Shop id': '# of new shops',
+                         'Update date': 'first shop created date'}) \
+        .reset_index()
+
+    # merge
+    bd_index = pd.merge(bd_index, new_shop_index_result, how='left',
+                        left_on=['Sales Lead: Lead Name'],
+                        right_on=['GP Account Lead Name'])
+
+    # select only claimed lead
+    bd_index = bd_index[bd_index['Claimed Date'] >= datetime.date(1900, 1, 1)]
+
+    # today
+    bd_index['Today Date'] = get_today_date()
+    bd_index['Today Date'] = pd.to_datetime(bd_index['Today Date'])
+
+    # opening lead time
+    bd_index['Opening Lead Time'] = np.where(bd_index['# of new shops'] > 0,
+                                             (bd_index['first shop created date'] - bd_index['Claimed Date']).dt.days,
+                                             np.NAN)
+
+    # delete opening lead time < 0
+    bd_index['Opening Lead Time'] = np.where(bd_index['Opening Lead Time'] >= 0,
+                                             bd_index['Opening Lead Time'],
+                                             np.NAN)
+
+    # pending time
+    bd_index['Lead Pending Time'] = np.where((bd_index['first shop created date'] >= datetime.date(1900, 1, 1)),
+                                             np.NAN,
+                                             (bd_index['Today Date'] - bd_index['Claimed Date']).dt.days)
+
+    # add week num & year
+    '''
+    bd_index['Year-Week'] = 'W' + bd_index['Claimed Date'].dt.week.apply(str)\
+                            + '-' + bd_index['Claimed Date'].dt.year.apply(str)
+                            '''
+
+    bd_index['Year'] = bd_index['Claimed Date'].dt.year
+    bd_index['Week'] = bd_index['Claimed Date'].dt.week
+
+    # aggregate
+    bd_index_group = bd_index.groupby(['Year', 'Week'])
+    bd_index_result = bd_index_group.agg({'Sales Lead: Lead Name': 'count',
+                                          'GP Account Lead Name': 'count',
+                                          'Opening Lead Time': 'mean',
+                                          'Lead Pending Time': 'mean'}) \
+        .rename(columns={'Sales Lead: Lead Name': 'Total # lead claimed',
+                         'GP Account Lead Name': '# lead with opened shop',
+                         'Opening Lead Time': 'Average opening lead time (claimed date to first shop opened date)',
+                         'Lead Pending Time': 'Average pending time (claimed date to TODAY)'})\
+        .reset_index()
+
+    # add supportive columns
+    bd_index_result['% opened'] = bd_index_result['# lead with opened shop'] / bd_index_result['Total # lead claimed']
+    bd_index_result['# lead not yet opened shop'] = bd_index_result['Total # lead claimed'] \
+                                                    - bd_index_result['# lead with opened shop']
+
+    bd_index_result['% NOT opened'] = bd_index_result['# lead not yet opened shop'] \
+                                      / bd_index_result['Total # lead claimed']
+
+    # re-arrange columns
+    bd_index_result = bd_index_result.reindex(columns=['Year',
+                                                       'Week',
+                                                       'Total # lead claimed',
+                                                       '# lead with opened shop',
+                                                       '% opened',
+                                                       'Average opening lead time '
+                                                       '(claimed date to first shop opened date)',
+                                                       '# lead not yet opened shop',
+                                                       '% NOT opened',
+                                                       'Average pending time (claimed date to TODAY)'])
+
+    bd_index_result.sort(['Year', 'Week'], ascending=[1, 1])
+
+    # 上传结果
+    upload_dataframe_to_google_sheet(bd_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'Account Opening Aging Report')
+
+    # 发送给Mei
+    bd_index
+
+    return bd_index_result
+
+
 if __name__ == '__main__':
-    # calculate_num_of_leads_by_date()
-    # upload_bd_performance()
-    print(calculate_num_of_leads_claimed())
+    calculate_num_of_leads_claimed()
+    calculate_num_of_leads_by_date()
+    calculate_num_of_leads_claimed_by_week()
+    upload_bd_performance()

@@ -11,15 +11,18 @@ from Scripts.Get_Lead_Index import get_lead_index_from_google_sheet
 
 # 方法1
 def get_seller_index_from_local_xlsx():
-    file_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
-                "\\2016.8.28 Seller Index Data\\Get_Seller_Index_from_Salesforce.xlsm"
-    seller_index = pd.read_excel(file_path, sheetname='Seller Index')
+    file_path = "\\\\10.12.50.3\\data_source\\Seller_index\\Seller Index from Salesforce.xlsx"
+    seller_index = pd.read_excel(file_path, sheetname='Sheet1')
     return seller_index
 
 
 # 方法2
 def get_seller_index_from_google_sheet():
 
+    seller_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
+                        "\\2016.8.28 Seller Index Data\\seller_index.csv"
+
+    """
     # 先判断今天的seller index是否下载
     # 如果未下载，则下载一份最新的到本地
     seller_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
@@ -29,7 +32,13 @@ def get_seller_index_from_google_sheet():
         book_name = 'Seller_Index_from_Salesforce'
         select_sheet = 'Raw_Seller_Index'
         seller_index = get_certain_google_sheets_to_dataframe(book_name, select_sheet)
+        # 去除无用的行
+        seller_index = seller_index[(seller_index['Child Account Record Type'] != np.NAN)]
         seller_index.to_csv(seller_index_path, sep=',')
+    """
+    seller_index = get_seller_index_from_local_xlsx()
+    seller_index = seller_index[:-5]
+    seller_index.to_csv(seller_index_path, sep=',')
 
     pwd = os.getcwd()
     os.chdir(os.path.dirname(seller_index_path))
@@ -60,6 +69,7 @@ def get_seller_index_from_google_sheet():
                 seller_index['Date Transferred to Onboarding Queue']
                 >= get_start_end_of_certain_month(i, 'start')), 1, 0)
         i = i + 1
+
     return seller_index
 
 
@@ -135,17 +145,21 @@ def get_new_shop_index():
                                      'GP Account Owner',
                                      'GP Account Seller Classification',
                                      'GP Account Shopee Account Created Date',
-                                     'Shopee Account Created Date']]
+                                     'Shopee Account Created Date',
+                                     'Site',
+                                     'Shop name',
+                                     'Shop url',
+                                     'PIC']]
 
     return new_shop_index
 
 
 if __name__ == '__main__':
     # frame = get_gp_acc_index()
-    # frame = get_seller_index_from_google_sheet()
-    # print(frame)
+    frame = get_seller_index_from_google_sheet()
+    print(frame)
     # frame.to_csv('D://gp_acc_index.csv', sep=',')
-    # frame.to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
+    frame.to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
 
-    print(get_new_shop_index().head(100))
-    get_new_shop_index().to_csv('D://new_shop_index.csv', sep=',', encoding="GB18030")
+    # print(get_new_shop_index().head(100))
+    # get_new_shop_index().to_csv('D://new_shop_index.csv', sep=',', encoding="GB18030")

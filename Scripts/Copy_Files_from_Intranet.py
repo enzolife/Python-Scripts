@@ -202,8 +202,8 @@ def copy_product_view_report_from_intranet():
 
 if __name__ == "__main__":
     # copy_order_report_from_intranet()
-    copy_listing_report_from_intranet()
-    # copy_pricing_report_from_intranet()
+    # copy_listing_report_from_intranet()
+    copy_pricing_report_from_intranet()
     # copy_product_view_report_from_intranet()
     # to_checked_path = "\\\\10.12.50.3\\data_source\\listing_csv"
     # check_last_update_date_within_folder(to_checked_path)

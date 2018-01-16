@@ -1,5 +1,5 @@
 import pandas as pd
-from Scripts.Get_Seller_Index import get_gp_acc_index, get_seller_index_from_google_sheet
+from Scripts.Get_Seller_Index import get_gp_acc_index, get_seller_index_from_google_sheet, get_new_shop_index
 from Scripts.Get_Google_Sheets import *
 from Scripts.Get_Gmail_Config import send_message
 
@@ -39,26 +39,14 @@ def calculate_num_of_shop_in_different_stage_by_gp_acc():
 
 
 def calculate_new_shops_with_gp_acc_owner():
-    seller_index = get_seller_index_from_google_sheet()
 
-    book_name = "New Shop Tracker"
-    selected_sheet = ['SG', 'MY', 'TW', 'ID', 'TH', 'PH']
-    list_ = []
-    for country_sheet in selected_sheet:
-        country_new_shop_index = get_certain_google_sheets_to_dataframe(book_name, country_sheet)
-        list_.append(country_new_shop_index)
+    new_shop_index = get_new_shop_index()
 
-    new_shop_index = pd.concat(list_)
-    new_shop_index.to_csv('D://Program Files (x86)//百度云同步盘//Dropbox//Shopee 2016.4.12//'
-                          '2016.8.28 Seller Index Data//new_shop_index.csv', sep=',')
     new_shop_index['Update date'] = pd.to_datetime(new_shop_index['Update date'])
 
     # 上传MTD New Shops
     new_shop_index_MTD = new_shop_index[(new_shop_index['Update date'] >= get_start_of_this_month())]
     new_shop_index_MTD.to_csv('D://new_shop_index.csv', sep=',')
-
-    new_shop_index_MTD = pd.merge(new_shop_index_MTD, seller_index, how='left', left_on='Shop id',
-                                  right_on='Child ShopID')
 
     new_shop_index_MTD = new_shop_index_MTD[['Site',
                                              'Shop name',
@@ -78,9 +66,6 @@ def calculate_new_shops_with_gp_acc_owner():
     new_shop_index_M_1 = new_shop_index[(new_shop_index['Update date'] >= get_start_of_last_month())
                                         & (new_shop_index['Update date'] <= get_end_of_last_month())]
     new_shop_index_M_1.to_csv('D://new_shop_index_M_1.csv', sep=',')
-
-    new_shop_index_M_1 = pd.merge(new_shop_index_M_1, seller_index, how='left', left_on='Shop id',
-                                  right_on='Child ShopID')
 
     new_shop_index_M_1 = new_shop_index_M_1[['Site',
                                              'Shop name',
@@ -105,8 +90,39 @@ def calculate_new_shops_with_gp_acc_owner():
                  + ' Seller Index Calculation Completed!', 'Seller Index Calculation Completed!')
 
 
+def calculate_new_shops_by_date():
+    new_shop_index = get_new_shop_index()
+
+    # 添加年月
+    '''
+    new_shop_index['Year/Month'] = new_shop_index['Update date'].dt.year.astype(str) \
+                                   + '-' + new_shop_index['Update date'].dt.month.astype(str)
+                                   '''
+
+    new_shop_index['Year'] = new_shop_index['Update date'].dt.year
+    new_shop_index['Month'] = new_shop_index['Update date'].dt.month
+    new_shop_index['Day'] = new_shop_index['Update date'].dt.day
+
+    # aggregate
+    new_shop_group = new_shop_index.groupby(['Child Account Record Type', 'Year', 'Month', 'Day'])
+    new_shop_result = new_shop_group.agg({'Shop id': 'count'})\
+        .rename(columns={'Shop id': '# of New Shops'})\
+        .reset_index()
+
+    # new_shop_result.sort_values(['Child Account Record Type', 'Year', 'Month'], ascending=[True, False, False])
+
+    # 上传
+    upload_dataframe_to_google_sheet(new_shop_result,
+                                     '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM',
+                                     'New Shops by Date')
+
+    # return new_shop_result.head(5)
+
+
 if __name__ == "__main__":
     calculate_num_of_seller_in_different_stage_by_gp_acc()
     calculate_num_of_seller_by_gp_acc_owner()
     calculate_new_shops_with_gp_acc_owner()
     calculate_num_of_shop_in_different_stage_by_gp_acc()
+    calculate_new_shops_by_date()
+

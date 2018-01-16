@@ -122,16 +122,18 @@ def calculate_sku_by_shop():
             merged_df = left_join_seller_index(merged_df)
 
             # Left Join BD Index
+            '''
             bd_index_detail = get_initial_bd_performance_detail()
             merged_df = pd.merge(merged_df, bd_index_detail, how='left',
                                  left_on=['GP Account Name'],
                                  right_on=['Sales Lead: Lead Name'])
+            '''
 
             # 计算OB Team的Avg SKUs
             merged_df = merged_df[(merged_df['Seller Launched by OB?'] == 1)]
 
             # print(merged_df[:1].unstack())
-            merged_df_group = merged_df.groupby([merged_df['Source_y'], merged_df['Key Brands 1_y']])
+            merged_df_group = merged_df.groupby([merged_df['Source'], merged_df['Key Brands 1']])
             merged_df_result = merged_df_group.agg({'Cumulative SKUs': 'sum',
                                                     'Cumulative Live SKUs': 'sum'})
             merged_df_result = pd.DataFrame(merged_df_result).reset_index()

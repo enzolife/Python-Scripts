@@ -85,7 +85,17 @@ def get_certain_google_sheets_to_dataframe(book_name, selected_sheet):
     doc = gc.open(book_name)
     sheet = doc.worksheet(selected_sheet)
 
-    gspread_data_frame = pd.DataFrame(sheet.get_all_records())
+    gspread_data_frame = None
+    try_time = 0
+
+    # try except，直至下载完成为止
+    while gspread_data_frame is None:
+        try:
+            gspread_data_frame = pd.DataFrame(sheet.get_all_records())
+        except Exception as err:
+            try_time += 1
+            print('An exception happened: ' + str(err) + ", download fails. Try again. Try " + str(try_time) + " time.")
+            pass
 
     print('Google Sheet to Data Frame finished.')
 
@@ -112,8 +122,8 @@ def upload_dataframe_to_google_sheet(data_frame, spread_sheet_id, wks_name):
         # if spreadsheet already exists, all data of provided worksheet(or first as default)
         # will be replaced with data of given DataFrame, make sure that this is what you need!
     except Exception as err:
-        print('An exception happened: ' + str(err) + ", upload fails. \nWait 60 second and try again.")
-        time.sleep(60)
+        print('An exception happened: ' + str(err) + ", upload fails. \nWait 600 second and try again.")
+        time.sleep(600)
         upload(data_frame, spread_sheet_id, wks_name)
 
     print('Dataframe is uploaded to Google Sheet.')

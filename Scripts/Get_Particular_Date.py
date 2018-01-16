@@ -143,3 +143,4 @@ if __name__ == '__main__':
     print('M-1 start: %s' % get_start_end_of_certain_month(1, "start"))
     print('M-1 end: %s' % get_start_end_of_certain_month(1, "end"))
     print('Current Date & Time: %s' % get_current_datetime())
+    print((get_yesterday_date() + datetime.timedelta(days=-1)).weekday())

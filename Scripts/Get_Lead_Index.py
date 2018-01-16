@@ -11,14 +11,17 @@ from Scripts.Get_File_Create_Modify_Time import *
 
 # 方法1
 def get_lead_index_from_local_xlsx():
-    file_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
-                "\\2017.8.11 Lead Index Data\\Get_Lead_Index.xlsm"
-    lead_index = pd.read_excel(file_path, sheetname='Lead Index')
+    file_path = "\\\\10.12.50.3\\data_source\\sales_force_reports\\all_leads.xlsx"
+    lead_index = pd.read_excel(file_path, sheetname='Sheet1')
     return lead_index
 
 
 # 方法2
 def get_lead_index_from_google_sheet():
+
+    lead_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
+                      "\\2017.8.11 Lead Index Data\\lead_index.csv"
+    '''
     # 先判断今天的lead index是否下载
     # 如果未下载，则下载一份最新的到本地
     lead_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
@@ -29,6 +32,15 @@ def get_lead_index_from_google_sheet():
         select_sheet = 'raw_leads'
         lead_index = get_certain_google_sheets_to_dataframe(book_name, select_sheet)
         lead_index.to_csv(lead_index_path, sep=',')
+    '''
+
+    lead_index = get_lead_index_from_local_xlsx()
+    # 丢掉最后5行
+    lead_index = lead_index[:-5]
+    # 去重，防止重复lead
+    lead_index = lead_index.drop_duplicates("Sales Lead: Lead Name", keep='first')
+    # 输出
+    lead_index.to_csv(lead_index_path, sep=',')
 
     pwd = os.getcwd()
     os.chdir(os.path.dirname(lead_index_path))

@@ -63,6 +63,7 @@ def run_pricing():
 def run_bd_index():
     calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
+    calculate_num_of_leads_claimed_by_week()
     upload_bd_performance()
 
 
@@ -70,6 +71,7 @@ def run_seller_index():
     calculate_num_of_seller_in_different_stage_by_gp_acc()
     calculate_num_of_seller_by_gp_acc_owner()
     calculate_new_shops_with_gp_acc_owner()
+    calculate_new_shops_by_date()
     calculate_num_of_shop_in_different_stage_by_gp_acc()
 
 
@@ -171,7 +173,7 @@ if __name__ == '__main__':
     schedule.every().day.at('16:00').do(schedule_run_2)  # bd index
     schedule.every().day.at('15:00').do(schedule_run_3)  # pricing
     schedule.every().day.at('14:00').do(schedule_run_4)  # order
-    schedule.every().day.at('14:30').do(schedule_run_5)  # listing
+    schedule.every().day.at('17:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
     schedule.every().day.at('17:00').do(schedule_run_7)  # local cat stat
 

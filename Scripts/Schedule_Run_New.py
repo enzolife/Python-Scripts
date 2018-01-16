@@ -167,6 +167,7 @@ def schedule_run_7():
     p.join()
     logging.info('Local Cat stats subprocesses done. ')
 
+
 if __name__ == '__main__':
     # schedule run
     schedule.every().day.at('13:00').do(schedule_run_1)  # seller index

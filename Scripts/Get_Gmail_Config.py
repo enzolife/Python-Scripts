@@ -324,6 +324,7 @@ def GetSelectedMultiAttachments(user_id, msg_id, store_dir, file_rename, select_
     except errors.HttpError as error:
         print('An error occurred: %s' % error)
 
+
 if __name__ == '__main__':
 
     to = 'enzolife@foxmail.com'

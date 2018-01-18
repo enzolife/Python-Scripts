@@ -14,6 +14,25 @@ def calculate_num_of_seller_by_gp_acc_owner():
                                      '# of GP Acc by GP Acc Owner')
 
 
+def calculate_num_of_seller_shops_by_gp_acc_owner_by_country():
+    seller_index = get_seller_index_from_google_sheet()
+
+    seller_index_group = seller_index.groupby(['GP Account Owner', 'Child Account Record Type'])
+    seller_index_result = seller_index_group.agg({'GP Account Name': lambda x: x.nunique(),
+                                                  'Child ShopID': 'count'})\
+        .rename(columns={'GP Account Name': '# of Sellers',
+                         'Child ShopID': '# of Shops'})\
+        .reset_index()
+
+    seller_index_result['Child Account Record Type']\
+        = seller_index_result['Child Account Record Type'].str.split('-').str[1]
+
+    # 上传
+    upload_dataframe_to_google_sheet(seller_index_result,
+                                     '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM',
+                                     '# of GP Acc by GP Acc Owner by Country')
+
+
 def calculate_num_of_seller_in_different_stage_by_gp_acc():
     gp_index = get_gp_acc_index()
     gp_index_group = gp_index.groupby([gp_index['GP Account Owner']])
@@ -122,6 +141,7 @@ def calculate_new_shops_by_date():
 if __name__ == "__main__":
     calculate_num_of_seller_in_different_stage_by_gp_acc()
     calculate_num_of_seller_by_gp_acc_owner()
+    calculate_num_of_seller_shops_by_gp_acc_owner_by_country()
     calculate_new_shops_with_gp_acc_owner()
     calculate_num_of_shop_in_different_stage_by_gp_acc()
     calculate_new_shops_by_date()

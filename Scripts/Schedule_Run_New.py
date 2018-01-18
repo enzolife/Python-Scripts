@@ -70,9 +70,10 @@ def run_bd_index():
 def run_seller_index():
     calculate_num_of_seller_in_different_stage_by_gp_acc()
     calculate_num_of_seller_by_gp_acc_owner()
+    calculate_num_of_seller_shops_by_gp_acc_owner_by_country()
     calculate_new_shops_with_gp_acc_owner()
-    calculate_new_shops_by_date()
     calculate_num_of_shop_in_different_stage_by_gp_acc()
+    calculate_new_shops_by_date()
 
 
 def run_local_stat():

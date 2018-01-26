@@ -1,19 +1,14 @@
 import logging
 from multiprocessing import Pool
 import schedule
-from Scripts.Calculate_Order_GMV_by_Shop import calculate_order_gmv_by_shop
-from Scripts.Calculate_SKU_by_Shop_New_New import calculate_sku_by_shop
-from Scripts.Calculate_SKU_by_Cat_Product import calculate_sku_by_cat_product
-from Scripts.Calculate_Pricing_by_Cat_Product import calculate_pricing_by_cat_product
 from Scripts.Calculate_BD_Index import *
 from Scripts.Calculate_Seller_Index import *
 from Scripts.Calculate_Local_Stat import *
 from Scripts.Calculate_Local_Category_Stat import *
 from Scripts.Calculate_Local_MY_Shocking_Sale import *
 from Scripts.Copy_Files_from_Intranet import *
-from Scripts.Get_Listing_Reports import get_concatenated_listing_report
-from Scripts.Get_Order_Report import get_concatenated_order_report
-from Scripts.Get_Pricing_Report import get_concatenated_pricing_report
+from Scripts.calculate_order_performance import calculate_order_performance
+from Scripts.calculate_listing_performance import calculate_listing_performance
 
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
@@ -22,42 +17,16 @@ logging.info('Start of program.')
 
 # non stop run order
 def run_order():
-    from_path = "\\\\10.12.50.3\\data_source\\order_csv"
-    while True:
-        if check_data_validation(from_path) is True:
-            copy_order_report_from_intranet()
-            if get_concatenated_order_report is not False:
-                calculate_order_gmv_by_shop()
-                break
-        else:
-            time.sleep(300)
+    calculate_order_performance()
 
 
 # non stop run listing
 def run_listing():
-    from_path = "\\\\10.12.50.3\\data_source\\listing_csv"
-    while True:
-        if check_data_validation(from_path) is True:
-            copy_listing_report_from_intranet()
-            if get_concatenated_listing_report is not False:
-                calculate_sku_by_shop()
-                calculate_sku_by_cat_product()
-                break
-        else:
-            time.sleep(300)
+    calculate_listing_performance()
 
 
 # non stop run pricing
-def run_pricing():
-    from_path = "\\\\10.12.50.3\\data_source\\pricing_csv"
-    while True:
-        if check_data_validation(from_path) is True:
-            copy_pricing_report_from_intranet()
-            if get_concatenated_pricing_report is not False:
-                calculate_pricing_by_cat_product()
-                break
-        else:
-            time.sleep(300)
+# def run_pricing():
 
 
 def run_bd_index():
@@ -173,11 +142,11 @@ if __name__ == '__main__':
     # schedule run
     schedule.every().day.at('13:00').do(schedule_run_1)  # seller index
     schedule.every().day.at('16:00').do(schedule_run_2)  # bd index
-    schedule.every().day.at('15:00').do(schedule_run_3)  # pricing
+    # schedule.every().day.at('15:00').do(schedule_run_3)  # pricing
     schedule.every().day.at('14:00').do(schedule_run_4)  # order
-    schedule.every().day.at('17:30').do(schedule_run_5)  # listing
+    schedule.every().day.at('14:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
-    schedule.every().day.at('17:00').do(schedule_run_7)  # local cat stat
+    schedule.every().day.at('18:00').do(schedule_run_7)  # local cat stat
 
     while 1:
         schedule.run_pending()

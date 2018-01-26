@@ -18,8 +18,8 @@ def get_access_token():
         'https://docs.google.com/feeds'
     ]
 
-    # credentials_path = "C://Users//Enzo.kuang//Documents//Python Scripts//Enzo Test Project-ea5529b41c25.json"
-    credentials_path = os.path.abspath('..\\Enzo Test Project-ea5529b41c25.json')
+    credentials_path = "C://Users//Enzo.kuang//Documents//Python-Scripts//Enzo Test Project-ea5529b41c25.json"
+    # credentials_path = os.path.abspath('..\\Enzo Test Project-ea5529b41c25.json')
     credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
     # 重新刷新token，以防token失效
     try:

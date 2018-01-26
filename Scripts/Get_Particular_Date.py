@@ -120,6 +120,7 @@ def get_current_datetime():
     current_datetime = datetime.datetime.now()
     return current_datetime
 
+
 if __name__ == '__main__':
     print('Today: %s' % get_today_date())
     print('Yesterday: %s' % get_yesterday_date())

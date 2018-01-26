@@ -62,6 +62,7 @@ def get_concatenated_pricing_report():
     else:
         return False
 
+
 if __name__ == '__main__':
     get_concatenated_pricing_report()
 

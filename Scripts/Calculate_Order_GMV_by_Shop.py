@@ -299,8 +299,38 @@ def calculate_order_gmv_by_shop():
 
         # 9. 计算MTD Daily Order by Shops
 
-
         # 10. 计算MTD/M-1 Order by GP Acc
+
+        # 11. 计算KR MTD/M-1 Order by Shop + 没有GP Link的MTD/M-1 Order by Shop
+        kr_shop_list = get_certain_google_sheets_to_dataframe('GP Account Owner Performance Report (Daily)',
+                                                              'KR Shop List')
+
+        no_gp_shop_list = seller_index[seller_index['GP Account Owner ID'] == np.NAN]
+        no_gp_shop_list = no_gp_shop_list[['Child ShopID', 'Child Account Name']]\
+            .rename(columns={'Child ShopID': 'ShopID', 'Child Account Name': 'Shopname'})
+
+        all_list_frame = [kr_shop_list, no_gp_shop_list]
+        all_list = pd.concat(all_list_frame)
+
+        mtd_ado_by_shop_path = os.path.join(output_file_parent_path, "MTD", "MTD_Order_GMV_by_Shop.csv")
+        m_1_ado_by_shop_path = os.path.join(output_file_parent_path, "M-1", "M_1_Order_GMV_by_Shop.csv")
+
+        pwd = os.getcwd()
+        os.chdir(os.path.dirname(mtd_ado_by_shop_path))
+        mtd_ado_by_shop = pd.read_csv(os.path.basename(mtd_ado_by_shop_path), sep=',')
+        os.chdir(pwd)
+
+        pwd = os.getcwd()
+        os.chdir(os.path.dirname(m_1_ado_by_shop_path))
+        m_1_ado_by_shop = pd.read_csv(os.path.basename(m_1_ado_by_shop_path), sep=',')
+        os.chdir(pwd)
+
+        all_list = pd.merge(all_list, mtd_ado_by_shop, how='left', left_on=['ShopID'], right_on=['ShopId(S)'])
+        all_list = pd.merge(all_list, m_1_ado_by_shop, how='left', left_on=['ShopID'], right_on=['ShopId(S)'])
+
+        all_list = all_list[['ShopID', 'Shopname', 'Daily Gross Order_x', 'Daily Gross Order_y']]
+
+        upload_dataframe_to_google_sheet(all_list, '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM', 'Excluded Shops ADO')
 
         # 更新相关表的last update time
         # 更新GP Account Owner Performance Report (Daily)

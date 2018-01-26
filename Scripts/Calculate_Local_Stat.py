@@ -37,5 +37,6 @@ def calculate_local_stat():
     send_message('enzo.kuang@shopee.com', '[Notices] ' + str(get_today_date()) +
                  ' CNCB vs Country Data is uploaded!', 'CNCB vs Country Data is uploaded!')
 
+
 if __name__ == "__main__":
     calculate_local_stat()

@@ -61,40 +61,39 @@ def calculate_new_shops_with_gp_acc_owner():
 
     new_shop_index = get_new_shop_index()
 
-    new_shop_index['Update date'] = pd.to_datetime(new_shop_index['Update date'])
-
     # 上传MTD New Shops
-    new_shop_index_MTD = new_shop_index[(new_shop_index['Update date'] >= get_start_of_this_month())]
-    new_shop_index_MTD.to_csv('D://new_shop_index.csv', sep=',')
+    new_shop_index_MTD = new_shop_index[(new_shop_index['new_shop_date'] >= get_start_of_this_month())
+                                        & (new_shop_index['new_shop_date'] <= get_end_of_this_month())]
+    # new_shop_index_MTD.to_csv('D://new_shop_index.csv', sep=',')
 
-    new_shop_index_MTD = new_shop_index_MTD[['Site',
-                                             'Shop name',
-                                             'Shop id',
-                                             'Shop url',
-                                             'PIC',
-                                             'Update date',
+    new_shop_index_MTD = new_shop_index_MTD[['country',
+                                             'Child Account Name',
+                                             'Child ShopID',
+                                             'GP Account Seller Classification',
+                                             'Child Account Owner',
+                                             'new_shop_date',
                                              'GP Account Owner']]
 
-    new_shop_index_MTD.to_csv('D://new_shop_index_MTD.csv', sep=',')
+    # new_shop_index_MTD.to_csv('D://new_shop_index_MTD.csv', sep=',')
 
     upload_dataframe_to_google_sheet(new_shop_index_MTD,
                                      '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM',
                                      'New Shop Index with GP Acc Owner')
 
     # 上传M-1 New Shops
-    new_shop_index_M_1 = new_shop_index[(new_shop_index['Update date'] >= get_start_of_last_month())
-                                        & (new_shop_index['Update date'] <= get_end_of_last_month())]
-    new_shop_index_M_1.to_csv('D://new_shop_index_M_1.csv', sep=',')
+    new_shop_index_M_1 = new_shop_index[(new_shop_index['new_shop_date'] >= get_start_of_last_month())
+                                        & (new_shop_index['new_shop_date'] <= get_end_of_last_month())]
+    # new_shop_index_M_1.to_csv('D://new_shop_index_M_1.csv', sep=',')
 
-    new_shop_index_M_1 = new_shop_index_M_1[['Site',
-                                             'Shop name',
-                                             'Shop id',
-                                             'Shop url',
-                                             'PIC',
-                                             'Update date',
+    new_shop_index_M_1 = new_shop_index_M_1[['country',
+                                             'Child Account Name',
+                                             'Child ShopID',
+                                             'GP Account Seller Classification',
+                                             'Child Account Owner',
+                                             'new_shop_date',
                                              'GP Account Owner']]
 
-    new_shop_index_M_1.to_csv('D://new_shop_index_M_1.csv', sep=',')
+    # new_shop_index_M_1.to_csv('D://new_shop_index_M_1.csv', sep=',')
 
     upload_dataframe_to_google_sheet(new_shop_index_M_1,
                                      '1-QAqrNES-Ecu7paSJi7yBoSklCr1WwCohz1cRFobRlM',
@@ -118,14 +117,14 @@ def calculate_new_shops_by_date():
                                    + '-' + new_shop_index['Update date'].dt.month.astype(str)
                                    '''
 
-    new_shop_index['Year'] = new_shop_index['Update date'].dt.year
-    new_shop_index['Month'] = new_shop_index['Update date'].dt.month
-    new_shop_index['Day'] = new_shop_index['Update date'].dt.day
+    new_shop_index['Year'] = new_shop_index['new_shop_date'].dt.year
+    new_shop_index['Month'] = new_shop_index['new_shop_date'].dt.month
+    new_shop_index['Day'] = new_shop_index['new_shop_date'].dt.day
 
     # aggregate
     new_shop_group = new_shop_index.groupby(['Child Account Record Type', 'Year', 'Month', 'Day'])
-    new_shop_result = new_shop_group.agg({'Shop id': 'count'})\
-        .rename(columns={'Shop id': '# of New Shops'})\
+    new_shop_result = new_shop_group.agg({'Child ShopID': 'count'})\
+        .rename(columns={'Child ShopID': '# of New Shops'})\
         .reset_index()
 
     # new_shop_result.sort_values(['Child Account Record Type', 'Year', 'Month'], ascending=[True, False, False])

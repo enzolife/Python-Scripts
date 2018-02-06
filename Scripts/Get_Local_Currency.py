@@ -23,13 +23,14 @@ def get_local_currency():
 
     currency_table = []
     run_check = None
+    error_count = 0
 
     if last_modify_date(final_table_path) == get_today_date().strftime("%Y-%m-%d"):
         logging.info("Start to read today's currency table.")
         final_table = pd.read_excel(final_table_path)
     else:
-        logging.info("Get today's currency table from currencyconverterapi.")
-        while run_check is None:
+        logging.info("Get today's currency table from currency converter api.")
+        while run_check is None and error_count < 100:
             try:
                 for country in currency_country:
                     request_url = 'https://free.currencyconverterapi.com/api/v5/convert?q=USD_' + country
@@ -75,6 +76,10 @@ def get_local_currency():
 
             except Exception as err:
                 logging.info('An exception happened: ' + str(err) + ', now try again.')
+                error_count += 1
+                if error_count == 100:
+                    logging.info('Error more than 100 times, read the existing currency table.')
+                    final_table = pd.read_excel(final_table_path)
 
     return final_table
 

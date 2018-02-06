@@ -45,12 +45,6 @@ def get_end_of_this_month():
     return end_date
 
 
-def get_start_of_last_month():
-    yesterday = get_yesterday_date()
-    start_date = datetime.date(yesterday.year, yesterday.month, 1)
-    return start_date
-
-
 def get_end_of_last_month():
     start_of_this_month = get_start_of_this_month()
     end_of_last_month = start_of_this_month + datetime.timedelta(days=-1)

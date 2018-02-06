@@ -102,6 +102,32 @@ def get_certain_google_sheets_to_dataframe(book_name, selected_sheet):
     return gspread_data_frame
 
 
+# 下载Google Sheet到Data Frame by key
+def get_certain_google_sheets_to_dataframe_by_key(book_key, selected_sheet):
+    gc = get_access_token()
+
+    print('Google Sheet to Data Frame start.')
+
+    doc = gc.open_by_key(book_key)
+    sheet = doc.worksheet(selected_sheet)
+
+    gspread_data_frame = None
+    try_time = 0
+
+    # try except，直至下载完成为止
+    while gspread_data_frame is None:
+        try:
+            gspread_data_frame = pd.DataFrame(sheet.get_all_records())
+        except Exception as err:
+            try_time += 1
+            print('An exception happened: ' + str(err) + ", download fails. Try again. Try " + str(try_time) + " time.")
+            pass
+
+    print('Google Sheet to Data Frame finished.')
+
+    return gspread_data_frame
+
+
 # 上传Data Frame到Google Sheet
 def upload_dataframe_to_google_sheet(data_frame, spread_sheet_id, wks_name):
     # d = [pd.Series([1., 2., 3.], index=['a', 'b', 'c']),

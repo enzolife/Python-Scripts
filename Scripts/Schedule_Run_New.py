@@ -146,7 +146,7 @@ if __name__ == '__main__':
     schedule.every().day.at('14:00').do(schedule_run_4)  # order
     schedule.every().day.at('14:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
-    schedule.every().day.at('18:00').do(schedule_run_7)  # local cat stat
+    # schedule.every().day.at('18:00').do(schedule_run_7)  # local cat stat
 
     while 1:
         schedule.run_pending()

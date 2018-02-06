@@ -190,12 +190,12 @@ def calculate_num_of_leads_claimed():
 
     # 计算w-1 new shops by gp acc
     new_shop_index = get_new_shop_index()
-    new_shop_index_is_w_1 = new_shop_index[(new_shop_index['Update date'] >= get_last_monday())
-                                           & (new_shop_index['Update date'] <= get_last_sunday())]
+    new_shop_index_is_w_1 = new_shop_index[(new_shop_index['new_shop_date'] >= get_last_monday())
+                                           & (new_shop_index['new_shop_date'] <= get_last_sunday())]
 
     # bd index merge new shop index
     new_shop_index_is_w_1_group = new_shop_index_is_w_1.groupby('GP Account Lead Name')
-    new_shop_index_is_w_1_result = new_shop_index_is_w_1_group.agg({'Shop id': 'count'}).reset_index()
+    new_shop_index_is_w_1_result = new_shop_index_is_w_1_group.agg({'Child ShopID': 'count'}).reset_index()
 
     bd_index_merge_new_shop_index = pd.merge(bd_index_claimed_date_is_w_2, new_shop_index_is_w_1_result, how='inner',
                                              left_on=['Sales Lead: Lead Name'],
@@ -233,10 +233,10 @@ def calculate_num_of_leads_claimed_by_week():
 
     # 计算每个gp account lead name有多少个new shop
     new_shop_index_group = new_shop_index.groupby('GP Account Lead Name')
-    new_shop_index_result = new_shop_index_group.agg({'Shop id': 'count',
-                                                      'Update date': 'min'}) \
-        .rename(columns={'Shop id': '# of new shops',
-                         'Update date': 'first shop created date'}) \
+    new_shop_index_result = new_shop_index_group.agg({'Child ShopID': 'count',
+                                                      'new_shop_date': 'min'}) \
+        .rename(columns={'Child ShopID': '# of new shops',
+                         'new_shop_date': 'first shop created date'}) \
         .reset_index()
 
     # merge
@@ -313,9 +313,6 @@ def calculate_num_of_leads_claimed_by_week():
     upload_dataframe_to_google_sheet(bd_index_result,
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
                                      'Account Opening Aging Report')
-
-    # 发送给Mei
-    bd_index
 
     return bd_index_result
 

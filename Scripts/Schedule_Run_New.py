@@ -9,6 +9,7 @@ from Scripts.Calculate_Local_MY_Shocking_Sale import *
 from Scripts.Copy_Files_from_Intranet import *
 from Scripts.calculate_order_performance import calculate_order_performance
 from Scripts.calculate_listing_performance import calculate_listing_performance
+from Scripts.calculate_shipping_performance import calculate_shipping_performance
 
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
@@ -28,11 +29,16 @@ def run_listing():
 # non stop run pricing
 # def run_pricing():
 
+def run_shipping():
+    calculate_shipping_performance()
+
 
 def run_bd_index():
     calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
     calculate_num_of_leads_claimed_by_week()
+    calculate_num_of_cb_leads_by_lead_gen()
+    calculate_num_of_tb_leads_by_lead_gen()
     upload_bd_performance()
 
 
@@ -138,6 +144,18 @@ def schedule_run_7():
     logging.info('Local Cat stats subprocesses done. ')
 
 
+def schedule_run_8():
+    print('Parent process %s.' % os.getpid())
+    p = Pool(1)
+    p.apply_async(run_shipping)
+    logging.info('Waiting for all subprocesses done...')
+    p.close()
+    # time.sleep(43200)
+    # p.terminate()
+    p.join()
+    logging.info('Shipping stats subprocesses done. ')
+
+
 if __name__ == '__main__':
     # schedule run
     schedule.every().day.at('13:00').do(schedule_run_1)  # seller index
@@ -147,6 +165,7 @@ if __name__ == '__main__':
     schedule.every().day.at('14:30').do(schedule_run_5)  # listing
     schedule.every().day.at('10:30').do(schedule_run_6)  # local order stat
     # schedule.every().day.at('18:00').do(schedule_run_7)  # local cat stat
+    schedule.every().day.at('18:30').do(schedule_run_8)  # shipping
 
     while 1:
         schedule.run_pending()

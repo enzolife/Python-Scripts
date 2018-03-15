@@ -18,7 +18,6 @@ def get_lead_index_from_local_xlsx():
 
 # 方法2
 def get_lead_index_from_google_sheet():
-
     lead_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
                       "\\2017.8.11 Lead Index Data\\lead_index.csv"
     '''
@@ -52,6 +51,9 @@ def get_lead_index_from_google_sheet():
     lead_index['Claimed Date'] = pd.to_datetime(lead_index['Claimed Date'], format='%d/%m/%Y')
     lead_index['Date of Status Changed From Open'] = pd.to_datetime(lead_index['Date of Status Changed From Open'],
                                                                     format='%d/%m/%Y')
+    lead_index['Date Transferred to Onboarding Queue'] = pd.to_datetime(
+        lead_index['Date Transferred to Onboarding Queue'],
+        format='%d/%m/%Y')
     # lead_index['Sales Lead: Lead Name'] = lead_index['Sales Lead: Lead Name'].str.encode('iso-8859-1')
 
     # 补充空值

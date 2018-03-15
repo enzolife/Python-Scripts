@@ -284,7 +284,7 @@ def calculate_num_of_leads_claimed_by_week():
         .rename(columns={'Sales Lead: Lead Name': 'Total # lead claimed',
                          'GP Account Lead Name': '# lead with opened shop',
                          'Opening Lead Time': 'Average opening lead time (claimed date to first shop opened date)',
-                         'Lead Pending Time': 'Average pending time (claimed date to TODAY)'})\
+                         'Lead Pending Time': 'Average pending time (claimed date to TODAY)'}) \
         .reset_index()
 
     # add supportive columns
@@ -317,8 +317,158 @@ def calculate_num_of_leads_claimed_by_week():
     return bd_index_result
 
 
+# CB SA Target Tracking
+def calculate_num_of_cb_leads_by_lead_gen():
+    bd_index = get_bd_index_config()
+
+    # 判断CB
+    bd_index = bd_index[bd_index['Seller Classification'].str.contains('CB', na=False)]
+
+    '''
+    # 选择日期范围，MTD
+    bd_index = bd_index[(bd_index['Sales Lead: Created Date'] >= get_start_of_this_month())
+                        & (bd_index['Sales Lead: Created Date'] <= get_yesterday_date())]
+    '''
+
+    # 判断Big/Medium/Small
+    super_big_medium_lead_owner = ['Shelly Zhuo', 'Ivan Wu', 'Cindy Jin', 'Ki Wong',
+                                   'Vicky Liu', 'Yoyo Zhao', 'Nikki Yu', 'Boey Peng', 'Jun Li',
+                                   'Christine Tang', 'Zheng Kai']
+
+    '''
+    # 使用select语言
+    leads_conditions = [
+        (bd_index['Sales Lead: Owner Name'].isin(big_medium_lead_owner)) & (bd_index['Lead Size'] == 'Super'),
+        (bd_index['Sales Lead: Owner Name'].isin(big_medium_lead_owner)) & (bd_index['Lead Size'] == 'Big'),
+        (bd_index['Sales Lead: Owner Name'].isin(big_medium_lead_owner)) & (bd_index['Lead Size'] == 'Medium'),
+        (bd_index['Sales Lead: Owner Name'].isin(big_medium_lead_owner)) & (bd_index['Lead Size'] == 'Small')
+    ]
+    leads_choices = ['Super', 'Big', 'Medium', 'Medium']
+    bd_index['Actual_Leads_Size'] = np.select(leads_conditions, leads_choices, default='Small')
+    '''
+
+    # 首要条件，lead owner != lead gen
+    lead_owner_not_lead_gen = (bd_index['Sales Lead: Owner Name'] != bd_index['Lead Gen'])
+
+    # 次要条件，lead owner为super_big_medium_lead_owner
+    lead_owner_is_kam = (bd_index['Sales Lead: Owner Name'].isin(super_big_medium_lead_owner))
+    lead_owner_not_kam = (~bd_index['Sales Lead: Owner Name'].isin(super_big_medium_lead_owner))
+
+    # 日期条件
+    lead_claimed_date_mtd = ((bd_index['Claimed Date'] >= get_start_of_this_month())
+                             & (bd_index['Claimed Date'] <= get_yesterday_date()))
+    lead_transferred_date_mtd = ((bd_index['Date Transferred to Onboarding Queue'] >= get_start_of_this_month())
+                                 & (bd_index['Date Transferred to Onboarding Queue'] <= get_yesterday_date()))
+    '''
+    lead_claimed_date_mtd = ((bd_index['Claimed Date'] >= datetime.date(2018, 2, 1))
+                             & (bd_index['Claimed Date'] <= datetime.date(2018, 2, 28)))
+    lead_transferred_date_mtd = ((bd_index['Date Transferred to Onboarding Queue'] >= datetime.date(2018, 2, 1))
+                                 & (bd_index['Date Transferred to Onboarding Queue'] <= datetime.date(2018, 2, 28)))
+    '''
+
+    # Actual Super/Big/Medium
+    bd_index['Actual_Selected_Leads'] = np.where((lead_owner_not_lead_gen & lead_claimed_date_mtd & lead_owner_is_kam),
+                                                 bd_index['Lead Size'], '')
+
+    # Actual Small
+    bd_index['Actual_Small_Leads'] = np.where((lead_owner_not_lead_gen & lead_transferred_date_mtd & lead_owner_not_kam)
+                                              , 'Small', '')
+
+    bd_index.to_csv('D:\\bd_index.csv', sep=',')
+
+    # group by
+    bd_index_group = bd_index.groupby(['Lead Gen', 'Actual_Selected_Leads', 'Actual_Small_Leads'])
+    bd_index_result = bd_index_group.agg({'Sales Lead: ID': 'count'}) \
+        .rename(columns={'Sales Lead: ID': '# of leads'}) \
+        .reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(bd_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'mtd_num_of_cb_leads_by_lead_gen')
+
+    return bd_index_result
+
+
+# TB SA Target Tracking
+def calculate_num_of_tb_leads_by_lead_gen():
+    # MTD
+    bd_index = get_bd_index_config()
+
+    # 判断TB
+    bd_index = bd_index[bd_index['Seller Classification'].str.contains('Taobao', na=False)]
+
+    # 选择日期范围，MTD
+    bd_index = bd_index[(bd_index['Date Transferred to Onboarding Queue'] >= get_start_of_this_month())
+                        & (bd_index['Date Transferred to Onboarding Queue'] <= get_yesterday_date())]
+
+    # 判断Actual Leads
+    bd_index['Actual_Leads'] = np.where((bd_index['Sales Lead: Owner Name'] != bd_index['Lead Gen']),
+                                        'Actual Lead', 'Not Actual Lead')
+    bd_index = bd_index[bd_index['Actual_Leads'] == 'Actual Lead']
+
+    # group by
+    bd_index_group = bd_index.groupby(['Lead Gen'])
+    bd_index_result = bd_index_group.agg({'Sales Lead: ID': 'count'}) \
+        .rename(columns={'Sales Lead: ID': '# of leads'}) \
+        .reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(bd_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'mtd_num_of_tb_leads_by_lead_gen')
+
+    # WTD/W-1
+    bd_index = get_bd_index_config()
+
+    # 判断TB
+    bd_index = bd_index[bd_index['Seller Classification'].str.contains('Taobao', na=False)]
+
+    # 选择日期范围
+    bd_index = bd_index[(bd_index['Date Transferred to Onboarding Queue'] >= get_last_monday())
+                        & (bd_index['Date Transferred to Onboarding Queue'] <= get_yesterday_date())]
+
+    # 判断Actual Leads
+    bd_index['Actual_Leads'] = np.where((bd_index['Sales Lead: Owner Name'] != bd_index['Lead Gen']),
+                                        'Actual Lead', 'Not Actual Lead')
+
+    # WTD/W-1 Leads
+    bd_index['WTD Lead'] = np.where(
+        ((bd_index['Actual_Leads'] == 'Actual Lead') & (
+                bd_index['Date Transferred to Onboarding Queue'] >= get_this_monday())
+         & (bd_index['Date Transferred to Onboarding Queue'] <= get_yesterday_date())), 1, 0)
+    bd_index['W-1 Lead'] = np.where(
+        ((bd_index['Actual_Leads'] == 'Actual Lead') & (
+                bd_index['Date Transferred to Onboarding Queue'] >= get_last_monday())
+         & (bd_index['Date Transferred to Onboarding Queue'] <= get_last_sunday())), 1, 0)
+
+    # group by
+    bd_index_group = bd_index.groupby(['Lead Gen'])
+    bd_index_result = bd_index_group.agg({'WTD Lead': 'sum', 'W-1 Lead': 'sum'}) \
+        .reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(bd_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'wtd_w_1_num_of_tb_leads_by_lead_gen')
+
+    return bd_index_result
+
+
 if __name__ == '__main__':
     calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
     calculate_num_of_leads_claimed_by_week()
+    calculate_num_of_cb_leads_by_lead_gen()
+    calculate_num_of_tb_leads_by_lead_gen()
     upload_bd_performance()
+
+    '''
+    # num_of_tb_leads_by_lead_gen = calculate_num_of_tb_leads_by_lead_gen()
+    # print(num_of_tb_leads_by_lead_gen)
+    # selected_column = ['Lead Size', 'Sales Lead: Owner Name', 'Actual_Leads_Size']
+    # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
+
+    num_of_cb_leads_by_lead_gen = calculate_num_of_cb_leads_by_lead_gen()
+    print(num_of_cb_leads_by_lead_gen)
+    '''

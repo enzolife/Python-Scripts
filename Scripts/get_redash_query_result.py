@@ -3,6 +3,7 @@ import logging
 import time
 import pandas as pd
 import numpy as np
+import urllib
 from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
 from Scripts.Get_Local_Currency import get_local_currency
 
@@ -102,6 +103,7 @@ def get_shop_performance_by_certain_period(query_id):
 if __name__ == '__main__':
     # print(shop_performance_by_certain_period(994).head())
     # get_shop_performance_by_certain_period(1004).to_csv('D:\\yesterday_performance.csv')
+    '''
     get_90_days_order_for_each_country = get_fresh_query_result('http://10.12.5.53',
                                                                 1200,
                                                                 'PrsLn6Mf09MuBxBTrAEeRdT3gyqKzbG20obScoEV',
@@ -112,3 +114,14 @@ if __name__ == '__main__':
     get_90_days_order_for_each_country.columns.values[0] = 'date_id'
 
     print(get_90_days_order_for_each_country)
+    '''
+
+    params = {'p_test': "'G00343764247'"}
+
+    params = urllib.parse.urlencode(params)
+
+    get_MTD_daily_order_by_gp_acc_owner_by_country \
+        = get_fresh_query_result('http://10.12.5.53',
+                                 1416,
+                                 'PrsLn6Mf09MuBxBTrAEeRdT3gyqKzbG20obScoEV',
+                                 params)

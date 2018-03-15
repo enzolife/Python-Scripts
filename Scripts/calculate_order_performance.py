@@ -202,7 +202,7 @@ def calculate_order_performance():
 
         get_90_days_order_for_each_country = pd.pivot_table(get_90_days_order_for_each_country,
                                                             index=['date_id'],
-                                                            values='count',
+                                                            values='cb_order',
                                                             columns='country',
                                                             aggfunc=np.sum).reset_index().rename_axis(None, axis=1)
 
@@ -373,12 +373,12 @@ def calculate_order_performance():
 
         pwd = os.getcwd()
         os.chdir(os.path.dirname(mtd_ado_by_shop_path))
-        mtd_ado_by_shop = pd.read_csv(os.path.basename(mtd_ado_by_shop_path), sep=',')
+        mtd_ado_by_shop = pd.read_csv(os.path.basename(mtd_ado_by_shop_path), sep=',', encoding='ISO-8859-1')
         os.chdir(pwd)
 
         pwd = os.getcwd()
         os.chdir(os.path.dirname(m_1_ado_by_shop_path))
-        m_1_ado_by_shop = pd.read_csv(os.path.basename(m_1_ado_by_shop_path), sep=',')
+        m_1_ado_by_shop = pd.read_csv(os.path.basename(m_1_ado_by_shop_path), sep=',', encoding='ISO-8859-1')
         os.chdir(pwd)
 
         all_list = pd.merge(all_list, mtd_ado_by_shop, how='left', left_on=['ShopID'], right_on=['Child ShopID'])
@@ -472,7 +472,7 @@ def calculate_order_performance():
     # 5.2 calculate_order_gmv_by_shop
     for key, value in order_gmv_by_shop_list.items():
         calculate_order_gmv_by_shop(key)
-    
+
     # 6.2 calculate_kr_shop_and_non_gp_shop_mtd_m-1_ado
     calculate_kr_shop_and_non_gp_shop_mtd_m_1_ado()
 

@@ -1,6 +1,8 @@
-import os
+import pandas as pd
 
-stuff = b'\xe5\xb0\x8d cell_id \xe7\x84\xa1\xe6\x95\x88\xe7\x9a\x84\xe6\x9f\xa5\xe8\xa9\xa2\xe5\x8f\x83\xe6\x95\xb8\xe5\x80\xbc\xe3\x80\x82'
-print(stuff.decode('UTF8'))
+global country_list
+country_list = ['sg', 'my', 'tw', 'id', 'th']
 
-print(os.getcwd())
+for index, country in enumerate(country_list):
+    print(str(index) + ' ' + country)
+    country_list = country_list.remove(country)

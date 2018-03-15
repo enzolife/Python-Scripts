@@ -225,3 +225,4 @@ if __name__ == '__main__':
 
     # print(get_new_shop_index().head(100))
     # get_new_shop_index().to_csv('D://new_shop_index.csv', sep=',', encoding="GB18030")
+

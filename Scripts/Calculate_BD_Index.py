@@ -1,5 +1,6 @@
 from Scripts.Get_Lead_Index import get_lead_index_from_local_xlsx, get_lead_index_from_google_sheet
 from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
+from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
 from Scripts.Get_Particular_Date import *
 from Scripts.Get_Gmail_Config import send_message
 from Scripts.Get_Seller_Index import get_new_shop_index
@@ -455,7 +456,75 @@ def calculate_num_of_tb_leads_by_lead_gen():
     return bd_index_result
 
 
+# CB SA Target Tracking (Small Leads)
+def calculate_num_of_cb_leads_by_lead_gen_small_leads():
+    seller_index = get_seller_index_from_google_sheet()
+
+    # GP Acc. Create Date >= 2018/3/1
+    gp_account_create_date_filter = seller_index['GP Account Shopee Account Created Date'] >= datetime.date(2018, 3, 1)
+    seller_index = seller_index[gp_account_create_date_filter]
+
+    # date transfer from onboarding team is current month
+    date_transfer_date_filter = (seller_index['Date Transferred From Onboarding Team'] >= get_start_of_this_month()) \
+                                & (seller_index['Date Transferred From Onboarding Team'] <= get_yesterday_date())
+    seller_index = seller_index[date_transfer_date_filter]
+
+    # GP Acc. Owner is Mei Wenjuan
+    gp_owner_filter = seller_index['GP Account Owner'] == 'Mei Wenjuan'
+    seller_index = seller_index[gp_owner_filter]
+
+    # Seller type is not TB
+    seller_type_filter = ~seller_index['GP Account Seller Classification'].str.contains('TB')
+    seller_index = seller_index[seller_type_filter]
+    # print(seller_index.head())
+
+    # calculation
+    seller_index_group = seller_index.groupby(['Lead Gen'])
+    seller_index_result = seller_index_group.agg({'Sales Lead: ID': 'nunique'}).reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(seller_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'mtd_num_of_cb_leads_by_lead_gen(Small_Leads)')
+
+    return None
+
+
+# TB SA Target Tracking (By Focus / Non-focus Cat)
+def calculate_num_of_tb_leads_by_lead_gen_small_leads():
+    seller_index = get_seller_index_from_google_sheet()
+
+    # date transfer from onboarding team is current month
+    date_transfer_date_filter = (seller_index['Date Transferred From Onboarding Team'] >= get_start_of_this_month()) \
+                                & (seller_index['Date Transferred From Onboarding Team'] <= get_yesterday_date())
+    seller_index = seller_index[date_transfer_date_filter]
+
+    # GP Acc. Owner is Mei Wenjuan
+    gp_owner_filter = seller_index['GP Account Owner'] == 'Mei Wenjuan'
+    seller_index = seller_index[gp_owner_filter]
+
+    # Seller type is TB
+    seller_type_filter = seller_index['GP Account Seller Classification'].str.contains('TB')
+    seller_index = seller_index[seller_type_filter]
+    # print(seller_index.head())
+
+    # Focus & Non-focus Category
+    focus_cat_list =['Home & Living', 'Toys, Kids & Babies', 'Toys. Kids & Babies']
+
+    # calculation
+    seller_index_group = seller_index.groupby(['Lead Gen'])
+    seller_index_result = seller_index_group.agg({'Sales Lead: ID': 'count'}).reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(seller_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'mtd_num_of_cb_leads_by_lead_gen(Small_Leads)')
+
+    return None
+
+
 if __name__ == '__main__':
+    '''
     calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
     calculate_num_of_leads_claimed_by_week()
@@ -469,6 +538,4 @@ if __name__ == '__main__':
     # selected_column = ['Lead Size', 'Sales Lead: Owner Name', 'Actual_Leads_Size']
     # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
 
-    num_of_cb_leads_by_lead_gen = calculate_num_of_cb_leads_by_lead_gen()
-    print(num_of_cb_leads_by_lead_gen)
-    '''
+    calculate_num_of_cb_leads_by_lead_gen_small_leads()

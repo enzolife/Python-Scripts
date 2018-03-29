@@ -59,6 +59,8 @@ def get_seller_index_from_google_sheet():
     seller_index['Yesterday Date'] = pd.to_datetime(seller_index['Yesterday Date'])
     seller_index['GP Date Transferred From Onboarding Team']\
         = pd.to_datetime(seller_index['GP Date Transferred From Onboarding Team'], format='%d/%m/%Y')
+    seller_index['Date Transferred From Onboarding Team'] \
+        = pd.to_datetime(seller_index['Date Transferred From Onboarding Team'], format='%d/%m/%Y')
 
     # 添加country
     seller_index['Child Account Record Type - Country']\
@@ -217,11 +219,11 @@ def get_new_shop_index_abandon():
 if __name__ == '__main__':
     # frame = get_gp_acc_index()
     frame = get_seller_index_from_google_sheet()
-    print(frame['Child Account Record Type - Country'].head())
+    # print(frame['Child Account Record Type - Country'].head())
     # frame = frame[frame['GP Account Owner ID'].isnull()]
     # print(frame)
     # frame.to_csv('D://gp_acc_index.csv', sep=',')
-    # frame.to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
+    frame.head().to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
 
     # print(get_new_shop_index().head(100))
     # get_new_shop_index().to_csv('D://new_shop_index.csv', sep=',', encoding="GB18030")

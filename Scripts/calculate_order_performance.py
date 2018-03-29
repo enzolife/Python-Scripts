@@ -176,7 +176,8 @@ def calculate_order_performance():
 
         performance_data_result = performance_data_result[column_sort]
 
-        performance_data_result = performance_data_result.sort(column_prefix + '_daily_gross_orders', ascending=False)
+        performance_data_result = performance_data_result.sort_values(by=[column_prefix + '_daily_gross_orders'],
+                                                                      ascending=[False])
 
         logging.info('Calculation for ' + period + ' order/gmv by gp acc. owner is completed.')
 
@@ -430,7 +431,7 @@ def calculate_order_performance():
                 pass
 
         final_result = pd.pivot_table(final_result, values=['count'],
-                                      index=['GP Account Owner', 'country'], columns=['date_id'], aggfunc='sum')\
+                                      index=['GP Account Owner', 'country'], columns=['date_id'], aggfunc='sum') \
             .reset_index()
 
         final_result.columns = final_result.columns.droplevel(0)

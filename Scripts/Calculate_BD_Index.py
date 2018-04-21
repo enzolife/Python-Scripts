@@ -1,4 +1,4 @@
-from Scripts.Get_Lead_Index import get_lead_index_from_local_xlsx, get_lead_index_from_google_sheet
+from Scripts.Get_Lead_Index import get_lead_index_from_google_sheet
 from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
 from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
 from Scripts.Get_Particular_Date import *
@@ -474,7 +474,7 @@ def calculate_num_of_cb_leads_by_lead_gen_small_leads():
     seller_index = seller_index[gp_owner_filter]
 
     # Seller type is not TB
-    seller_type_filter = ~seller_index['GP Account Seller Classification'].str.contains('TB')
+    seller_type_filter = ~seller_index['GP Account Seller Classification'].str.contains('Taobao')
     seller_index = seller_index[seller_type_filter]
     # print(seller_index.head())
 
@@ -485,7 +485,7 @@ def calculate_num_of_cb_leads_by_lead_gen_small_leads():
     # upload to bd performance report
     upload_dataframe_to_google_sheet(seller_index_result,
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
-                                     'mtd_num_of_cb_leads_by_lead_gen(Small_Leads)')
+                                     'mtd_num_of_cb_leads_by_lead_gen_small_leads')
 
     return None
 
@@ -502,23 +502,33 @@ def calculate_num_of_tb_leads_by_lead_gen_small_leads():
     # GP Acc. Owner is Mei Wenjuan
     gp_owner_filter = seller_index['GP Account Owner'] == 'Mei Wenjuan'
     seller_index = seller_index[gp_owner_filter]
+    # print(seller_index.head())
 
     # Seller type is TB
-    seller_type_filter = seller_index['GP Account Seller Classification'].str.contains('TB')
+    seller_type_filter = seller_index['GP Account Seller Classification'].str.contains('Taobao')
     seller_index = seller_index[seller_type_filter]
     # print(seller_index.head())
 
     # Focus & Non-focus Category
-    focus_cat_list =['Home & Living', 'Toys, Kids & Babies', 'Toys. Kids & Babies']
+    focus_cat_list = ['Home & Living',
+                      'Toys, Kids & Babies',
+                      'Toys. Kids & Babies']
+    seller_index['focus_cat_seller'] = np.where(seller_index['Primary Category_x'].isin(focus_cat_list),
+                                                seller_index['Sales Lead: ID'], '')
+    seller_index['non_focus_cat_seller'] = np.where(~seller_index['Primary Category_x'].isin(focus_cat_list),
+                                                    seller_index['Sales Lead: ID'], '')
+    # print(seller_index.head())
 
     # calculation
     seller_index_group = seller_index.groupby(['Lead Gen'])
-    seller_index_result = seller_index_group.agg({'Sales Lead: ID': 'count'}).reset_index()
+    seller_index_result = seller_index_group.agg({'focus_cat_seller': 'count',
+                                                  'non_focus_cat_seller': 'count'}).reset_index()
+    # print(seller_index_result)
 
     # upload to bd performance report
     upload_dataframe_to_google_sheet(seller_index_result,
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
-                                     'mtd_num_of_cb_leads_by_lead_gen(Small_Leads)')
+                                     'mtd_num_of_tb_leads_by_lead_gen_focus_non_focus')
 
     return None
 
@@ -539,3 +549,4 @@ if __name__ == '__main__':
     # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
 
     calculate_num_of_cb_leads_by_lead_gen_small_leads()
+    calculate_num_of_tb_leads_by_lead_gen_small_leads()

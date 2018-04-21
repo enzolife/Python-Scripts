@@ -9,6 +9,7 @@ from Scripts.Get_Google_Sheets \
     import upload_dataframe_to_google_sheet, upload_last_update_time, get_certain_google_sheets_to_dataframe_by_key, \
     get_certain_google_sheets_to_dataframe
 from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
+from Scripts.get_redash_query_result import get_fresh_query_result_and_upload_to_google_sheet
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 
@@ -62,7 +63,7 @@ def calculate_shipping_performance():
                                          'all_country_cny_shop_with_gp_info')
 
     def calculate_dts_pt_by_shop_by_gp_acc():
-        dts_pt_by_shop = get_certain_google_sheets_to_dataframe('卖家备货时间模板', 'raw')
+        dts_pt_by_shop = get_certain_google_sheets_to_dataframe('卖家备货时间模板', 'TWDTSPT_L14')
         dts_pt_by_shop_by_by_gp_acc = pd.merge(dts_pt_by_shop, seller_index,
                                                how='left', left_on='shopid', right_on='Child ShopID')
 
@@ -75,12 +76,20 @@ def calculate_shipping_performance():
         dts_pt_by_shop_by_by_gp_acc = dts_pt_by_shop_by_by_gp_acc[selected_columns]
 
         upload_dataframe_to_google_sheet(dts_pt_by_shop_by_by_gp_acc,
-                                         '1_n4Zv1i9CmqGCUJ0Ca45qBZUjC-hBn4ABm0x52xUugc',
+                                         '12ifonVLZXICW_xTp8VTma7v6mXK5UDnX_LI7cxkzikc',
                                          'tw_dts_pt')
+
+    def calculate_dts_penetration_by_shop():
+        get_fresh_query_result_and_upload_to_google_sheet(2006,
+                                                          {},
+                                                          '1pW0x8rWRTRg3fUO6hcYEgJHJQI9sG4SESZ02H4uwUZc',
+                                                          'preferred_mall_shop_pre_order_skus_tw')
 
     # calculate_shipping_status_by_shop()
 
     calculate_dts_pt_by_shop_by_gp_acc()
+
+    # calculate_dts_penetration_by_shop()
 
 
 if __name__ == '__main__':

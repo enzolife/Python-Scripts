@@ -39,6 +39,7 @@ def run_bd_index():
     calculate_num_of_leads_claimed_by_week()
     calculate_num_of_cb_leads_by_lead_gen()
     calculate_num_of_tb_leads_by_lead_gen()
+    calculate_num_of_cb_leads_by_lead_gen_small_leads()
     upload_bd_performance()
 
 

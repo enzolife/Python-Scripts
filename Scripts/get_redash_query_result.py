@@ -6,6 +6,7 @@ import numpy as np
 import urllib
 from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
 from Scripts.Get_Local_Currency import get_local_currency
+from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 
@@ -49,7 +50,7 @@ def get_shop_performance_by_certain_period(query_id):
     :return: shop performance data_frame for certain period
     '''
     count = 1
-    country_list = ["tw", "id", "my", "sg", "ph", "th"]
+    country_list = ["tw", "id", "my", "sg", "ph", "th", "vn"]
 
     execute_success = None
 
@@ -100,6 +101,15 @@ def get_shop_performance_by_certain_period(query_id):
     return final_result
 
 
+def get_fresh_query_result_and_upload_to_google_sheet(query_id, params, sheet_id, wks_name):
+    df_to_upload = get_fresh_query_result('http://10.12.5.53',
+                                          query_id,
+                                          'PrsLn6Mf09MuBxBTrAEeRdT3gyqKzbG20obScoEV',
+                                          params)
+
+    upload_dataframe_to_google_sheet(df_to_upload, sheet_id, wks_name)
+
+
 if __name__ == '__main__':
     # print(shop_performance_by_certain_period(994).head())
     # get_shop_performance_by_certain_period(1004).to_csv('D:\\yesterday_performance.csv')
@@ -114,7 +124,7 @@ if __name__ == '__main__':
     get_90_days_order_for_each_country.columns.values[0] = 'date_id'
 
     print(get_90_days_order_for_each_country)
-    '''
+    
 
     params = {'p_test': "'G00343764247'"}
 
@@ -125,3 +135,7 @@ if __name__ == '__main__':
                                  1416,
                                  'PrsLn6Mf09MuBxBTrAEeRdT3gyqKzbG20obScoEV',
                                  params)
+
+    '''
+    get_fresh_query_result_and_upload_to_google_sheet(1948, {},
+                                                      '1XIY1juem3rDGNf2P8MyTc8W-QpT1aK4pAl6yHRkCARw', 'Full data')

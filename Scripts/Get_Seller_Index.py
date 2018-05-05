@@ -223,7 +223,7 @@ if __name__ == '__main__':
     # frame = frame[frame['GP Account Owner ID'].isnull()]
     # print(frame)
     # frame.to_csv('D://gp_acc_index.csv', sep=',')
-    frame.head().to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
+    frame.to_csv('D://seller_index.csv', sep=',', encoding="GB18030")
 
     # print(get_new_shop_index().head(100))
     # get_new_shop_index().to_csv('D://new_shop_index.csv', sep=',', encoding="GB18030")

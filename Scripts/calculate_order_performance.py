@@ -401,7 +401,7 @@ def calculate_order_performance():
 
     # 7.1 mtd_daily_order_by_gp_acc_owner_by_country
     def calculate_mtd_daily_order_by_gp_acc_owner_by_country():
-        country_list = ['sg', 'my', 'tw', 'id', 'th', 'ph']
+        country_list = ['sg', 'my', 'tw', 'id', 'th', 'ph', 'vn']
         start_date = get_start_of_this_month().strftime('%Y-%m-%d')
         end_date = get_yesterday_date().strftime('%Y-%m-%d')
 

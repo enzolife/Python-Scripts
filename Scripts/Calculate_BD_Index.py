@@ -469,14 +469,16 @@ def calculate_num_of_cb_leads_by_lead_gen_small_leads():
                                 & (seller_index['Date Transferred From Onboarding Team'] <= get_yesterday_date())
     seller_index = seller_index[date_transfer_date_filter]
 
-    # GP Acc. Owner is Mei Wenjuan
-    gp_owner_filter = seller_index['GP Account Owner'] == 'Mei Wenjuan'
+    # GP Acc. Owner is Mei Wenjuan or Stephen Luo
+    gp_owner_filter = (seller_index['GP Account Owner'] == 'Mei Wenjuan') |\
+                      (seller_index['GP Account Owner'] == 'Steven Luo')
     seller_index = seller_index[gp_owner_filter]
 
     # Seller type is not TB
     seller_type_filter = ~seller_index['GP Account Seller Classification'].str.contains('Taobao')
     seller_index = seller_index[seller_type_filter]
     # print(seller_index.head())
+    seller_index.to_csv("D://cb_sa_small_leads.csv", sep=',')
 
     # calculation
     seller_index_group = seller_index.groupby(['Lead Gen'])
@@ -549,4 +551,4 @@ if __name__ == '__main__':
     # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
 
     calculate_num_of_cb_leads_by_lead_gen_small_leads()
-    calculate_num_of_tb_leads_by_lead_gen_small_leads()
+    # calculate_num_of_tb_leads_by_lead_gen_small_leads()

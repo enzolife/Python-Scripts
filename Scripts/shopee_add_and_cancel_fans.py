@@ -70,27 +70,27 @@ except:
 time.sleep(10)
 
 
-# In[7]:
+# In[8]:
 
 Login_button_elem = browser.find_elements_by_css_selector('.shopee-button-solid.shopee-button-solid--primary')
 time.sleep(10)
-Login_button_elem[1].click()
+Login_button_elem[0].click()
 
 
-# In[8]:
+# In[ ]:
 
 # change current tab size
 browser.set_window_size(400, 862)    
 
 
-# In[9]:
+# In[ ]:
 
 # switch to my fans list
 my_fans_list_page = 'https://shopee.co.id/shop/59846508/following/?__classic__=1'
 browser.get(my_fans_list_page)
 
 
-# In[10]:
+# In[ ]:
 
 # cancel certain number of following fans
 to_cancel_num_of_following = 400
@@ -104,12 +104,12 @@ while num_of_following_display <= 500:
     num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[11]:
+# In[ ]:
 
 following_buttons = browser.find_elements_by_css_selector('.btn-follow.active.follow.L14')
 
 
-# In[12]:
+# In[ ]:
 
 browser.maximize_window()
 time.sleep(5)
@@ -118,7 +118,7 @@ time.sleep(5)
 scroll_to_the_top = browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
 
 
-# In[13]:
+# In[ ]:
 
 i = 0
 total_cancel_num_of_following = to_cancel_num_of_following
@@ -134,21 +134,21 @@ while i <= total_cancel_num_of_following - 1:
             print(str(shopid) + ' is not following now, ' + str(to_cancel_num_of_following) + ' following remains.')
 
 
-# In[9]:
+# In[ ]:
 
 # add fans from Top Seller's shop
 top_shop_url = 'https://shopee.co.id/shop/13484023/followers/?__classic__=1'
 browser.get(top_shop_url)
 
 
-# In[12]:
+# In[ ]:
 
 # add certain number of fans
 to_add_num_of_following = 400
 num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[15]:
+# In[ ]:
 
 # page down until we get at least 400 fans to cancel
 while num_of_following_display <= 1000:
@@ -160,13 +160,13 @@ while num_of_following_display <= 1000:
 num_of_following_display
 
 
-# In[14]:
+# In[ ]:
 
 following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
 len(following_buttons)
 
 
-# In[17]:
+# In[ ]:
 
 i = 0
 total_add_num_of_following = to_add_num_of_following

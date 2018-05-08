@@ -1,4 +1,4 @@
-from Scripts.Get_File_Create_Modify_Time import *
+from Get_File_Create_Modify_Time import *
 
 
 def delete_all_file_in_folder(parent_folder_path):

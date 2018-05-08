@@ -1,6 +1,6 @@
-from Scripts.Get_Gmail_Config import *
-from Scripts.Get_Google_Sheets import *
-from Scripts.Get_Particular_Date import *
+from Get_Gmail_Config import *
+from Get_Google_Sheets import *
+from Get_Particular_Date import *
 
 
 def calculate_local_my_shocking_sale():

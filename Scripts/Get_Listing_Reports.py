@@ -4,9 +4,9 @@ import glob
 import os
 import datetime
 import time
-from Scripts.Get_File_Create_Modify_Time import last_modify_date
-from Scripts.Get_Particular_Date import *
-from Scripts.Copy_Files_from_Intranet import *
+from Get_File_Create_Modify_Time import last_modify_date
+from Get_Particular_Date import *
+from Copy_Files_from_Intranet import *
 
 from_path = "\\\\10.12.50.3\\data_source\\listing_csv"
 

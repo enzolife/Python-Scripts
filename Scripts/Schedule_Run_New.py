@@ -1,18 +1,22 @@
 import logging
 from multiprocessing import Pool
 import schedule
-from Scripts.Calculate_BD_Index import *
-from Scripts.Calculate_Seller_Index import *
-from Scripts.Calculate_Local_Stat import *
-from Scripts.Calculate_Local_Category_Stat import *
-from Scripts.Calculate_Local_MY_Shocking_Sale import *
-from Scripts.Copy_Files_from_Intranet import *
-from Scripts.calculate_order_performance import calculate_order_performance
-from Scripts.calculate_listing_performance import calculate_listing_performance
-from Scripts.calculate_shipping_performance import calculate_shipping_performance
+from Calculate_BD_Index import *
+from Calculate_Seller_Index import *
+from Calculate_Local_Stat import *
+from Calculate_Local_Category_Stat import *
+from Calculate_Local_MY_Shocking_Sale import *
+from Copy_Files_from_Intranet import *
+from calculate_order_performance import calculate_order_performance
+from calculate_listing_performance import calculate_listing_performance
+from calculate_shipping_performance import calculate_shipping_performance
+
+today_date = get_today_date()
 
 
-logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='shopee_schedule_run_log ' + str(today_date) + '.txt',
+                    level=logging.INFO,
+                    format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.info('Start of program.')
 
 

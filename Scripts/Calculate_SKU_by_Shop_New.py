@@ -1,12 +1,12 @@
 # coding: utf-8
 import pandas as pd
 import os
-from Scripts.Get_Particular_Date import *
-from Scripts.Get_Listing_Reports import get_concatenated_listing_report
-from Scripts.Get_Gmail_Config import send_message
-from Scripts.Get_Google_Sheets import *
-from Scripts.Calculate_BD_Index import *
-from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
+from Get_Particular_Date import *
+from Get_Listing_Reports import get_concatenated_listing_report
+from Get_Gmail_Config import send_message
+from Get_Google_Sheets import *
+from Calculate_BD_Index import *
+from Get_Seller_Index import get_seller_index_from_google_sheet
 
 
 def calculate_sku_by_shop():

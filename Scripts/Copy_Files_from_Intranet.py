@@ -1,7 +1,7 @@
 import glob
 import shutil
-from Scripts.Get_File_Create_Modify_Time import *
-from Scripts.Get_Particular_Date import *
+from Get_File_Create_Modify_Time import *
+from Get_Particular_Date import *
 
 
 # listdir有个毛病，会把隐藏文件都加上，所以需要排除

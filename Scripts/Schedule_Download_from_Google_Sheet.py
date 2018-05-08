@@ -2,7 +2,7 @@ import threading
 import time
 import schedule
 import logging
-from Scripts.Get_Google_Sheets import get_certain_google_sheets
+from Get_Google_Sheets import get_certain_google_sheets
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.info('Start of program.')

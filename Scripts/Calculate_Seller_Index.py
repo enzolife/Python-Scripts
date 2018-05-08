@@ -1,7 +1,7 @@
 import pandas as pd
-from Scripts.Get_Seller_Index import get_gp_acc_index, get_seller_index_from_google_sheet, get_new_shop_index
-from Scripts.Get_Google_Sheets import *
-from Scripts.Get_Gmail_Config import send_message
+from Get_Seller_Index import get_gp_acc_index, get_seller_index_from_google_sheet, get_new_shop_index
+from Get_Google_Sheets import *
+from Get_Gmail_Config import send_message
 
 
 def calculate_num_of_seller_by_gp_acc_owner():

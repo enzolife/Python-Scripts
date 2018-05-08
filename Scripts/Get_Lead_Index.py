@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-from Scripts.Get_Google_Sheets import get_certain_google_sheets_to_dataframe
-from Scripts.Get_Particular_Date import *
-from Scripts.Get_File_Create_Modify_Time import *
+from Get_Google_Sheets import get_certain_google_sheets_to_dataframe
+from Get_Particular_Date import *
+from Get_File_Create_Modify_Time import *
 
 
 # 两种方法，一种是读本地csv，一种是读google sheet上的lead index

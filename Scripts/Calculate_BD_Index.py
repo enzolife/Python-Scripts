@@ -1,9 +1,9 @@
-from Scripts.Get_Lead_Index import get_lead_index_from_google_sheet
-from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
-from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
-from Scripts.Get_Particular_Date import *
-from Scripts.Get_Gmail_Config import send_message
-from Scripts.Get_Seller_Index import get_new_shop_index
+from Get_Lead_Index import get_lead_index_from_google_sheet
+from Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
+from Get_Seller_Index import get_seller_index_from_google_sheet
+from Get_Particular_Date import *
+from Get_Gmail_Config import send_message
+from Get_Seller_Index import get_new_shop_index
 import pandas as pd
 import numpy as np
 
@@ -547,7 +547,7 @@ if __name__ == '__main__':
     '''
     # num_of_tb_leads_by_lead_gen = calculate_num_of_tb_leads_by_lead_gen()
     # print(num_of_tb_leads_by_lead_gen)
-    # selected_column = ['Lead Size', 'Sales Lead: Owner Name', 'Actual_Leads_Size']
+    # selected_column = ['Lead Size', 'Sales L ead: Owner Name', 'Actual_Leads_Size']
     # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
 
     calculate_num_of_cb_leads_by_lead_gen_small_leads()

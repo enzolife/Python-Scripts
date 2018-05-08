@@ -6,7 +6,7 @@ import pandas as pd
 import re
 import time
 from oauth2client.service_account import ServiceAccountCredentials
-from Scripts.Get_Particular_Date import *
+from Get_Particular_Date import *
 from itertools import islice
 
 

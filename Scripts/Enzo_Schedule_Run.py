@@ -3,7 +3,7 @@ import os
 import schedule
 import time
 from multiprocessing import Pool
-from Scripts.Enzo_Get_SMT_Search_Result import get_smt_search_result
+from Enzo_Get_SMT_Search_Result import get_smt_search_result
 
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')

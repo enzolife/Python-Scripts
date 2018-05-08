@@ -1,12 +1,12 @@
 # coding: utf-8
 import os
 import pandas as pd
-from Scripts.Get_Particular_Date import *
-from Scripts.Get_Listing_Reports import get_concatenated_listing_report
-from Scripts.Get_Gmail_Config import send_message
-from Scripts.Get_Seller_Index import get_certain_google_sheets_to_dataframe
-from Scripts.Get_Google_Sheets import upload_dataframe_to_google_sheet
-from Scripts.Get_Seller_Index import get_seller_index_from_google_sheet
+from Get_Particular_Date import *
+from Get_Listing_Reports import get_concatenated_listing_report
+from Get_Gmail_Config import send_message
+from Get_Seller_Index import get_certain_google_sheets_to_dataframe
+from Get_Google_Sheets import upload_dataframe_to_google_sheet
+from Get_Seller_Index import get_seller_index_from_google_sheet
 
 
 def calculate_sku_by_cat_product():

@@ -70,27 +70,27 @@ except:
 time.sleep(10)
 
 
-# In[8]:
+# In[7]:
 
 Login_button_elem = browser.find_elements_by_css_selector('.shopee-button-solid.shopee-button-solid--primary')
 time.sleep(10)
 Login_button_elem[0].click()
 
 
-# In[ ]:
+# In[9]:
 
 # change current tab size
-browser.set_window_size(400, 862)    
+# browser.set_window_size(400, 862)    
 
 
-# In[ ]:
+# In[10]:
 
 # switch to my fans list
 my_fans_list_page = 'https://shopee.co.id/shop/59846508/following/?__classic__=1'
 browser.get(my_fans_list_page)
 
 
-# In[ ]:
+# In[11]:
 
 # cancel certain number of following fans
 to_cancel_num_of_following = 400
@@ -104,12 +104,12 @@ while num_of_following_display <= 500:
     num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[ ]:
+# In[12]:
 
 following_buttons = browser.find_elements_by_css_selector('.btn-follow.active.follow.L14')
 
 
-# In[ ]:
+# In[13]:
 
 browser.maximize_window()
 time.sleep(5)
@@ -118,7 +118,7 @@ time.sleep(5)
 scroll_to_the_top = browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
 
 
-# In[ ]:
+# In[14]:
 
 i = 0
 total_cancel_num_of_following = to_cancel_num_of_following
@@ -134,39 +134,40 @@ while i <= total_cancel_num_of_following - 1:
             print(str(shopid) + ' is not following now, ' + str(to_cancel_num_of_following) + ' following remains.')
 
 
-# In[ ]:
+# In[14]:
 
 # add fans from Top Seller's shop
 top_shop_url = 'https://shopee.co.id/shop/13484023/followers/?__classic__=1'
 browser.get(top_shop_url)
 
 
-# In[ ]:
+# In[15]:
 
 # add certain number of fans
 to_add_num_of_following = 400
 num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[ ]:
+# In[17]:
 
 # page down until we get at least 400 fans to cancel
 while num_of_following_display <= 1000:
     body = browser.find_element_by_css_selector('body')
-    body.send_keys(Keys.PAGE_DOWN)
+    # body.send_keys(Keys.PAGE_DOWN)
+    body.send_keys(Keys.END)
     time.sleep(5)
     num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
     
 num_of_following_display
 
 
-# In[ ]:
+# In[18]:
 
 following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
 len(following_buttons)
 
 
-# In[ ]:
+# In[23]:
 
 i = 0
 total_add_num_of_following = to_add_num_of_following
@@ -182,11 +183,13 @@ while i <= total_add_num_of_following - 1:
             following_buttons[i].click()
             time.sleep(5)
             to_add_num_of_following -= 1
-            i += 1
             print(str(shopid) + ' is following now, ' + str(to_add_num_of_following) + ' following remains.')
+        else:
+            print('Skip this one. It\'s following already.')
+        i += 1
 
 
-# In[ ]:
+# In[24]:
 
 # 关闭
 browser.quit()

@@ -44,6 +44,7 @@ def run_bd_index():
     calculate_num_of_cb_leads_by_lead_gen()
     calculate_num_of_tb_leads_by_lead_gen()
     calculate_num_of_cb_leads_by_lead_gen_small_leads()
+    calculate_num_of_tb_leads_by_lead_gen_tb_sh_sa()
     upload_bd_performance()
 
 

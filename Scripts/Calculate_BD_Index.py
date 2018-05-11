@@ -393,7 +393,7 @@ def calculate_num_of_cb_leads_by_lead_gen():
 
 # TB SA Target Tracking
 def calculate_num_of_tb_leads_by_lead_gen():
-    # MTD
+    # 1. MTD Part
     bd_index = get_bd_index_config()
 
     # 判断TB
@@ -419,7 +419,7 @@ def calculate_num_of_tb_leads_by_lead_gen():
                                      '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
                                      'mtd_num_of_tb_leads_by_lead_gen')
 
-    # WTD/W-1
+    # 2. WTD/W-1 Part
     bd_index = get_bd_index_config()
 
     # 判断TB
@@ -470,7 +470,7 @@ def calculate_num_of_cb_leads_by_lead_gen_small_leads():
     seller_index = seller_index[date_transfer_date_filter]
 
     # GP Acc. Owner is Mei Wenjuan or Stephen Luo
-    gp_owner_filter = (seller_index['GP Account Owner'] == 'Mei Wenjuan') |\
+    gp_owner_filter = (seller_index['GP Account Owner'] == 'Mei Wenjuan') | \
                       (seller_index['GP Account Owner'] == 'Steven Luo')
     seller_index = seller_index[gp_owner_filter]
 
@@ -535,6 +535,36 @@ def calculate_num_of_tb_leads_by_lead_gen_small_leads():
     return None
 
 
+# TB SA Target Tracking (TB SH SA)
+def calculate_num_of_tb_leads_by_lead_gen_tb_sh_sa():
+    # MTD Part
+    seller_index = get_seller_index_from_google_sheet()
+
+    # date transfer from onboarding team is current month
+    date_transfer_date_filter = (seller_index['Date Transferred From Onboarding Team'] >= get_start_of_this_month()) \
+                                & (seller_index['Date Transferred From Onboarding Team'] <= get_yesterday_date())
+    seller_index = seller_index[date_transfer_date_filter]
+
+    # GP Acc. Owner is Alfred.Su
+    gp_owner_filter = (seller_index['GP Account Owner'] == 'Alfred Su')
+    seller_index = seller_index[gp_owner_filter]
+
+    # Seller type is TB
+    seller_type_filter = seller_index['GP Account Seller Classification'].str.contains('Taobao')
+    seller_index = seller_index[seller_type_filter]
+
+    # calculation
+    seller_index_group = seller_index.groupby(['Lead Gen'])
+    seller_index_result = seller_index_group.agg({'Sales Lead: ID': 'nunique'}).reset_index()
+
+    # upload to bd performance report
+    upload_dataframe_to_google_sheet(seller_index_result,
+                                     '1A6sGYtEV2_IbzjxjSGIixFFre0l-fY5C0T8Qt34IiB8',
+                                     'mtd_num_of_tb_leads_by_lead_gen_tb_sh_sa')
+
+    return None
+
+
 if __name__ == '__main__':
     '''
     calculate_num_of_leads_claimed()
@@ -550,5 +580,7 @@ if __name__ == '__main__':
     # selected_column = ['Lead Size', 'Sales L ead: Owner Name', 'Actual_Leads_Size']
     # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
 
-    calculate_num_of_cb_leads_by_lead_gen_small_leads()
+    # calculate_num_of_cb_leads_by_lead_gen_small_leads()
     # calculate_num_of_tb_leads_by_lead_gen_small_leads()
+
+    calculate_num_of_tb_leads_by_lead_gen_tb_sh_sa()

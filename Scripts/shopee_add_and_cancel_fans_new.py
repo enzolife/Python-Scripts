@@ -70,9 +70,9 @@ shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 946912
              ['my', 'com.my', 59848325, 'tengus.my', 'tengus1803', 10891137, 'winners.my'],
              ['my', 'com.my', 62418141, 'tengus1.my', 'tengus1803', 10891137, 'winners.my'],
              ['my', 'com.my', 62418493, 'tengus2.my', 'tengus1803', 10891137, 'winners.my'],
-             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 28135012, 'sunnyfun.id'],
-             ['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
-             ['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
+             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 28135012, 'sunnyfun.id']
+             #['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
+             #['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
 
 
 # In[8]:
@@ -249,7 +249,7 @@ for index, my_shop in shop_df.iterrows():
         add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_shop_username)
         logging.info('Finished running the script on ' + acc + '.')
     except Exception as err:
-        logging.info('An exception occurred: ' + err + '.')
+        logging.info('An exception occurred: ' + str(err) + '.')
 
 
 # In[ ]:

@@ -177,5 +177,5 @@ for index, my_shop in shop_df.iterrows():
         boost_product(site, site_suffix, shopid, acc, pwd)
         logging.info('Finished running the script on ' + acc + '.')
     except Exception as err:
-        logging.info('An exception occurred: ' + err + '.')
+        logging.info('An exception occurred: ' + str(err) + '.')
 

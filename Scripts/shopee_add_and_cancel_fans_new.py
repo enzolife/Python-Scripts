@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[8]:
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -12,7 +12,7 @@ import logging
 import os
 
 
-# In[2]:
+# In[9]:
 
 # Date
 today_date = datetime.date.today() + datetime.timedelta(days=0)
@@ -22,12 +22,12 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[3]:
+# In[10]:
 
 # os.getcwd()
 
 
-# In[4]:
+# In[11]:
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
 
@@ -36,7 +36,7 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[5]:
+# In[12]:
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -47,14 +47,14 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[6]:
+# In[13]:
 
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = "D://Program Files (x86)//百度云同步盘//我的软件//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[7]:
+# In[14]:
 
 # 所需参数
 # 站点；站点后缀；账户；密码；站点top卖家shopid；top卖家username（方便识别）
@@ -70,26 +70,26 @@ shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 946912
              ['my', 'com.my', 59848325, 'tengus.my', 'tengus1803', 10891137, 'winners.my'],
              ['my', 'com.my', 62418141, 'tengus1.my', 'tengus1803', 10891137, 'winners.my'],
              ['my', 'com.my', 62418493, 'tengus2.my', 'tengus1803', 10891137, 'winners.my'],
-             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 28135012, 'sunnyfun.id']
-             #['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
-             #['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
+             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 28135012, 'sunnyfun.id'],
+             ['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
+             ['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
 
 
-# In[8]:
+# In[15]:
 
 # 转换为dataframe
 shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id', 'top_shop_username']
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[9]:
+# In[16]:
 
 # 关注及关注中多语言
 following_language = ['关注中', '關注中', 'Following', 'Mengikuti']
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti']
 
 
-# In[10]:
+# In[17]:
 
 # 取关后关注函数
 def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_shop_username):
@@ -231,7 +231,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[11]:
+# In[18]:
 
 # 历遍所有shop
 for index, my_shop in shop_df.iterrows():
@@ -252,23 +252,23 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[ ]:
+# In[19]:
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[ ]:
+# In[20]:
 
 # browser.get('https://shopee.com.my')
 
 
-# In[ ]:
+# In[21]:
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[ ]:
+# In[22]:
 
 #language_selector[2].click()
 

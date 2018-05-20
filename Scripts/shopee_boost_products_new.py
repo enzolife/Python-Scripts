@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[10]:
+# In[69]:
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -14,7 +14,7 @@ import os
 import random
 
 
-# In[11]:
+# In[70]:
 
 # Date
 today_date = datetime.date.today() + datetime.timedelta(days=0)
@@ -24,7 +24,7 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[12]:
+# In[71]:
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
 
@@ -33,7 +33,7 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[13]:
+# In[72]:
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -44,14 +44,14 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[14]:
+# In[73]:
 
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = "D://Program Files (x86)//百度云同步盘//我的软件//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[15]:
+# In[74]:
 
 # 所需参数
 # 站点；站点后缀；账户；密码；站点top卖家shopid；top卖家username（方便识别）
@@ -73,14 +73,14 @@ shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 946912
             ]
 
 
-# In[16]:
+# In[75]:
 
 # 转换为dataframe
 shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id', 'top_shop_username']
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[ ]:
+# In[76]:
 
 # 商品置顶函数
 def boost_product(site, site_suffix, shopid, acc, pwd):
@@ -149,20 +149,27 @@ def boost_product(site, site_suffix, shopid, acc, pwd):
     try:
         my_products_boost = browser.find_elements_by_css_selector('.shopee-button.shopee-button--inactive.shopee-button--frameless.shopee-button--medium.ember-view')
         logging.info('There are ' + str(len(my_products_boost)) + ' products can be boosted on the product list page.')
-        # random select 5 products to boost
+        # random select 5 products to boost and sort ascending
         random_num_list = random.sample(range(0, len(my_products_boost)-1), 5)
+        logging.info('Product # ' + str(random_num_list) + ' will be boosted.')
+        
         for index, random_num in enumerate(random_num_list):
-            my_products_boost[random_num].click()
-            logging.info('Boost ' + str(index + 1) + ' product.')
+            try:
+                # use location_once_scrolled_into_view to locate the element location
+                my_products_boost[random_num].location_once_scrolled_into_view
+                my_products_boost[random_num].click()
+                logging.info('Boost ' + str(index + 1) + ' product.')
+            except Exception as err:
+                logging.warning('An exception occurred: ' + str(err))
         logging.info('Product Boost is completed.')
-    except:
-        pass
+    except Exception as err:
+        logging.warning('An exception occurred: ' + str(err))
     
     # 关闭
     browser.quit()
 
 
-# In[ ]:
+# In[77]:
 
 # 历遍所有shop
 for index, my_shop in shop_df.iterrows():
@@ -178,5 +185,5 @@ for index, my_shop in shop_df.iterrows():
         boost_product(site, site_suffix, shopid, acc, pwd)
         logging.info('Finished running the script on ' + acc + '.')
     except Exception as err:
-        logging.info('An exception occurred: ' + str(err) + '.')
+        logging.warning('An exception occurred: ' + str(err) + '.')
 

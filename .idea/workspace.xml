@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Index.coverage" NAME="Calculate_BD_Index Coverage Results" MODIFIED="1525946219162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Index.coverage" NAME="Calculate_BD_Index Coverage Results" MODIFIED="1527243248386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_BD_Performance_Report.coverage" NAME="Calculate_BD_Performance_Report Coverage Results" MODIFIED="1502777410476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1519458961918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Seller_Index.coverage" NAME="Get_Seller_Index Coverage Results" MODIFIED="1524733797501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
@@ -49,7 +49,7 @@
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Gmail_Config.coverage" NAME="Get_Gmail_Config Coverage Results" MODIFIED="1508826015043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Local_Stat.coverage" NAME="Calculate_Local_Stat Coverage Results" MODIFIED="1517195947275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$clientsecrets.coverage" NAME="clientsecrets Coverage Results" MODIFIED="1499325223408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Anaconda3/Lib/site-packages/oauth2client" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Seller_Index.coverage" NAME="Calculate_Seller_Index Coverage Results" MODIFIED="1525675531528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$Calculate_Seller_Index.coverage" NAME="Calculate_Seller_Index Coverage Results" MODIFIED="1527242841133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Particular_Date.coverage" NAME="Get_Particular_Date Coverage Results" MODIFIED="1525689729110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$calculate_shipping_performance.coverage" NAME="calculate_shipping_performance Coverage Results" MODIFIED="1525860071216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Get_Local_Currency.coverage" NAME="Get_Local_Currency Coverage Results" MODIFIED="1516856331445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
@@ -59,11 +59,11 @@
     <SUITE FILE_PATH="coverage/Python_Scripts$test3.coverage" NAME="test3 Coverage Results" MODIFIED="1508825890878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Run_New.coverage" NAME="Schedule_Run_New Coverage Results" MODIFIED="1525689778990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$2017_5_16_Get_Yesterday_SKU_by_Shop.coverage" NAME="2017.5.16+Get+Yesterday+SKU+by+Shop Coverage Results" MODIFIED="1497258380783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$calculate_order_performance.coverage" NAME="calculate_order_performance Coverage Results" MODIFIED="1526204127098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$calculate_order_performance.coverage" NAME="calculate_order_performance Coverage Results" MODIFIED="1527243211072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_SMT_Web_Scraping.coverage" NAME="Enzo_SMT_Web_Scraping Coverage Results" MODIFIED="1505360636140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Schedule_Download_from_Google_Sheet.coverage" NAME="Schedule_Download_from_Google_Sheet Coverage Results" MODIFIED="1502440864117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Copy_Files_from_Intranet.coverage" NAME="Copy_Files_from_Intranet Coverage Results" MODIFIED="1516017846019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/Python_Scripts$calculate_listing_performance.coverage" NAME="calculate_listing_performance Coverage Results" MODIFIED="1526206996396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/Python_Scripts$calculate_listing_performance.coverage" NAME="calculate_listing_performance Coverage Results" MODIFIED="1527243212369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Unittests_in_test_2__py.coverage" NAME="Unittests in test(2).py Coverage Results" MODIFIED="1499158610759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Get_File_Name.coverage" NAME="Enzo_Get_File_Name Coverage Results" MODIFIED="1508907352671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/Python_Scripts$Enzo_Schedule_Run.coverage" NAME="Enzo_Schedule_Run Coverage Results" MODIFIED="1508210178242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
@@ -91,16 +91,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Schedule_Run_New.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Schedule_Run_New.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/Schedule_Run_New.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="166" column="54" lean-forward="false" selection-start-line="166" selection-start-column="54" selection-end-line="166" selection-end-column="54" />
+            <state relative-caret-position="356">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="47" selection-end-column="27" />
               <folding>
                 <element signature="e#821#850#0" expanded="false" />
                 <element signature="e#899#930#0" expanded="false" />
                 <element signature="e#1002#1034#0" expanded="false" />
-                <element signature="e#1061#1400#0" expanded="false" />
                 <element signature="e#1431#1729#0" expanded="false" />
                 <element signature="e#1758#1780#0" expanded="false" />
                 <element signature="e#1813#1883#0" expanded="false" />
@@ -113,6 +112,28 @@
                 <element signature="e#3685#3964#0" expanded="false" />
                 <element signature="e#3993#4265#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calculate_order_performance.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/calculate_order_performance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5519">
+              <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+              <folding>
+                <element signature="e#10949#13585#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calculate_Seller_Index.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-764">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -251,8 +272,8 @@
         <option value="$PROJECT_DIR$/Scripts/__init__.py" />
         <option value="$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py" />
         <option value="$PROJECT_DIR$/Scripts/calculate_listing_performance.py" />
-        <option value="$PROJECT_DIR$/Scripts/Calculate_BD_Index.py" />
         <option value="$PROJECT_DIR$/Scripts/Schedule_Run_New.py" />
+        <option value="$PROJECT_DIR$/Scripts/Calculate_BD_Index.py" />
       </list>
     </option>
   </component>
@@ -303,6 +324,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,7 +341,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -362,7 +383,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.calculate_listing_performance">
+  <component name="RunManager" selected="Python.Calculate_BD_Index">
     <configuration name="Calculate_BD_Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -382,7 +403,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Schedule_Run_New" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Calculate_Seller_Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -395,7 +416,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python Scripts" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Schedule_Run_New.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -657,19 +678,19 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
-      <item index="1" class="java.lang.String" itemvalue="Python.calculate_order_performance" />
-      <item index="2" class="java.lang.String" itemvalue="Python.calculate_listing_performance" />
-      <item index="3" class="java.lang.String" itemvalue="Python.calculate_shipping_performance" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
+      <item index="0" class="java.lang.String" itemvalue="Python.calculate_order_performance" />
+      <item index="1" class="java.lang.String" itemvalue="Python.calculate_listing_performance" />
+      <item index="2" class="java.lang.String" itemvalue="Python.calculate_shipping_performance" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Calculate_Seller_Index" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.calculate_listing_performance" />
-        <item index="1" class="java.lang.String" itemvalue="Python.calculate_order_performance" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
-        <item index="3" class="java.lang.String" itemvalue="Python.calculate_shipping_performance" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Schedule_Run_New" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Calculate_BD_Index" />
+        <item index="1" class="java.lang.String" itemvalue="Python.calculate_listing_performance" />
+        <item index="2" class="java.lang.String" itemvalue="Python.calculate_order_performance" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Calculate_Seller_Index" />
+        <item index="4" class="java.lang.String" itemvalue="Python.calculate_shipping_performance" />
       </list>
     </recent_temporary>
   </component>
@@ -784,15 +805,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916266" sideWeight="0.46588486" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32435033" sideWeight="0.5426439" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32723773" sideWeight="0.45735607" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916266" sideWeight="0.4552239" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33012512" sideWeight="0.48134327" order="10" side_tool="false" content_ui="tabs" x="465" y="423" width="989" height="313" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33012512" sideWeight="0.48134327" order="10" side_tool="false" content_ui="tabs" x="465" y="423" width="989" height="313" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916266" sideWeight="0.46588486" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2217484" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23081024" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23827292" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1186,9 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="65" column="86" lean-forward="true" selection-start-line="65" selection-start-column="86" selection-end-line="65" selection-end-column="86" />
-          <folding>
-            <element signature="e#801#3138#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1242,25 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#486#500#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-            <element signature="e#249#690#0" expanded="false" />
-            <element signature="e#761#1587#0" expanded="false" />
-            <element signature="e#1654#2242#0" expanded="false" />
-            <element signature="e#2307#2963#0" expanded="false" />
-            <element signature="e#3016#5511#0" expanded="false" />
-            <element signature="e#5553#6667#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1274,31 +1272,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_BD_Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="538" column="50" lean-forward="false" selection-start-line="538" selection-start-column="4" selection-end-line="538" selection-end-column="50" />
-          <folding>
-            <element signature="e#408#473#0" expanded="false" />
-            <element signature="e#527#579#0" expanded="false" />
-            <element signature="e#636#3600#0" expanded="false" />
-            <element signature="e#3647#4345#0" expanded="false" />
-            <element signature="e#4422#6581#0" expanded="false" />
-            <element signature="e#6664#8823#0" expanded="false" />
-            <element signature="e#8973#11589#0" expanded="false" />
-            <element signature="e#11673#16163#0" expanded="false" />
-            <element signature="e#16239#19740#0" expanded="false" />
-            <element signature="e#19816#22530#0" expanded="false" />
-            <element signature="e#22632#24237#0" expanded="false" />
-            <element signature="e#24352#26310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/calculate_order_performance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5364">
-          <caret line="456" column="0" lean-forward="false" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
+        <state relative-caret-position="-5519">
+          <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
           <folding>
             <element signature="e#10949#13585#0" expanded="false" />
           </folding>
@@ -1307,13 +1284,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Schedule_Run_New.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="166" column="54" lean-forward="false" selection-start-line="166" selection-start-column="54" selection-end-line="166" selection-end-column="54" />
+        <state relative-caret-position="356">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="47" selection-end-column="27" />
           <folding>
             <element signature="e#821#850#0" expanded="false" />
             <element signature="e#899#930#0" expanded="false" />
             <element signature="e#1002#1034#0" expanded="false" />
-            <element signature="e#1061#1400#0" expanded="false" />
             <element signature="e#1431#1729#0" expanded="false" />
             <element signature="e#1758#1780#0" expanded="false" />
             <element signature="e#1813#1883#0" expanded="false" />
@@ -1326,6 +1302,22 @@
             <element signature="e#3685#3964#0" expanded="false" />
             <element signature="e#3993#4265#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_BD_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="575" column="27" lean-forward="true" selection-start-line="575" selection-start-column="27" selection-end-line="575" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Calculate_Seller_Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-764">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

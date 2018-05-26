@@ -566,21 +566,11 @@ def calculate_num_of_tb_leads_by_lead_gen_tb_sh_sa():
 
 
 if __name__ == '__main__':
-    '''
     calculate_num_of_leads_claimed()
     calculate_num_of_leads_by_date()
     calculate_num_of_leads_claimed_by_week()
     calculate_num_of_cb_leads_by_lead_gen()
     calculate_num_of_tb_leads_by_lead_gen()
-    upload_bd_performance()
-
-    '''
-    # num_of_tb_leads_by_lead_gen = calculate_num_of_tb_leads_by_lead_gen()
-    # print(num_of_tb_leads_by_lead_gen)
-    # selected_column = ['Lead Size', 'Sales L ead: Owner Name', 'Actual_Leads_Size']
-    # num_of_cb_leads_by_lead_gen.to_csv("D://test_lead.csv", sep=',')
-
-    # calculate_num_of_cb_leads_by_lead_gen_small_leads()
-    # calculate_num_of_tb_leads_by_lead_gen_small_leads()
-
+    calculate_num_of_cb_leads_by_lead_gen_small_leads()
     calculate_num_of_tb_leads_by_lead_gen_tb_sh_sa()
+    upload_bd_performance()

@@ -196,7 +196,8 @@ for key, shop in shop_parameter_df.iterrows():
                 # 提取item部分
                 item_detail = json_normalize(parsed['item'])
                 # 只提取所需columns
-                item_detail_columns = ['item_id', 'item_sku', 'likes', 'name', 'create_time', 'update_time', 'original_price', 'price', 'sales', 'shopid', 'status', 'stock', 'views', 'currency']
+                item_detail_columns = ['item_id', 'item_sku', 'likes', 'name', 'create_time', 'update_time', 'original_price',
+                                       'price', 'sales', 'shopid', 'status', 'stock', 'views', 'currency', 'category_id']
                 item_detail = item_detail[item_detail_columns]
                 # 替换column names
                 replace_columns_name = {
@@ -213,7 +214,8 @@ for key, shop in shop_parameter_df.iterrows():
                     'status': '产品状态',
                     'stock': '库存', 
                     'views': '点击量',
-                    'currency': '货币'
+                    'currency': '货币',
+                    'category_id': '分类ID'
                 }
                 item_detail = item_detail.rename(columns=replace_columns_name)
                 # column重新排序
@@ -231,7 +233,8 @@ for key, shop in shop_parameter_df.iterrows():
                     '点赞数',
                     '点击量',
                     '销量',
-                    '库存'
+                    '库存',
+                    '分类ID'
                 ]
                 item_detail = item_detail[sort_columns]
                 

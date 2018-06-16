@@ -10,20 +10,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Scripts$shopee_api_delete_inactive_skus_and_upload_again.coverage" NAME="shopee_api_delete_inactive_skus_and_upload_again Coverage Results" MODIFIED="1528019122399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Scripts$shopee_api_delete_inactive_skus_and_upload_again.coverage" NAME="shopee_api_delete_inactive_skus_and_upload_again Coverage Results" MODIFIED="1528602721460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Scripts$shopee_add_and_cancel_fans_new.coverage" NAME="shopee_add_and_cancel_fans_new Coverage Results" MODIFIED="1526266262837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="shopee_api_delete_inactive_skus_and_upload_again.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14944">
-              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-              <folding>
-                <element signature="e#28#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="456">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,6 +36,7 @@
       <list>
         <option value="$PROJECT_DIR$/shopee_add_and_cancel_fans.py" />
         <option value="$PROJECT_DIR$/shopee_add_and_cancel_fans_new.py" />
+        <option value="$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
       </list>
     </option>
   </component>
@@ -69,6 +68,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -83,7 +83,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -320,6 +319,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -353,6 +353,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -383,11 +391,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14944">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding>
-            <element signature="e#28#43#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="456">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

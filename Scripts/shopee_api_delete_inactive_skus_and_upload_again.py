@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[58]:
+# In[1]:
 
 import requests
 import time
@@ -22,13 +22,13 @@ import numpy
 import logging
 
 
-# In[59]:
+# In[2]:
 
 logging.basicConfig(level=logging.INFO, 
                     format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[60]:
+# In[3]:
 
 # Date
 today_date = dt.date.today() + dt.timedelta(days=0)
@@ -36,7 +36,7 @@ yesterday_date = dt.date.today() + dt.timedelta(days=-1)
 seven_days_before_date = dt.date.today() + dt.timedelta(days=-7)
 
 
-# In[61]:
+# In[4]:
 
 # get_auth_signature
 def get_auth_signature(url, payload, shop_key):
@@ -52,7 +52,7 @@ def get_auth_signature(url, payload, shop_key):
     return auth_signature
 
 
-# In[62]:
+# In[5]:
 
 def post_message_to_shopee_api(url, payload, shop_key):
     # Auth Signature
@@ -71,7 +71,7 @@ def post_message_to_shopee_api(url, payload, shop_key):
     return parsed
 
 
-# In[63]:
+# In[6]:
 
 # get_item_list
 def get_item_list(partner_id, shopid, shop_key):
@@ -122,7 +122,7 @@ def get_item_list(partner_id, shopid, shop_key):
     return all_item_list
 
 
-# In[64]:
+# In[7]:
 
 # get_item_detail
 def get_item_detail(partner_id, shopid, shop_key, all_item_list):
@@ -159,7 +159,7 @@ def get_item_detail(partner_id, shopid, shop_key, all_item_list):
     return item_detail_list
 
 
-# In[65]:
+# In[8]:
 
 # retrieve_dict_and_convert_to_df_column
 def retrieve_dict_and_convert_to_df_column(dataframe, column_name, selected_key_list, converted_column_name):
@@ -179,7 +179,7 @@ def retrieve_dict_and_convert_to_df_column(dataframe, column_name, selected_key_
     return dataframe
 
 
-# In[66]:
+# In[9]:
 
 # retrieve_image_and_convert_to_dict
 def retrieve_image_and_convert_to_dict(dataframe, column_name, converted_column_name):
@@ -195,7 +195,7 @@ def retrieve_image_and_convert_to_dict(dataframe, column_name, converted_column_
     return dataframe
 
 
-# In[67]:
+# In[10]:
 
 # 根据每个分类，找到必填的attributes，然后填上
 def get_category_attributes(partner_id, shopid, shop_key, category_id):
@@ -220,7 +220,7 @@ def get_category_attributes(partner_id, shopid, shop_key, category_id):
     return attribute_list
 
 
-# In[68]:
+# In[11]:
 
 # 找店铺分类
 def get_category_info(partner_id, shopid, shop_key):
@@ -244,7 +244,7 @@ def get_category_info(partner_id, shopid, shop_key):
     return category_list
 
 
-# In[69]:
+# In[12]:
 
 # 删除产品
 def delete_product(partner_id, shopid, shop_key, delete_product_id):
@@ -270,7 +270,7 @@ def delete_product(partner_id, shopid, shop_key, delete_product_id):
     # 查找是否有error
 
 
-# In[70]:
+# In[13]:
 
 # 添加商品图片
 def add_product_image(partner_id, shopid, shop_key, item_id, images):
@@ -305,7 +305,7 @@ def add_product_image(partner_id, shopid, shop_key, item_id, images):
             images = parsed['fail_image']
 
 
-# In[71]:
+# In[14]:
 
 # 添加商品图片到某个指定位置
 def add_product_image_to_certain_location(partner_id, shopid, shop_key, item_id, image_url, image_position):
@@ -338,7 +338,7 @@ def add_product_image_to_certain_location(partner_id, shopid, shop_key, item_id,
             image_url = ''
 
 
-# In[72]:
+# In[15]:
 
 # 新增产品
 def add_product(partner_id, shopid, shop_key,
@@ -423,7 +423,7 @@ def add_product(partner_id, shopid, shop_key,
         return True
 
 
-# In[73]:
+# In[16]:
 
 # shop parameter list# shop  
 # partner_id, shopid, shop_name, shop_key
@@ -449,7 +449,7 @@ shop_parameter_df = pd.DataFrame(shop_parameter_list, columns=columns)
 # shop_parameter_df
 
 
-# In[74]:
+# In[17]:
 
 def delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_key):
     # 1. get item list
@@ -457,10 +457,12 @@ def delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_ke
     # 2. get item detail list
     item_detail_list = get_item_detail(partner_id, shopid, shop_key, all_item_list)
     # 3. filter item detail list
-    # 选上线超过60天仍然0销量的产品
+    # 选上线超过60天仍然0销量的产品；把没有attributes的产品去掉
     item_detail_list = item_detail_list[item_detail_list['days_since_live'] >= 60]
     item_detail_list = item_detail_list[item_detail_list['sales'] == 0]
     item_detail_list = item_detail_list.sort_values(by='days_since_live', ascending=False)
+    item_detail_list = item_detail_list[item_detail_list['attributes'].str.len() != 0]
+    item_detail_list = item_detail_list[item_detail_list['stock'] > 0]
     # 如果不存在这样的list，直接跳过
     if len(item_detail_list) != 0:
         # 4. get item attributes list
@@ -468,7 +470,7 @@ def delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_ke
         selected_key_list = ['attribute_id', 'attribute_value']
         converted_column_name = 'edited attributes'
         retrieve_dict_and_convert_to_df_column(item_detail_list, column_name, selected_key_list, converted_column_name)
-        # 5. 把attribute_id改为attributes_id
+        # 5. 把attribute_id改为attributes_id；注意：如果原本的产品没有填任何attribute，直接忽略
         for value in item_detail_list['edited attributes']:
             for dict_value in value:
                 dict_value['attributes_id'] = dict_value.pop('attribute_id')
@@ -555,7 +557,7 @@ def delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_ke
         selected_columns = ["category_id","name","description","price","stock","item_sku","edited variations","images","edited attributes","edited logistics","weight","days_to_ship", 'item_id', 'edited images']
         edited_item_detail_list = item_detail_list[selected_columns]    
         # 测试
-        test_item_detail_list = edited_item_detail_list[:5]
+        test_item_detail_list = edited_item_detail_list[:10]
         test_item_detail_list    
         # 14. 先删除产品，再新增产品
         for index, item in test_item_detail_list.iterrows():
@@ -599,7 +601,7 @@ def delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_ke
         logging.warning('add_product - Theres are not products under this filter for ' + str(shop_name))
 
 
-# In[75]:
+# In[ ]:
 
 def get_attribute_category_list(partner_id, shopid, shop_name, shop_key):
     # 1. get item list
@@ -622,10 +624,12 @@ def get_attribute_category_list(partner_id, shopid, shop_name, shop_key):
     return attribute_full_list
 
 
-# In[76]:
+# In[ ]:
 
 # 执行
 attribute_list_for_all_shop = pd.DataFrame()
+to_run_shop_list = [25482220,
+                    59846508, 23070969, 58707738]
 
 for index, shop_parameter in shop_parameter_df.iterrows():
     partner_id = shop_parameter[0]
@@ -633,7 +637,7 @@ for index, shop_parameter in shop_parameter_df.iterrows():
     shop_name = shop_parameter[2]
     shop_key = shop_parameter[3]
     
-    if (shopid == 59846508) or (shopid == 23070969):
+    if shopid in to_run_shop_list:
         delect_inactive_skus_and_upload_again(partner_id, shopid, shop_name, shop_key)
         # images = ['https://t12.baidu.com/it/u=2105759597,3540269422&fm=173&app=25&f=JPEG?w=500&h=518&s=3DBB6A96EA533CCC3E6F59A20300E009','https://t12.baidu.com/it/u=667913453,121168607&fm=173&app=25&f=JPEG?w=500&h=309&s=B582EBB47E1B2CC042B2D9A20300E008']
         # item_id = 1196145106

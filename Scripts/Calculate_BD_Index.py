@@ -471,7 +471,7 @@ def calculate_num_of_cb_leads_by_lead_gen_small_leads():
 
     # GP Acc. Owner is Mei Wenjuan or Stephen Luo
     gp_owner_filter = (seller_index['GP Account Owner'] == 'Mei Wenjuan') | \
-                      (seller_index['GP Account Owner'] == 'Steven Luo')
+                      (seller_index['GP Account Owner'] == 'Keith Huang')
     seller_index = seller_index[gp_owner_filter]
 
     # Seller type is not TB

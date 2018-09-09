@@ -629,7 +629,7 @@ def get_attribute_category_list(partner_id, shopid, shop_name, shop_key):
 # 执行
 attribute_list_for_all_shop = pd.DataFrame()
 to_run_shop_list = [25482220,
-                    59846508, 23070969, 58707738]
+                    59846508, 23070969, 62416544, 62416366]
 
 for index, shop_parameter in shop_parameter_df.iterrows():
     partner_id = shop_parameter[0]

@@ -4,9 +4,9 @@ import time
 import pandas as pd
 import numpy as np
 import urllib
-from Get_Seller_Index import get_seller_index_from_google_sheet
-from Get_Local_Currency import get_local_currency
-from Get_Google_Sheets import upload_dataframe_to_google_sheet
+from get_seller_index import get_seller_index_from_google_sheet
+from get_local_currency import get_local_currency
+from get_google_sheets import upload_dataframe_to_google_sheet
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 

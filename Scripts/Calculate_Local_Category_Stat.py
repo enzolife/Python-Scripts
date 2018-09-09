@@ -1,6 +1,6 @@
-from Get_Gmail_Config import *
-from Get_Google_Sheets import *
-from Get_Particular_Date import *
+from get_gmail_config import *
+from get_google_sheets import *
+from get_particular_date import *
 
 
 def calculate_local_category_stat():

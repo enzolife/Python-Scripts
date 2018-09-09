@@ -1,11 +1,11 @@
 # coding: utf-8
 import os
 import pandas as pd
-from Get_Particular_Date import *
-from Get_Pricing_Report import get_concatenated_pricing_report
-from Get_Local_Currency import get_local_currency
-from Get_Gmail_Config import send_message
-from Get_Google_Sheets import upload_dataframe_to_google_sheet
+from get_particular_date import *
+from get_pricing_report import get_concatenated_pricing_report
+from get_local_currency import get_local_currency
+from get_gmail_config import send_message
+from get_google_sheets import upload_dataframe_to_google_sheet
 
 
 def calculate_pricing_by_cat_product():

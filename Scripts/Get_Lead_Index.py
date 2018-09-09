@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-from Get_Google_Sheets import get_certain_google_sheets_to_dataframe
-from Get_Particular_Date import *
-from Get_File_Create_Modify_Time import *
+from get_google_sheets import get_certain_google_sheets_to_dataframe
+from get_particular_date import *
+from get_file_create_modify_time import *
 
 
 # 两种方法，一种是读本地csv，一种是读google sheet上的lead index
@@ -37,7 +37,7 @@ def get_lead_index_from_google_sheet():
     # 丢掉最后5行
     lead_index = lead_index[:-5]
     # 去重，防止重复lead
-    lead_index = lead_index.drop_duplicates("Sales Lead: Lead Name", keep='first')
+    lead_index = lead_index.drop_duplicates("Lead Name", keep='first')
     # 输出
     lead_index.to_csv(lead_index_path, sep=',')
 
@@ -47,14 +47,14 @@ def get_lead_index_from_google_sheet():
     os.chdir(pwd)
 
     # 转换日期格式
-    lead_index['Sales Lead: Created Date'] = pd.to_datetime(lead_index['Sales Lead: Created Date'], format='%d/%m/%Y')
+    lead_index['Created Date'] = pd.to_datetime(lead_index['Created Date'], format='%d/%m/%Y')
     lead_index['Claimed Date'] = pd.to_datetime(lead_index['Claimed Date'], format='%d/%m/%Y')
     lead_index['Date of Status Changed From Open'] = pd.to_datetime(lead_index['Date of Status Changed From Open'],
                                                                     format='%d/%m/%Y')
     lead_index['Date Transferred to Onboarding Queue'] = pd.to_datetime(
         lead_index['Date Transferred to Onboarding Queue'],
         format='%d/%m/%Y')
-    # lead_index['Sales Lead: Lead Name'] = lead_index['Sales Lead: Lead Name'].str.encode('iso-8859-1')
+    # lead_index['Lead Name'] = lead_index['Lead Name'].str.encode('iso-8859-1')
 
     # 补充空值
     lead_index['Source'] = lead_index['Source'].fillna("N/A")
@@ -70,8 +70,8 @@ def get_lead_index_from_google_sheet():
     lead_index['Taobao Lead?'] = np.where(lead_index['Seller Classification'] == 'Taobao Seller', 1, 0)
     lead_index['Leads contacted?'] = np.where(lead_index['Lead Status'] == 'Open', 0, 1)
     lead_index['Leads Already Live?'] = np.where(lead_index['Lead Status'] == 'Already Live', 1, 0)
-    lead_index['Leads Passed to OB?'] = np.where(lead_index['Sales Lead: Owner Name'] == 'Mei Wenjuan', 1,
-                                                 np.where(lead_index['Sales Lead: Owner Name'] == 'Leon Chen', 1, 0))
+    lead_index['Leads Passed to OB?'] = np.where(lead_index['Owner Name'] == 'Mei Wenjuan', 1,
+                                                 np.where(lead_index['Owner Name'] == 'Leon Chen', 1, 0))
     lead_index['Seller Launched by OB?'] = np.where(lead_index['Leads Already Live?']
                                                     + lead_index['Leads Passed to OB?'] == 2, 1, 0)
 

@@ -1,12 +1,12 @@
 import logging
 from multiprocessing import Pool
 import schedule
-from Calculate_BD_Index import *
-from Calculate_Seller_Index import *
-from Calculate_Local_Stat import *
-from Calculate_Local_Category_Stat import *
-from Calculate_Local_MY_Shocking_Sale import *
-from Copy_Files_from_Intranet import *
+from calculate_bd_index import *
+from calculate_seller_index import *
+from calculate_local_stat import *
+from calculate_local_category_stat import *
+from calculate_local_my_shocking_sale import *
+from copy_files_from_intranet import *
 from calculate_order_performance import calculate_order_performance
 from calculate_listing_performance import calculate_listing_performance
 from calculate_shipping_performance import calculate_shipping_performance
@@ -93,7 +93,7 @@ def schedule_run_2():
 def schedule_run_3():
     print('Parent process %s.' % os.getpid())
     p = Pool(1)
-    p.apply_async(run_pricing)
+    # p.apply_async(run_pricing)
     logging.info('Waiting for all subprocesses done...')
     p.close()
     # time.sleep(43200)

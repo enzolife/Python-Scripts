@@ -24,10 +24,10 @@ import time
 import pandas as pd
 import numpy as np
 from get_redash_query_result import get_shop_performance_by_certain_period, get_fresh_query_result
-from Get_Particular_Date import *
-from Get_Google_Sheets \
+from get_particular_date import *
+from get_google_sheets \
     import upload_dataframe_to_google_sheet, upload_last_update_time, get_certain_google_sheets_to_dataframe
-from Get_Seller_Index import get_seller_index_from_google_sheet
+from get_seller_index import get_seller_index_from_google_sheet
 
 # performance by period
 # yesterday_performance = get_shop_performance_by_certain_period(1004)

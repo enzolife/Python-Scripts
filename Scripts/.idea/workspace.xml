@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d4b241d-4226-4932-be16-388ad3714b41" name="Default" comment="" />
+    <list default="true" id="0d4b241d-4226-4932-be16-388ad3714b41" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Aliexpress_Create_Product_Campaign-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Calculate Seller Index-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Cdiscount_Add_Offer-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Cdiscount_Create_Products-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Dianxiaomi_Download_Report_New-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Dianxiaomi_Get_Verification_Code-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Get_Json_Data_from_HTML-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Get_Redash_Query_Result-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Delete_Inactive_SKUs_And_Upload_Again(1)-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Delete_Inactive_SKUs_And_Upload_Again-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Get_Item_List_and_Get_Item_Detail(1)-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Get_Item_List_and_Get_Item_Detail-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Get_Item_List_and_Refresh_Stock-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Get_Variation_List_and_Refresh_Stock(1)-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Get_Variation_List_and_Refresh_Stock-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Test-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Update_Item_Info-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_API_Update_Item_Info_on_Webpage-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_And_Cancel_Fans-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_And_Cancel_Fans_New-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_Fans-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_Fans_from_Product_Page-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_Fans_to_Maximum-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Add_Like_from_Search_Result-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Boost_Products-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Boost_Products_New-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Get_Image_from_Product_Page-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Get_Search_Result-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Shopee_Record_Log-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/calculate_shadow_account-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/get_shopee_my_wallet_password-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calculate_listing_performance.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calculate_order_performance.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calculate_pricing_performance.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calculate_shadow_account.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calculate_shipping_performance.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/client_secret.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/demo.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geckodriver.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/get_redash_query_result.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/get_unicode_decoder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/image_edited.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_add_and_cancel_fans.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_add_and_cancel_fans_log_2018_05_12.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_add_and_cancel_fans_new.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_api_get_item_list_and_get_item_detail.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_api_get_variation_list_and_refresh_stock.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopee_boost_products_new.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Scripts.iml" afterPath="$PROJECT_DIR$/.idea/Scripts.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_API_Delete_Inactive_SKUs_And_Upload_Again(1).ipynb" afterPath="$PROJECT_DIR$/Shopee_API_Delete_Inactive_SKUs_And_Upload_Again(1).ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_Add_Fans.ipynb" afterPath="$PROJECT_DIR$/Shopee_Add_Fans.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_Add_Fans_from_Product_Page.ipynb" afterPath="$PROJECT_DIR$/Shopee_Add_Fans_from_Product_Page.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_Boost_Products.ipynb" afterPath="$PROJECT_DIR$/Shopee_Boost_Products.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_Boost_Products_New.ipynb" afterPath="$PROJECT_DIR$/Shopee_Boost_Products_New.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shopee_Get_Image_from_Product_Page.ipynb" afterPath="$PROJECT_DIR$/Shopee_Get_Image_from_Product_Page.ipynb" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,28 +81,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shopee_api_delete_inactive_skus_and_upload_again.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopee_boost_products_new.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shopee_boost_products_new.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -47,6 +92,7 @@
         <option value="$PROJECT_DIR$/shopee_add_and_cancel_fans.py" />
         <option value="$PROJECT_DIR$/shopee_add_and_cancel_fans_new.py" />
         <option value="$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
+        <option value="$PROJECT_DIR$/shopee_boost_products_new.py" />
       </list>
     </option>
   </component>
@@ -97,9 +143,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_69bd5e6f85e4842f07db71c9618a621154c52254/bin/git.exe" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -314,9 +360,6 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0d4b241d-4226-4932-be16-388ad3714b41" name="Default" comment="" />
@@ -329,19 +372,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3915344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3915344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -363,59 +405,31 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans.py">
+    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_boost_products_new.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_api_get_item_list_and_get_item_detail.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans_new.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_boost_products_new.py" />
+    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py" />
+    <entry file="file://$PROJECT_DIR$/calculate_bd_index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans.py">
+    <entry file="file://$PROJECT_DIR$/schedule_run_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2208">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="5" column="34" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_api_get_item_list_and_get_item_detail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="256" column="15" lean-forward="true" selection-start-line="256" selection-start-column="15" selection-end-line="256" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_add_and_cancel_fans_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2184">
-          <caret line="74" column="92" lean-forward="true" selection-start-line="74" selection-start-column="92" selection-end-line="74" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_api_delete_inactive_skus_and_upload_again.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopee_boost_products_new.py">
+    <entry file="file://$PROJECT_DIR$/calculate_order_gmv_by_shop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

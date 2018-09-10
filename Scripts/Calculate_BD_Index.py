@@ -1,9 +1,9 @@
-from Get_Lead_Index import get_lead_index_from_google_sheet
-from Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
-from Get_Seller_Index import get_seller_index_from_google_sheet
-from Get_Particular_Date import *
-from Get_Gmail_Config import send_message
-from Get_Seller_Index import get_new_shop_index
+from get_lead_index import get_lead_index_from_google_sheet
+from get_google_sheets import upload_dataframe_to_google_sheet, upload_last_update_time
+from get_seller_index import get_seller_index_from_google_sheet
+from get_particular_date import *
+from get_gmail_config import send_message
+from get_seller_index import get_new_shop_index
 import pandas as pd
 import numpy as np
 

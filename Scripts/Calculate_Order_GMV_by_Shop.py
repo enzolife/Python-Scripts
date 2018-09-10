@@ -1,12 +1,12 @@
 # coding: utf-8
 import pandas as pd
 import numpy as np
-from Get_Particular_Date import *
-from Get_Order_Report import get_concatenated_order_report
-from Get_Local_Currency import get_local_currency
-from Get_Gmail_Config import *
-from Get_Google_Sheets import *
-from Get_Seller_Index import get_seller_index_from_google_sheet
+from get_particular_date import *
+from get_order_report import get_concatenated_order_report
+from get_local_currency import get_local_currency
+from get_gmail_config import *
+from get_google_sheets import *
+from get_seller_index import get_seller_index_from_google_sheet
 
 
 def calculate_order_gmv_by_shop():

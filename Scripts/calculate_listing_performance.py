@@ -21,8 +21,8 @@ import os
 import time
 import pandas as pd
 from get_redash_query_result import get_fresh_query_result, get_shop_performance_by_certain_period
-from Get_Particular_Date import *
-from Get_Google_Sheets import upload_dataframe_to_google_sheet, upload_last_update_time
+from get_particular_date import *
+from get_google_sheets import upload_dataframe_to_google_sheet, upload_last_update_time
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 

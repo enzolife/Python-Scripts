@@ -2,11 +2,11 @@ import threading
 import time
 import schedule
 import logging
-from Calculate_Order_GMV_by_Shop import calculate_order_gmv_by_shop
-from Get_Order_Report import get_concatenated_order_report
-from Calculate_SKU_by_Shop import calculate_sku_by_shop
-from Get_Listing_Reports import get_concatenated_listing_report
-from Copy_Files_from_Intranet import *
+from calculate_order_gmv_by_shop import calculate_order_gmv_by_shop
+from get_order_report import get_concatenated_order_report
+from calculate_sku_by_shop import calculate_sku_by_shop
+from get_listing_reports import get_concatenated_listing_report
+from copy_files_from_intranet import *
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.info('Start of program.')

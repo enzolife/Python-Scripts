@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
-from Get_Google_Sheets \
+from get_google_sheets \
     import get_certain_google_sheets_to_dataframe, get_certain_google_sheets_to_dataframe_by_key
-from Get_Particular_Date import *
-from Get_File_Create_Modify_Time import *
-from Get_Lead_Index import get_lead_index_from_google_sheet
+from get_particular_date import *
+from get_file_create_modify_time import *
+from get_lead_index import get_lead_index_from_google_sheet
 
 
 # 两种方法，一种是读本地csv，一种是读google sheet上的seller index
@@ -50,7 +50,7 @@ def get_seller_index_from_google_sheet():
     bd_index = get_lead_index_from_google_sheet()
     seller_index = pd.merge(seller_index, bd_index, how='left',
                             left_on=['GP Account Lead Name'],
-                            right_on=['Sales Lead: Lead Name'])
+                            right_on=['Lead Name'])
 
     # 修改日期格式
     seller_index['GP Account Shopee Account Created Date'] \

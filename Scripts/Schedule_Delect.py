@@ -1,7 +1,7 @@
 import threading
 import schedule
 import logging
-from Delete_Files_in_Folder import *
+from delete_files_in_folder import *
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.info('Start of program.')

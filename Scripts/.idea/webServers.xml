@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9c6d9efb-0012-4e34-b17e-b3794f19b7d1" name="shopee_bi_server" url="http://10.12.2.55">
+        <fileTransfer host="10.12.2.55" port="22" rootFolder="/home/shopee-sz-bi" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

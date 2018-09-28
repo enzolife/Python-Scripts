@@ -111,7 +111,7 @@ def get_new_shop_index():
     new_shop_index_path = "D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\Shopee 2016.4.12" \
                           "\\2016.8.28 Seller Index Data\\new_shop_index.csv"
 
-    new_shop_index_last_update_date = last_modify_date(new_shop_index_path)
+    # new_shop_index_last_update_date = last_modify_date(new_shop_index_path)
 
     # if new_shop_index_last_update_date != get_today_date().strftime("%Y-%m-%d"):
     book_key = "1bJ4Un9Q7yJkt2QfKJGt2Pk21VnjBRmLgGwn5ewaWdf4"

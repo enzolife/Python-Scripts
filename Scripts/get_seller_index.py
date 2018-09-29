@@ -43,7 +43,7 @@ def get_seller_index_from_google_sheet():
 
     pwd = os.getcwd()
     os.chdir(os.path.dirname(seller_index_path))
-    seller_index = pd.read_csv(os.path.basename(seller_index_path), index_col=None, header=0, encoding="GB18030")
+    seller_index = pd.read_csv(os.path.basename(seller_index_path), index_col=None, header=0)
     os.chdir(pwd)
 
     # Merge BD Index

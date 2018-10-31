@@ -43,7 +43,7 @@ def get_lead_index_from_google_sheet():
 
     pwd = os.getcwd()
     os.chdir(os.path.dirname(lead_index_path))
-    lead_index = pd.read_csv(os.path.basename(lead_index_path), header=0, encoding="GB18030")
+    lead_index = pd.read_csv(os.path.basename(lead_index_path), header=0)
     os.chdir(pwd)
 
     # 转换日期格式

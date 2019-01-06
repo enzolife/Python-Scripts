@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="459855da-efc6-446e-a234-f3c1fb5f0a3d" name="Default" comment="">
+    <list default="true" id="459855da-efc6-446e-a234-f3c1fb5f0a3d" name="Default" comment="slight change 20181224">
+      <change beforePath="$PROJECT_DIR$/.idea/Python Scripts.iml" afterPath="$PROJECT_DIR$/.idea/Python Scripts.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb" afterPath="$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb" />
+      <change beforePath="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/dianxiaomi_download_report_new-checkpoint.ipynb" afterPath="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/dianxiaomi_download_report_new-checkpoint.ipynb" />
+      <change beforePath="$PROJECT_DIR$/Scripts/chrome_driver/chromedriver.exe" afterPath="$PROJECT_DIR$/Scripts/chrome_driver/chromedriver.exe" />
+      <change beforePath="$PROJECT_DIR$/Scripts/shopee_add_and_cancel_fans_new.ipynb" afterPath="$PROJECT_DIR$/Scripts/shopee_add_and_cancel_fans_new.ipynb" />
     </list>
     <ignored path="Python Scripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,7 +123,29 @@
     <favorites_list name="Python Scripts" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="dianxiaomi_download_report_new.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_google_sheets.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/get_google_sheets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -301,7 +327,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,6 +344,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -637,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540968244024</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="revert 20181211">
+      <created>1544539570158</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544539570158</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -680,6 +713,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -687,7 +721,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916266" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2739872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29690832" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -776,7 +810,8 @@
     <MESSAGE value="20180126_change" />
     <MESSAGE value="slight change" />
     <MESSAGE value="mass delete files" />
-    <option name="LAST_COMMIT_MESSAGE" value="mass delete files" />
+    <MESSAGE value="revert 20181211" />
+    <option name="LAST_COMMIT_MESSAGE" value="revert 20181211" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,8 +856,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/json/__init__.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/OpenSSL/_util.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/OpenSSL/crypto.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/oauth2client/_openssl_crypt.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/oauth2client/client.py" />
@@ -854,13 +887,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/calculate_seller_index.py" />
-    <entry file="file://$PROJECT_DIR$/Scripts/aliexpress_create_product_campaign.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/get_lead_index.py" />
     <entry file="file://$PROJECT_DIR$/Scripts/calculate_listing_performance.py" />
     <entry file="file://$PROJECT_DIR$/Scripts/calculate_bd_index.py" />
@@ -883,13 +909,6 @@
     <entry file="file://$PROJECT_DIR$/Scripts/get_redash_query_result.py" />
     <entry file="file://$PROJECT_DIR$/Scripts/get_pricing_report.py" />
     <entry file="file://$PROJECT_DIR$/Scripts/get_json_data_from_html.ipynb" />
-    <entry file="file://$PROJECT_DIR$/Scripts/get_google_sheets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/get_gmail_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3600">
@@ -941,6 +960,37 @@
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/aliexpress_create_product_campaign.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/dianxiaomi_get_verification_code.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/get_google_sheets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

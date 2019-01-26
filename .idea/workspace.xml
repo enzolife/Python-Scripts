@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="459855da-efc6-446e-a234-f3c1fb5f0a3d" name="Default" comment="slight change 20181224">
-      <change beforePath="$PROJECT_DIR$/.idea/Python Scripts.iml" afterPath="$PROJECT_DIR$/.idea/Python Scripts.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="459855da-efc6-446e-a234-f3c1fb5f0a3d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/dianxiaomi_download_report_new-checkpoint.ipynb" afterPath="$PROJECT_DIR$/Scripts/.ipynb_checkpoints/dianxiaomi_download_report_new-checkpoint.ipynb" />
-      <change beforePath="$PROJECT_DIR$/Scripts/chrome_driver/chromedriver.exe" afterPath="$PROJECT_DIR$/Scripts/chrome_driver/chromedriver.exe" />
-      <change beforePath="$PROJECT_DIR$/Scripts/shopee_add_and_cancel_fans_new.ipynb" afterPath="$PROJECT_DIR$/Scripts/shopee_add_and_cancel_fans_new.ipynb" />
     </list>
     <ignored path="Python Scripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,8 +131,8 @@
       <file leaf-file-name="get_google_sheets.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/get_google_sheets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="915">
+              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -327,6 +322,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,8 +340,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -670,7 +665,21 @@
       <option name="project" value="LOCAL" />
       <updated>1544539570158</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="slight change 20190106">
+      <created>1546742809502</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1546742809502</updated>
+    </task>
+    <task id="LOCAL-00013" summary="slight change 20190106">
+      <created>1546742880681</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1546742880681</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -721,7 +730,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916266" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29690832" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31716418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -811,7 +820,8 @@
     <MESSAGE value="slight change" />
     <MESSAGE value="mass delete files" />
     <MESSAGE value="revert 20181211" />
-    <option name="LAST_COMMIT_MESSAGE" value="revert 20181211" />
+    <MESSAGE value="slight change 20190106" />
+    <option name="LAST_COMMIT_MESSAGE" value="slight change 20190106" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -986,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/get_google_sheets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state relative-caret-position="915">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

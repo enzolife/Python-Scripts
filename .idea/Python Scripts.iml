@@ -5,7 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Scripts" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.6 (Python-Scripts)" jdkType="Python SDK" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.6.0 (C:\Users\Enzo.kuang\Anaconda3\python.exe)" jdkType="Python SDK" />
+>>>>>>> 7f3bde39d56c6176ad420401f323d2267041b335
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

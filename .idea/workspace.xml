@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="459855da-efc6-446e-a234-f3c1fb5f0a3d" name="Default" comment="revert 20181211">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Python机器学习基础教程/第二章 监督学习.ipynb" afterPath="$PROJECT_DIR$/Python机器学习基础教程/第二章 监督学习.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb" afterPath="$PROJECT_DIR$/Scripts/dianxiaomi_download_report_new.ipynb" />
     </list>
     <ignored path="Python Scripts.iws" />
     <ignored path=".idea/workspace.xml" />

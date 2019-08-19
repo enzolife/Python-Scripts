@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[266]:
+# In[220]:
 
 import pandas as pd
 import os
@@ -9,40 +9,40 @@ import time
 import logging
 
 
-# In[267]:
+# In[221]:
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[268]:
+# In[222]:
 
 folder_path = 'D:\\Program Files (x86)\\百度云同步盘\\Dropbox\\-E·J- 2014.5.1\\2019.7.24 tengus产品迁移\\'
 tw_site_product_list = pd.read_excel(os.path.join(folder_path, 'tengus台湾站产品.xlsx'))
 
 
-# In[269]:
+# In[223]:
 
 # tw_site_product_list.columns
 
 
-# In[270]:
+# In[224]:
 
 # tw_site_product_list = tw_site_product_list[tw_site_product_list['产品id'] == 2496637042]
 
 
-# In[271]:
+# In[225]:
 
 top_cat_in_tw = tw_site_product_list[['分类ID', '产品id']].groupby('分类ID').agg({'产品id': 'nunique'}).reset_index().sort_values(by='产品id', ascending=False).reset_index().head(5)
 # top_cat_in_tw
 
 
-# In[272]:
+# In[226]:
 
 top_cat_id = top_cat_in_tw['分类ID'][0]
 top_cat_id
 
 
-# In[273]:
+# In[227]:
 
 output_excel_columns = ['变种名称',
                         '变种属性名称一',
@@ -71,7 +71,7 @@ output_excel_columns = ['变种名称',
 ]
 
 
-# In[274]:
+# In[228]:
 
 tw_site_product_list_selected_columns = ['分类ID', '产品属性', 'Parent SKU', '产品标题', '产品描述', 'sku', '变种名称', '变种属性名称一',
        '变种属性名称二', '变种属性值一', '变种属性值二', '价格', '库存', '重量', '主图（URL）地址', '附图1',
@@ -79,19 +79,19 @@ tw_site_product_list_selected_columns = ['分类ID', '产品属性', 'Parent SKU
        '宽（cm）', '高（cm）', '发货期', '来源URL', '尺码图']
 
 
-# In[275]:
+# In[229]:
 
 tw_site_product_list_with_selected_columns = tw_site_product_list[tw_site_product_list_selected_columns]
 # tw_site_product_list_with_selected_columns.head(5)
 
 
-# In[276]:
+# In[230]:
 
 # tw_site_product_list_with_selected_columns = tw_site_product_list_with_selected_columns[tw_site_product_list_with_selected_columns['分类ID'] == top_cat_id].reset_index()
 # tw_site_product_list_with_selected_columns
 
 
-# In[277]:
+# In[231]:
 
 # remove emoji
 import re
@@ -118,13 +118,13 @@ def remove_emoji(text):
 remove_emoji('ins爆款 🥕胡蘿卜🥕寶寶針織竹節棉爬服 嬰兒兔裝 嬰兒連身衣 寶寶包屁衣連身衣 中間開襟包屁衣 寶寶連體衣哈衣爬服')
 
 
-# In[278]:
+# In[232]:
 
 tw_site_product_list_with_selected_columns['产品标题'] = [remove_emoji(x) for x in tw_site_product_list_with_selected_columns['产品标题']]
 tw_site_product_list_with_selected_columns['产品描述'] = [remove_emoji(x) for x in tw_site_product_list_with_selected_columns['产品描述']]
 
 
-# In[279]:
+# In[233]:
 
 tw_site_product_list_with_selected_columns['长（cm）'] = tw_site_product_list_with_selected_columns['长（cm）'].fillna(18)
 tw_site_product_list_with_selected_columns['宽（cm）'] = tw_site_product_list_with_selected_columns['宽（cm）'].fillna(13)
@@ -132,50 +132,52 @@ tw_site_product_list_with_selected_columns['高（cm）'] = tw_site_product_list
 tw_site_product_list_with_selected_columns['发货期'] = tw_site_product_list_with_selected_columns['发货期'].fillna(2)
 
 
-# In[280]:
+# In[234]:
 
 translate_currency = 1
 tw_site_product_list_with_selected_columns['价格'] = tw_site_product_list_with_selected_columns['价格'] * translate_currency
 
 
-# In[281]:
+# In[235]:
 
 # tw_site_product_list_with_selected_columns.head(5)
 
 
-# In[282]:
+# In[236]:
 
 from googletrans import Translator
 
 
-# In[283]:
+# In[237]:
 
-translator = Translator(service_urls=['translate.google.com'])
+translator = Translator(service_urls=[
+      'translate.google.com',
+      'translate.google.co.kr',
+    ])
 translator.translate('韩国', dest='ko').text
 
 
-# In[284]:
+# In[238]:
 
-translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
-for translation in translations:
-    print(translation.origin, ' -> ', translation.text)
+# translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
+# for translation in translations:
+#     print(translation.origin, ' -> ', translation.text)
 
 
-# In[285]:
+# In[239]:
 
 translate_columns = ['产品标题', '产品描述', '变种名称', '变种属性名称一', '变种属性名称二', '变种属性值一', '变种属性值二']
 # translate_columns = ['产品标题']
 # translate_columns = ['产品描述', '变种名称', '变种属性名称一', '变种属性名称二', '变种属性值一', '变种属性值二']
-translate_language = 'th'
 
 
-# In[286]:
+# In[240]:
 
-tw_site_product_list_with_selected_columns = tw_site_product_list_with_selected_columns[2:10]
+tw_site_product_list_with_selected_columns = tw_site_product_list_with_selected_columns[13:20]
 # tw_site_product_list_with_selected_columns
 
 
-# In[291]:
+# In[241]:
 
 for index, row in tw_site_product_list_with_selected_columns.iterrows():
     try:
@@ -183,8 +185,9 @@ for index, row in tw_site_product_list_with_selected_columns.iterrows():
         for i, value in enumerate(translate_columns):
             list_to_translate.append(row[translate_columns[i]])
         
-        translator = Translator(service_urls=['translate.google.com'])
-        list_be_translated = translator.translate(list_to_translate, dest=translate_language)
+        translate_language = 'th'
+        # translator = Translator(service_urls=['translate.google.com'])
+        list_be_translated = translator.translate(list_to_translate, dest=translate_language, src='zh-CN')
         time.sleep(20)
         
         i = 0
@@ -193,16 +196,15 @@ for index, row in tw_site_product_list_with_selected_columns.iterrows():
             i += 1
         
         if (index + 1) % 5 == 0:
-            logging.warning(str(index + 1) + ' rows have been translated.')
-        
+            logging.info(str(index + 1) + ' rows have been translated.')
+            
+        tw_site_product_list_with_selected_columns.to_excel(os.path.join(folder_path, 'tw_translated_product(2).xlsx'), index=False)
     except Exception as err:
-        print(str(index + 1) + ' rows have not been translated. Error message: ' + str(err))
+        logging.warning(str(index + 1) + ' rows have not been translated. Error message: ' + str(err))
         pass
-    
-tw_site_product_list_with_selected_columns.to_excel(os.path.join(folder_path, 'tw_translated_product(1).xlsx'), index=False)
 
 
-# In[288]:
+# In[242]:
 
 # for translate_column in translate_columns:
 #     # tw_site_product_list_with_selected_columns[translate_column] = tw_site_product_list_with_selected_columns[translate_column].fillna(0)

@@ -124,4 +124,5 @@ today = date.today()
 d1 = today.strftime("%Y-%m-%d")
 
 result_df.to_csv('../aliexpress_product_ranking/' + d1 + '.csv')
+browser.quit()
 

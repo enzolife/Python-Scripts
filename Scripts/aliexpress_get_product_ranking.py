@@ -13,6 +13,15 @@ import shutil
 from datetime import date
 
 
+# In[ ]:
+
+# 获取脚本的当前路径，避免计划执行时路径出错
+home_dir = os.path.dirname(os.path.realpath(__file__))
+# 更换workding directory
+working_directory = home_dir
+os.chdir(working_directory)
+
+
 # In[2]:
 
 # 屏幕最大化，且指定下载目录

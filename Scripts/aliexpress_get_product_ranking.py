@@ -44,6 +44,9 @@ browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 # In[11]:
 
 browser.get('https://www.aliexpress.com/')
+time.sleep(5)
+browser.get('https://www.aliexpress.com/')
+time.sleep(5)
 
 
 # In[12]:

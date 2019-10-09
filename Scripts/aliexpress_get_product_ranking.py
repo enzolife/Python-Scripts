@@ -20,7 +20,7 @@ options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 
 prefs = {"profile.default_content_settings.popups": 0,
-         "download.default_directory": r"D:\Program Files (x86)\百度云同步盘\Dropbox\-E·J- 2014.5.1\2016.12.15 店小秘数据分析\\", # IMPORTANT - ENDING SLASH V IMPORTANT
+         # "download.default_directory": r"D:\Program Files (x86)\百度云同步盘\Dropbox\-E·J- 2014.5.1\2016.12.15 店小秘数据分析\\", # IMPORTANT - ENDING SLASH V IMPORTANT
          "directory_upgrade": True}
 options.add_experimental_option("prefs", prefs)
 

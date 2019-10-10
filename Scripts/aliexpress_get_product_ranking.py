@@ -70,7 +70,7 @@ time.sleep(5)
 
 # 翻页到最后
 body = browser.find_element_by_css_selector('body')
-for i in range(10):
+for i in range(30):
     body.send_keys(Keys.PAGE_DOWN)
     time.sleep(2)
 body.send_keys(Keys.END)

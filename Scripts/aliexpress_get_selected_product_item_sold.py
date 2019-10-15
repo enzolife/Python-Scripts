@@ -1,7 +1,8 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[14]:
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -16,6 +17,7 @@ import logging
 
 # In[ ]:
 
+
 # 获取脚本的当前路径，避免计划执行时路径出错
 home_dir = os.path.dirname(os.path.realpath(__file__))
 # 更换workding directory
@@ -25,10 +27,12 @@ os.chdir(working_directory)
 
 # In[15]:
 
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 # In[16]:
+
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -42,12 +46,14 @@ options.add_experimental_option("prefs", prefs)
 
 # In[17]:
 
+
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
 # In[18]:
+
 
 browser.get('https://www.aliexpress.com/')
 time.sleep(5)
@@ -56,6 +62,7 @@ time.sleep(5)
 
 
 # In[19]:
+
 
 selected_item_id_list = [32597758635,
 32942144691,
@@ -119,16 +126,19 @@ selected_item_id_list = [32597758635,
 
 # In[20]:
 
+
 # item_url = 'https://www.aliexpress.com/item/---/' + str(selected_item_id_list[0]) + '.html'
 # item_url
 
 
 # In[21]:
 
+
 # browser.get(item_url)
 
 
 # In[22]:
+
 
 # item_sold = browser.find_elements_by_css_selector('.product-reviewer-sold')[0]
 # item_sold.text
@@ -136,29 +146,35 @@ selected_item_id_list = [32597758635,
 
 # In[23]:
 
+
 result_df = pd.DataFrame()
 
 
 # In[24]:
+
 
 item_id_list, item_sold_list, item_name_list = list(), list(), list()
 
 
 # In[25]:
 
+
 for item_id in selected_item_id_list:
-    item_url = 'https://www.aliexpress.com/item/---/' + str(item_id) + '.html'
-    browser.get(item_url)
-    time.sleep(5)
-    
-    item_sold = browser.find_elements_by_css_selector('.product-reviewer-sold')[0].text
-    item_name = browser.find_elements_by_css_selector('.product-title')[0].text
-    
-    item_id_list.append(item_id)
-    item_sold_list.append(item_sold)
-    item_name_list.append(item_name)
-    
-    logging.info(str(item_id) + ' has been finished.')
+    try:
+        item_url = 'https://www.aliexpress.com/item/---/' + str(item_id) + '.html'
+        browser.get(item_url)
+        time.sleep(5)
+
+        item_sold = browser.find_elements_by_css_selector('.product-reviewer-sold')[0].text
+        item_name = browser.find_elements_by_css_selector('.product-title')[0].text
+
+        item_id_list.append(item_id)
+        item_sold_list.append(item_sold)
+        item_name_list.append(item_name)
+
+        logging.info(str(item_id) + ' has been finished.')
+    except:
+        logging.info(str(item_id) + ' has not been finished.')
     
 result_df['item_id'] = item_id_list
 result_df['item_sold'] = item_sold_list
@@ -166,6 +182,7 @@ result_df['item_name'] = item_name_list
 
 
 # In[26]:
+
 
 today = date.today()
 d1 = today.strftime("%Y-%m-%d")

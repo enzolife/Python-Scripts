@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[1]:
 
 
 from selenium import webdriver
@@ -13,7 +13,7 @@ import logging
 import os
 
 
-# In[9]:
+# In[2]:
 
 
 # 获取脚本的当前路径，避免计划执行时路径出错
@@ -23,13 +23,13 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[82]:
+# In[ ]:
 
 
 # pip install selenium
 
 
-# In[83]:
+# In[ ]:
 
 
 # Date
@@ -40,13 +40,13 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[84]:
+# In[ ]:
 
 
 # os.getcwd()
 
 
-# In[85]:
+# In[ ]:
 
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
@@ -56,7 +56,7 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[86]:
+# In[ ]:
 
 
 # 屏幕最大化，且指定下载目录
@@ -64,11 +64,12 @@ options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 
 prefs = {"profile.default_content_settings.popups": 0,
-         "directory_upgrade": True}
+         "directory_upgrade": True,
+         "profile.default_content_setting_values.notifications" : 2}
 options.add_experimental_option("prefs", prefs)
 
 
-# In[87]:
+# In[ ]:
 
 
 # 使用chromedriver才可以用开发者权限
@@ -76,7 +77,7 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[88]:
+# In[ ]:
 
 
 # 所需参数
@@ -101,7 +102,7 @@ shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 946912
              ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
 
-# In[89]:
+# In[ ]:
 
 
 # 转换为dataframe
@@ -109,7 +110,7 @@ shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id',
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[90]:
+# In[ ]:
 
 
 # 关注及关注中多语言
@@ -117,7 +118,7 @@ following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'ก�
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
 
 
-# In[91]:
+# In[ ]:
 
 
 # 取关后关注函数
@@ -262,7 +263,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[92]:
+# In[ ]:
 
 
 # 历遍所有shop
@@ -284,26 +285,26 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[93]:
+# In[ ]:
 
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[94]:
+# In[ ]:
 
 
 # browser.get('https://shopee.com.my')
 
 
-# In[95]:
+# In[ ]:
 
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[96]:
+# In[ ]:
 
 
 #language_selector[2].click()

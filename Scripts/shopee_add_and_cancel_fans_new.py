@@ -98,8 +98,10 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 #              ['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
 #              ['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
 
-shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
-             ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
+# shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
+#              ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
+
+shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
 
 # In[ ]:

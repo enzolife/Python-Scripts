@@ -33,7 +33,8 @@ options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 
 prefs = {"profile.default_content_settings.popups": 0,
-         "directory_upgrade": True}
+         "directory_upgrade": True,
+         "profile.default_content_setting_values.notifications" : 2}
 options.add_experimental_option("prefs", prefs)
 
 

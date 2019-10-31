@@ -222,7 +222,7 @@ tw_site_product_list_with_selected_columns['变种属性名称二'] = tw_site_pr
 
 # In[38]:
 
-tw_site_product_list_with_selected_columns = tw_site_product_list_with_selected_columns[:5]
+# tw_site_product_list_with_selected_columns = tw_site_product_list_with_selected_columns[:5]
 # # tw_site_product_list_with_selected_columns
 
 

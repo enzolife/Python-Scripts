@@ -1,7 +1,8 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[37]:
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -14,6 +15,7 @@ import os
 
 # In[38]:
 
+
 # 获取脚本的当前路径，避免计划执行时路径出错
 home_dir = os.path.dirname(os.path.realpath(__file__))
 # 更换workding directory
@@ -23,10 +25,12 @@ os.chdir(working_directory)
 
 # In[39]:
 
+
 # pip install selenium
 
 
 # In[40]:
+
 
 # Date
 today_date = datetime.date.today() + datetime.timedelta(days=0)
@@ -38,10 +42,12 @@ today_date_string = today_date.strftime('%Y_%m_%d')
 
 # In[41]:
 
+
 # os.getcwd()
 
 
 # In[42]:
+
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
 
@@ -51,6 +57,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 # In[43]:
+
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -64,12 +71,14 @@ options.add_experimental_option("prefs", prefs)
 
 # In[44]:
 
+
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
 # In[45]:
+
 
 # 所需参数
 # 站点；站点后缀；账户；密码；站点top卖家shopid；top卖家username（方便识别）
@@ -85,22 +94,25 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 #              ['my', 'com.my', 59848325, 'tengus.my', 'tengus1803', 10891137, 'winners.my'],
 #              ['my', 'com.my', 62418141, 'tengus1.my', 'tengus1803', 10891137, 'winners.my'],
 #              ['my', 'com.my', 62418493, 'tengus2.my', 'tengus1803', 10891137, 'winners.my'],
-#              ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 28135012, 'sunnyfun.id'],
+#              ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 145423, 'Shopee Mamak],
 #              ['id', 'co.id', 62417386, 'tengus1.id', 'tengus1803', 28135012, 'sunnyfun.id'],
 #              ['id', 'co.id', 62417551, 'tengus2.id', 'tengus1803', 28135012, 'sunnyfun.id']]
 
 # shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
 #              ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
-shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
+shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
+             ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
              ['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg'],
-             ['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
+             ['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 2215148, 'YAZI FASHION ACCESSORIES INC.'],
+             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 11184349, 'Shopee Mamak']]
 
 # shop_list = [['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg']]
 # shop_list = [['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
 
 
 # In[46]:
+
 
 # 转换为dataframe
 shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id', 'top_shop_username']
@@ -109,12 +121,14 @@ shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 # In[47]:
 
+
 # 关注及关注中多语言
 following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'กำลังติดตาม']
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
 
 
 # In[48]:
+
 
 # 取关后关注函数
 def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_shop_username):
@@ -259,6 +273,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
 
 # In[49]:
 
+
 # 历遍所有shop
 for index, my_shop in shop_df.iterrows():
     site = my_shop[0]
@@ -280,21 +295,25 @@ for index, my_shop in shop_df.iterrows():
 
 # In[50]:
 
+
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
 # In[51]:
+
 
 # browser.get('https://shopee.com.my')
 
 
 # In[52]:
 
+
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
 # In[53]:
+
 
 #language_selector[2].click()
 

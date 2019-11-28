@@ -1,8 +1,7 @@
-#!/usr/bin/env python
+
 # coding: utf-8
 
-# In[18]:
-
+# In[37]:
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -13,8 +12,7 @@ import logging
 import os
 
 
-# In[19]:
-
+# In[38]:
 
 # 获取脚本的当前路径，避免计划执行时路径出错
 home_dir = os.path.dirname(os.path.realpath(__file__))
@@ -23,14 +21,12 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[20]:
-
+# In[39]:
 
 # pip install selenium
 
 
-# In[21]:
-
+# In[40]:
 
 # Date
 today_date = datetime.date.today() + datetime.timedelta(days=0)
@@ -40,14 +36,12 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[22]:
-
+# In[41]:
 
 # os.getcwd()
 
 
-# In[23]:
-
+# In[42]:
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
 
@@ -56,8 +50,7 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[24]:
-
+# In[43]:
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -72,16 +65,14 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[25]:
-
+# In[44]:
 
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[23]:
-
+# In[45]:
 
 # 所需参数
 # 站点；站点后缀；账户；密码；站点top卖家shopid；top卖家username（方便识别）
@@ -114,24 +105,21 @@ shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xi
 # shop_list = [['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
 
 
-# In[24]:
-
+# In[46]:
 
 # 转换为dataframe
 shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id', 'top_shop_username']
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[25]:
-
+# In[47]:
 
 # 关注及关注中多语言
 following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'กำลังติดตาม']
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
 
 
-# In[26]:
-
+# In[48]:
 
 # 重刷页面的脚本
 def open_page(browser, page_url):
@@ -158,8 +146,7 @@ def refresh_page(browser):
             pass
 
 
-# In[27]:
-
+# In[49]:
 
 # 取关后关注函数
 def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_shop_username):
@@ -195,7 +182,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     time.sleep(10)
     
     # 输入
-    acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
+    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._3H_lvW')
     try:
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(acc)
@@ -203,7 +190,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
         acc_password_input_elem[1].send_keys(pwd)
     except:
         time.sleep(30)
-        acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
+        acc_password_input_elem = browser.find_elements_by_css_selector('_3Ojta0._3H_lvW')
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(acc)
         acc_password_input_elem[1].click()
@@ -211,7 +198,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     time.sleep(10)
     
     # 点击提交
-    Login_button_elem = browser.find_elements_by_css_selector('._2DvX7K._3j9-lD._3ddytl.SjORHu')
+    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG.P2D6y1')
     Login_button_elem[0].click()
     logging.info('Login completed.')
     time.sleep(10)
@@ -305,8 +292,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[ ]:
-
+# In[50]:
 
 # 历遍所有shop
 for index, my_shop in shop_df.iterrows():
@@ -327,27 +313,23 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[ ]:
-
+# In[51]:
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[ ]:
-
+# In[52]:
 
 # browser.get('https://shopee.com.my')
 
 
-# In[ ]:
-
+# In[53]:
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[ ]:
-
+# In[54]:
 
 #language_selector[2].click()
 

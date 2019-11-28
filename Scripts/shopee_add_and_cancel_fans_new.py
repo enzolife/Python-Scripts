@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[37]:
+# In[18]:
 
 
 from selenium import webdriver
@@ -13,7 +13,7 @@ import logging
 import os
 
 
-# In[38]:
+# In[19]:
 
 
 # 获取脚本的当前路径，避免计划执行时路径出错
@@ -23,13 +23,13 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[39]:
+# In[20]:
 
 
 # pip install selenium
 
 
-# In[40]:
+# In[21]:
 
 
 # Date
@@ -40,13 +40,13 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[41]:
+# In[22]:
 
 
 # os.getcwd()
 
 
-# In[42]:
+# In[23]:
 
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
@@ -56,12 +56,15 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[43]:
+# In[24]:
 
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
+# 添加翻墙配置
+# 参考 https://www.codetd.com/article/4692519
+options.add_argument('--proxy-server=socks5://127.0.0.1:1080')
 
 prefs = {"profile.default_content_settings.popups": 0,
          "directory_upgrade": True,
@@ -69,7 +72,7 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[44]:
+# In[25]:
 
 
 # 使用chromedriver才可以用开发者权限
@@ -77,7 +80,7 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[45]:
+# In[23]:
 
 
 # 所需参数
@@ -101,8 +104,8 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
 #              ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
-shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
-             ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
+shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
+             ['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
              ['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg'],
              ['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 2215148, 'YAZI FASHION ACCESSORIES INC.'],
              ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 11184349, 'Shopee Mamak']]
@@ -111,7 +114,7 @@ shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 946912
 # shop_list = [['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
 
 
-# In[46]:
+# In[24]:
 
 
 # 转换为dataframe
@@ -119,7 +122,7 @@ shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id',
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[47]:
+# In[25]:
 
 
 # 关注及关注中多语言
@@ -127,7 +130,35 @@ following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'ก�
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
 
 
-# In[48]:
+# In[26]:
+
+
+# 重刷页面的脚本
+def open_page(browser, page_url):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.get(page_url)
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+        
+# 刷新
+def refresh_page(browser):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.refresh()
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+
+
+# In[27]:
 
 
 # 取关后关注函数
@@ -138,13 +169,15 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     
     # main page
     main_page_url = "http://shopee." + site_suffix
-    browser.get(main_page_url)
-    time.sleep(10)
+    # browser.get(main_page_url)
+    # time.sleep(10)
+    open_page(browser, main_page_url)
     
     # remove ads, refresh again
     for i in range(5):
-        browser.refresh()
-        time.sleep(10)
+        # browser.refresh()
+        # time.sleep(10)
+        refresh_page(browser)
 
     # if the shop is on my site, should press the button to choose language
     if site == 'my':
@@ -186,7 +219,8 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     # switch to my following list
     logging.info('Switch to my following list.')
     my_fans_list_page = 'https://shopee.' + site_suffix + '/shop/' + str(shopid) + '/following/?__classic__=1'
-    browser.get(my_fans_list_page)
+    # browser.get(my_fans_list_page)
+    open_page(browser, my_fans_list_page)
     
     # cancel certain number of following fans
     to_cancel_num_of_following = 400
@@ -231,7 +265,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     # add fans from Top Seller's followers
     logging.info('Switch to top seller follower page.')
     top_shop_url = 'https://shopee.' + site_suffix + '/shop/' + str(top_shop_id) + '/followers/?__classic__=1'
-    browser.get(top_shop_url)
+    open_page(browser, top_shop_url)
     
     # add certain number of fans
     to_add_num_of_following = 400
@@ -271,7 +305,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[49]:
+# In[ ]:
 
 
 # 历遍所有shop
@@ -293,26 +327,26 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[50]:
+# In[ ]:
 
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[51]:
+# In[ ]:
 
 
 # browser.get('https://shopee.com.my')
 
 
-# In[52]:
+# In[ ]:
 
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[53]:
+# In[ ]:
 
 
 #language_selector[2].click()

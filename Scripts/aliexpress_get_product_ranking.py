@@ -1,7 +1,8 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# In[116]:
+# In[10]:
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -13,7 +14,8 @@ import shutil
 from datetime import date
 
 
-# In[ ]:
+# In[11]:
+
 
 # 获取脚本的当前路径，避免计划执行时路径出错
 home_dir = os.path.dirname(os.path.realpath(__file__))
@@ -22,11 +24,15 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[2]:
+# In[12]:
+
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
+# 添加翻墙配置
+# 参考 https://www.codetd.com/article/4692519
+# options.add_argument('--proxy-server=socks5://127.0.0.1:1080')
 
 prefs = {"profile.default_content_settings.popups": 0,
          # "download.default_directory": r"D:\Program Files (x86)\百度云同步盘\Dropbox\-E·J- 2014.5.1\2016.12.15 店小秘数据分析\\", # IMPORTANT - ENDING SLASH V IMPORTANT
@@ -34,22 +40,58 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[3]:
+# In[13]:
+
 
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[11]:
-
-browser.get('https://www.aliexpress.com/')
-time.sleep(5)
-browser.get('https://www.aliexpress.com/')
-time.sleep(5)
+# In[14]:
 
 
-# In[12]:
+# 重刷页面的脚本
+def open_page(browser, page_url):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.get(page_url)
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+        
+# 刷新
+def refresh_page(browser):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.refresh()
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+
+
+# In[15]:
+
+
+aliexpress_home_page = 'https://www.aliexpress.com/'
+
+open_page(browser, aliexpress_home_page)
+
+# remove ads, refresh again
+for i in range(5):
+    # browser.refresh()
+    # time.sleep(10)
+    refresh_page(browser)
+
+
+# In[16]:
+
 
 # 点击搜索框
 search_box = browser.find_elements_by_css_selector('.search-key')[0]
@@ -58,7 +100,8 @@ search_box.send_keys('universal laptop charger')
 time.sleep(5)
 
 
-# In[13]:
+# In[17]:
+
 
 # 点击搜索
 search_button = browser.find_elements_by_css_selector('.search-button')[0]
@@ -66,7 +109,8 @@ search_button.click()
 time.sleep(5)
 
 
-# In[17]:
+# In[18]:
+
 
 # 翻页到最后
 body = browser.find_element_by_css_selector('body')
@@ -77,7 +121,8 @@ body.send_keys(Keys.END)
 time.sleep(10)
 
 
-# In[104]:
+# In[19]:
+
 
 # 查找商品
 item_price = browser.find_elements_by_css_selector('.price-current')
@@ -90,13 +135,15 @@ store_name = browser.find_elements_by_css_selector('.store-name')
 # print(len(store_name))
 
 
-# In[110]:
+# In[20]:
+
 
 result_df = pd.DataFrame()
 # result_df
 
 
-# In[111]:
+# In[21]:
+
 
 item_price_list, item_title_list, item_sold_list, store_name_list, store_url_list, item_url_list = list(), list(), list(), list(), list(), list()
 
@@ -118,7 +165,8 @@ result_df['rank'] = result_df.index + 1
 # result_df
 
 
-# In[117]:
+# In[22]:
+
 
 today = date.today()
 d1 = today.strftime("%Y-%m-%d")

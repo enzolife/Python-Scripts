@@ -1,7 +1,8 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# In[37]:
+# In[1]:
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -12,7 +13,8 @@ import logging
 import os
 
 
-# In[38]:
+# In[2]:
+
 
 # 获取脚本的当前路径，避免计划执行时路径出错
 home_dir = os.path.dirname(os.path.realpath(__file__))
@@ -21,12 +23,14 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[39]:
+# In[3]:
+
 
 # pip install selenium
 
 
-# In[40]:
+# In[4]:
+
 
 # Date
 today_date = datetime.date.today() + datetime.timedelta(days=0)
@@ -36,12 +40,14 @@ seven_days_before_date = datetime.date.today() + datetime.timedelta(days=-7)
 today_date_string = today_date.strftime('%Y_%m_%d')
 
 
-# In[41]:
+# In[5]:
+
 
 # os.getcwd()
 
 
-# In[42]:
+# In[6]:
+
 
 log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_' + today_date_string + '.txt'
 
@@ -50,7 +56,8 @@ log_file_name = 'shopee_add_and_cancel_fans_log\\shopee_add_and_cancel_fans_log_
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[43]:
+# In[7]:
+
 
 # 屏幕最大化，且指定下载目录
 options = webdriver.ChromeOptions()
@@ -65,14 +72,16 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[44]:
+# In[8]:
+
 
 # 使用chromedriver才可以用开发者权限
 chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[45]:
+# In[9]:
+
 
 # 所需参数
 # 站点；站点后缀；账户；密码；站点top卖家shopid；top卖家username（方便识别）
@@ -105,21 +114,24 @@ shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xi
 # shop_list = [['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
 
 
-# In[46]:
+# In[10]:
+
 
 # 转换为dataframe
 shop_df_columns = ['site', 'site_suffix', 'shopid', 'acc', 'pwd', 'top_shop_id', 'top_shop_username']
 shop_df = pd.DataFrame(shop_list, columns=shop_df_columns)
 
 
-# In[47]:
+# In[11]:
+
 
 # 关注及关注中多语言
 following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'กำลังติดตาม']
 not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
 
 
-# In[48]:
+# In[12]:
+
 
 # 重刷页面的脚本
 def open_page(browser, page_url):
@@ -146,7 +158,8 @@ def refresh_page(browser):
             pass
 
 
-# In[49]:
+# In[13]:
+
 
 # 取关后关注函数
 def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_shop_username):
@@ -198,7 +211,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     time.sleep(10)
     
     # 点击提交
-    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG.P2D6y1')
+    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG._3JP5il')
     Login_button_elem[0].click()
     logging.info('Login completed.')
     time.sleep(10)
@@ -232,6 +245,8 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     to_cancel_num_of_following = min(num_of_following_display, to_cancel_num_of_following)
     
     # page up to the top
+    scroll_to_the_top = browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
+    time.sleep(5)
     scroll_to_the_top = browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
     
     # start to cancel following
@@ -292,7 +307,8 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[50]:
+# In[ ]:
+
 
 # 历遍所有shop
 for index, my_shop in shop_df.iterrows():
@@ -313,23 +329,27 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[51]:
+# In[ ]:
+
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[52]:
+# In[ ]:
+
 
 # browser.get('https://shopee.com.my')
 
 
-# In[53]:
+# In[ ]:
+
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[54]:
+# In[ ]:
+
 
 #language_selector[2].click()
 

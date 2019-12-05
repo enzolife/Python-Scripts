@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[78]:
+# In[16]:
 
 
 from selenium import webdriver
@@ -13,7 +13,7 @@ import os
 import datetime
 
 
-# In[79]:
+# In[17]:
 
 
 # 获取脚本的当前路径，避免计划执行时路径出错
@@ -23,13 +23,13 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[80]:
+# In[18]:
 
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[81]:
+# In[19]:
 
 
 # 屏幕最大化，且指定下载目录
@@ -42,7 +42,7 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[82]:
+# In[20]:
 
 
 # 使用chromedriver才可以用开发者权限
@@ -54,7 +54,7 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe" # 获取脚本的当�
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[83]:
+# In[21]:
 
 
 # main page
@@ -64,9 +64,10 @@ shop_info = [["https://shopee.co.id", 'tengus.id', 'tengus1803', 11184349, '+ Ik
              ['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
              ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
 
-shop_info = [['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
-             ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
+# shop_info = [['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
+#              ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
 
+# shop_info = [['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
 
 # main_page_url = "http://shopee.co.id"
 # browser.get(main_page_url)
@@ -77,7 +78,35 @@ shop_info = [['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'
 #     time.sleep(10)
 
 
-# In[84]:
+# In[22]:
+
+
+# 重刷页面的脚本
+def open_page(browser, page_url):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.get(page_url)
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+        
+# 刷新
+def refresh_page(browser):
+    i = 0
+    while i == 0:
+        try:
+            # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
+            browser.refresh()
+            time.sleep(10)
+            i = 1
+        except:
+            pass
+
+
+# In[23]:
 
 
 for shop in shop_info:
@@ -88,12 +117,11 @@ for shop in shop_info:
     follow_button_text = shop[4]
     
     browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
-    browser.get(home_page)
+    open_page(browser, home_page)
     
     # remove ads, refresh again
     for i in range(5):
-        browser.get(home_page)
-        time.sleep(10)
+        refresh_page(browser)
         
     # login
     LoginElem = browser.find_elements_by_css_selector('.navbar__link.navbar__link--account.navbar__link--tappable.navbar__link--hoverable.navbar__link-text.navbar__link-text--medium')
@@ -106,24 +134,14 @@ for shop in shop_info:
     LoginElem[1].click()
     time.sleep(10)
     
-    acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
+    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._3H_lvW')
     try:
-        #     acc_password_input_elem[0].click()
-        #     acc_password_input_elem[0].send_keys('tengus1.sg')
-        #     acc_password_input_elem[1].click()
-        #     acc_password_input_elem[1].send_keys('tengus1803')
-
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(shop_name)
         acc_password_input_elem[1].click()
         acc_password_input_elem[1].send_keys(shop_psw)    
     except:
         time.sleep(30)
-        #     acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
-        #     acc_password_input_elem[0].click()
-        #     acc_password_input_elem[0].send_keys('tengus1.sg')
-        #     acc_password_input_elem[1].click()
-        #     acc_password_input_elem[1].send_keys('tengus1803')
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(shop_name)
         acc_password_input_elem[1].click()
@@ -131,13 +149,13 @@ for shop in shop_info:
 
     time.sleep(10) 
     
-    Login_button_elem = browser.find_elements_by_css_selector('._2DvX7K._3j9-lD._3ddytl.SjORHu')
+    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG._3JP5il')
     time.sleep(10)
     Login_button_elem[0].click()
     time.sleep(10)    
     
     top_shop_url = home_page + '/shop/' + str(top_shop_id) + '/followers/?__classic__=1'
-    browser.get(top_shop_url)
+    open_page(browser, top_shop_url)
     
     # add certain number of fans
     to_add_num_of_following = 400
@@ -178,7 +196,7 @@ for shop in shop_info:
     browser.quit()
 
 
-# In[85]:
+# In[24]:
 
 
 # # login
@@ -193,7 +211,7 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[86]:
+# In[25]:
 
 
 # acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
@@ -223,7 +241,7 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[87]:
+# In[26]:
 
 
 # Login_button_elem = browser.find_elements_by_css_selector('._2DvX7K._3j9-lD._3ddytl.SjORHu')
@@ -232,14 +250,14 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[88]:
+# In[27]:
 
 
 # change current tab size
 # browser.set_window_size(400, 862)    
 
 
-# In[89]:
+# In[28]:
 
 
 # # add fans from Top Seller's shop
@@ -251,7 +269,7 @@ for shop in shop_info:
 # browser.get(top_shop_url)
 
 
-# In[90]:
+# In[29]:
 
 
 # # add certain number of fans
@@ -259,7 +277,7 @@ for shop in shop_info:
 # num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[91]:
+# In[30]:
 
 
 # page down until we get at least 400 fans to cancel
@@ -273,27 +291,27 @@ for shop in shop_info:
 # num_of_following_display
 
 
-# In[92]:
+# In[31]:
 
 
 # following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
 # # len(following_buttons)
 
 
-# In[93]:
+# In[32]:
 
 
 # i = 0
 # total_add_num_of_following = to_add_num_of_following
 
 
-# In[94]:
+# In[33]:
 
 
 # browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
 
 
-# In[95]:
+# In[34]:
 
 
 # while i <= total_add_num_of_following - 1:  
@@ -320,7 +338,7 @@ for shop in shop_info:
 #         i += 1
 
 
-# In[96]:
+# In[35]:
 
 
 # # 关闭

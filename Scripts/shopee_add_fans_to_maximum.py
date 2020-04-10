@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[16]:
+# In[67]:
 
 
 from selenium import webdriver
@@ -13,7 +13,7 @@ import os
 import datetime
 
 
-# In[17]:
+# In[68]:
 
 
 # 获取脚本的当前路径，避免计划执行时路径出错
@@ -23,13 +23,13 @@ working_directory = home_dir
 os.chdir(working_directory)
 
 
-# In[18]:
+# In[69]:
 
 
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
-# In[19]:
+# In[70]:
 
 
 # 屏幕最大化，且指定下载目录
@@ -42,7 +42,7 @@ prefs = {"profile.default_content_settings.popups": 0,
 options.add_experimental_option("prefs", prefs)
 
 
-# In[20]:
+# In[71]:
 
 
 # 使用chromedriver才可以用开发者权限
@@ -54,18 +54,19 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe" # 获取脚本的当�
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[21]:
+# In[72]:
 
 
 # main page
 # main_page_url = "http://shopee.sg"
 
-shop_info = [["https://shopee.co.id", 'tengus.id', 'tengus1803', 11184349, '+ Ikuti'],
-             ['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
-             ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
-
-# shop_info = [['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
+# shop_info = [["https://shopee.co.id", 'tengus.id', 'tengus1803', 11184349, '+ Ikuti'],
+#              ['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
 #              ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
+
+shop_info = [['https://shopee.sg', 'tengus1.sg', 'tengus1803', 11918, '+ Follow'],
+             ['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow'],
+             ['https://shopee.com.my', 'tengus2.my', 'tengus1803', 145423, '+ Follow']]
 
 # shop_info = [['https://shopee.ph', 'tengus.ph', 'tengus1803', 2215148, '+ Follow']]
 
@@ -78,7 +79,7 @@ shop_info = [["https://shopee.co.id", 'tengus.id', 'tengus1803', 11184349, '+ Ik
 #     time.sleep(10)
 
 
-# In[22]:
+# In[73]:
 
 
 # 重刷页面的脚本
@@ -106,7 +107,15 @@ def refresh_page(browser):
             pass
 
 
-# In[23]:
+# In[74]:
+
+
+# 关注及关注中多语言
+following_language = ['关注中', '關注中', 'Following', 'Mengikuti', 'กำลังติดตาม']
+not_following_language = ['+ 关注', '+ 關注', '+ Follow', '+ Ikuti', "+ ติดตาม"]
+
+
+# In[ ]:
 
 
 for shop in shop_info:
@@ -122,6 +131,13 @@ for shop in shop_info:
     # remove ads, refresh again
     for i in range(5):
         refresh_page(browser)
+
+    # if the shop is on my site, should press the button to choose language
+    if home_page == 'https://shopee.com.my':
+        language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
+        language_selector[2].click()
+        logging.info('Choose Chinese as language.')
+        time.sleep(10)        
         
     # login
     LoginElem = browser.find_elements_by_css_selector('.navbar__link.navbar__link--account.navbar__link--tappable.navbar__link--hoverable.navbar__link-text.navbar__link-text--medium')
@@ -134,7 +150,7 @@ for shop in shop_info:
     LoginElem[1].click()
     time.sleep(10)
     
-    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._3H_lvW')
+    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._2A9mXk')
     try:
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(shop_name)
@@ -149,7 +165,7 @@ for shop in shop_info:
 
     time.sleep(10) 
     
-    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG._3JP5il')
+    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._7h_6kj._1qIIqG._3JP5il')
     time.sleep(10)
     Login_button_elem[0].click()
     time.sleep(10)    
@@ -157,46 +173,82 @@ for shop in shop_info:
     top_shop_url = home_page + '/shop/' + str(top_shop_id) + '/followers/?__classic__=1'
     open_page(browser, top_shop_url)
     
+#     # add certain number of fans
+#     to_add_num_of_following = 400
+#     num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
+    
+#     following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
+#     # len(following_buttons)   
+    
+#     i = 0
+#     total_add_num_of_following = to_add_num_of_following
+    
+#     browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
+    
+#     while i <= total_add_num_of_following - 1:  
+#         while to_add_num_of_following > 0:
+#             if i + 1 > len(following_buttons):
+#                 browser.find_element_by_css_selector('body').send_keys(Keys.PAGE_DOWN)
+#                 time.sleep(10)
+
+#             following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
+#             logging.info('Now we have ' + str(len(following_buttons)) + ' following buttons on the screen.')
+#             logging.info('Now run the ' + str(i + 1) + ' time.')
+#             # if following_buttons[i].text == '+ 關注':
+#             # if following_buttons[i].text == '+ ติดตาม':
+#             # if following_buttons[i].text == '+ Follow':
+#             if following_buttons[i].text == follow_button_text:
+#                 # print(following_buttons[i].text)
+#                 shopid = following_buttons[i].get_attribute('shopid')
+#                 following_buttons[i].click()
+#                 time.sleep(5)
+#                 to_add_num_of_following -= 1
+#                 logging.info(str(shopid) + ' is following now, ' + str(to_add_num_of_following) + ' following remains.')
+#             else:
+#                 logging.warning('Skip this one. It\'s following already.')
+#             i += 1    
+
+
     # add certain number of fans
     to_add_num_of_following = 400
     num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
     
+    # page down until we get at least 400 fans to cancel
+    logging.info('Start to roll down.')
+    while num_of_following_display <= 5000:
+        body = browser.find_element_by_css_selector('body')
+        # body.send_keys(Keys.PAGE_DOWN)
+        body.send_keys(Keys.END)
+        time.sleep(2)
+        num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
     following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
-    # len(following_buttons)   
     
+    # start to follow buyers from top shop
+    logging.info('Start to follow buyers.')
     i = 0
     total_add_num_of_following = to_add_num_of_following
-    
-    browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
-    
+    scroll_to_the_top = browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
+
     while i <= total_add_num_of_following - 1:  
         while to_add_num_of_following > 0:
-            if i + 1 > len(following_buttons):
-                browser.find_element_by_css_selector('body').send_keys(Keys.PAGE_DOWN)
-                time.sleep(10)
-
-            following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
-            logging.info('Now we have ' + str(len(following_buttons)) + ' following buttons on the screen.')
             logging.info('Now run the ' + str(i + 1) + ' time.')
-            # if following_buttons[i].text == '+ 關注':
-            # if following_buttons[i].text == '+ ติดตาม':
-            # if following_buttons[i].text == '+ Follow':
-            if following_buttons[i].text == follow_button_text:
+            if following_buttons[i].text in not_following_language:
                 # print(following_buttons[i].text)
-                shopid = following_buttons[i].get_attribute('shopid')
+                buyer_shopid = following_buttons[i].get_attribute('shopid')
                 following_buttons[i].click()
-                time.sleep(5)
+                time.sleep(1)
                 to_add_num_of_following -= 1
-                logging.info(str(shopid) + ' is following now, ' + str(to_add_num_of_following) + ' following remains.')
+                logging.info(shop_name + ': ' + str(buyer_shopid) + ' is following now, ' + str(to_add_num_of_following) + ' following remains.')
             else:
-                logging.warning('Skip this one. It\'s following already.')
-            i += 1    
+                logging.info('Skip this one. It\'s following already.')
+            i += 1                
+            
             
     # 关闭
     browser.quit()
 
 
-# In[24]:
+# In[ ]:
 
 
 # # login
@@ -211,7 +263,7 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[25]:
+# In[ ]:
 
 
 # acc_password_input_elem = browser.find_elements_by_css_selector('._2QBp41._1b-IZR')
@@ -241,7 +293,7 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[26]:
+# In[ ]:
 
 
 # Login_button_elem = browser.find_elements_by_css_selector('._2DvX7K._3j9-lD._3ddytl.SjORHu')
@@ -250,14 +302,14 @@ for shop in shop_info:
 # time.sleep(10)
 
 
-# In[27]:
+# In[ ]:
 
 
 # change current tab size
 # browser.set_window_size(400, 862)    
 
 
-# In[28]:
+# In[ ]:
 
 
 # # add fans from Top Seller's shop
@@ -269,7 +321,7 @@ for shop in shop_info:
 # browser.get(top_shop_url)
 
 
-# In[29]:
+# In[ ]:
 
 
 # # add certain number of fans
@@ -277,7 +329,7 @@ for shop in shop_info:
 # num_of_following_display = len(browser.find_elements_by_css_selector('.clickable_area.middle-centered-div'))
 
 
-# In[30]:
+# In[ ]:
 
 
 # page down until we get at least 400 fans to cancel
@@ -291,27 +343,27 @@ for shop in shop_info:
 # num_of_following_display
 
 
-# In[31]:
+# In[ ]:
 
 
 # following_buttons = browser.find_elements_by_css_selector('.btn-follow.follow.L14')
 # # len(following_buttons)
 
 
-# In[32]:
+# In[ ]:
 
 
 # i = 0
 # total_add_num_of_following = to_add_num_of_following
 
 
-# In[33]:
+# In[ ]:
 
 
 # browser.find_element_by_css_selector('body').send_keys(Keys.CONTROL + Keys.HOME)
 
 
-# In[34]:
+# In[ ]:
 
 
 # while i <= total_add_num_of_following - 1:  
@@ -338,7 +390,7 @@ for shop in shop_info:
 #         i += 1
 
 
-# In[35]:
+# In[ ]:
 
 
 # # 关闭

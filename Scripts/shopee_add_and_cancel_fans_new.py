@@ -104,11 +104,23 @@ chrome_driver_path = ".//chrome_driver//chromedriver.exe"
 # shop_list = [['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
 #              ['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
+# shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
+#              ['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
+#              ['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg'],
+#              ['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 2215148, 'YAZI FASHION ACCESSORIES INC.'],
+#              ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 11184349, 'Shopee Mamak']]
+
+
 shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
              ['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw'],
              ['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg'],
              ['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 2215148, 'YAZI FASHION ACCESSORIES INC.'],
-             ['id', 'co.id', 59846508, 'tengus.id', 'tengus1803', 11184349, 'Shopee Mamak']]
+             ['my', 'com.my', 59846508, 'tengus2.my', 'tengus1803', 145423, 'Shopee Mamak']]
+
+# shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv'],
+#              ['tw', 'tw', 23070969, 'poweradapter.tw', 'kuangyiqiao1991', 9469128, 'alonso.tw']]
+
+# shop_list = [['th', 'co.th', 117213614, 'tengus.th', 'tengus1803', 25926687, 'xiaozhainv']]
 
 # shop_list = [['sg', 'sg', 182539921, 'tengus1.sg', 'tengus1803', 11918, 'shopeesg']]
 # shop_list = [['ph', 'ph', 182539050, 'tengus.ph', 'tengus1803', 3256461, 'YAZI FASHION ACCESSORIES INC.']]
@@ -195,7 +207,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     time.sleep(10)
     
     # 输入
-    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._3H_lvW')
+    acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._2A9mXk')
     try:
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(acc)
@@ -203,7 +215,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
         acc_password_input_elem[1].send_keys(pwd)
     except:
         time.sleep(30)
-        acc_password_input_elem = browser.find_elements_by_css_selector('_3Ojta0._3H_lvW')
+        acc_password_input_elem = browser.find_elements_by_css_selector('._3Ojta0._2A9mXk')
         acc_password_input_elem[0].click()
         acc_password_input_elem[0].send_keys(acc)
         acc_password_input_elem[1].click()
@@ -211,7 +223,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     time.sleep(10)
     
     # 点击提交
-    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._1qIIqG._3JP5il')
+    Login_button_elem = browser.find_elements_by_css_selector('._1BMmPI._37G57D._7h_6kj._1qIIqG._3JP5il')
     Login_button_elem[0].click()
     logging.info('Login completed.')
     time.sleep(10)
@@ -307,7 +319,7 @@ def add_and_cancel_fans(site, site_suffix, shopid, acc, pwd, top_shop_id, top_sh
     browser.quit()
 
 
-# In[ ]:
+# In[14]:
 
 
 # 历遍所有shop
@@ -329,26 +341,26 @@ for index, my_shop in shop_df.iterrows():
         logging.info('An exception occurred: ' + str(err) + '.')
 
 
-# In[ ]:
+# In[15]:
 
 
 # browser = webdriver.Chrome(chrome_driver_path, chrome_options=options)
 
 
-# In[ ]:
+# In[16]:
 
 
 # browser.get('https://shopee.com.my')
 
 
-# In[ ]:
+# In[17]:
 
 
 # language_selector = browser.find_elements_by_css_selector('.shopee-button-outline.shopee-button-outline--primary-reverse')
 # len(language_selector)
 
 
-# In[ ]:
+# In[18]:
 
 
 #language_selector[2].click()
